@@ -13,6 +13,9 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
     <title>关于 | sukanka 的博客</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/favicon.png">
 
@@ -25,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/css/my.css">
 
     <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/jquery/jquery.min.js"></script>
-    
+
 <meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -131,6 +134,7 @@
   </li>
 </ul>
 
+
 <div id="mobile-nav" class="side-nav sidenav">
 
     <div class="mobile-head bg-color">
@@ -230,6 +234,7 @@
     </ul>
 </div>
 
+
         </div>
 
         
@@ -278,7 +283,7 @@
 
 <script>
     // 每天切换 banner 图.  Switch banner image every day.
-    $('.bg-cover').css('background-image', 'url(https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/medias/banner/' + new Date().getDay() + '.jpg)');
+    $('.bg-cover').css('background-image', 'url(https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/medias/banner/5.jpg)');
 </script>
 
 
@@ -464,7 +469,7 @@
         },
         xAxis: {
             type: 'category',
-            data: ["2019-04","2019-05","2019-06","2019-07","2019-08","2019-09","2019-10","2019-11","2019-12","2020-01","2020-02","2020-03","2020-04"]
+            data: ["2019-05","2019-06","2019-07","2019-08","2019-09","2019-10","2019-11","2019-12","2020-01","2020-02","2020-03","2020-04","2020-05"]
         },
         yAxis: {
             type: 'value',
@@ -474,7 +479,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,0,0,0,0,0,0,0,0,0,4],
+                data: [0,0,0,0,0,0,0,0,0,0,0,4,0],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -516,7 +521,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"Julia","value":1},{"name":"ArchLinux","value":1},{"name":"学习笔记","value":1},{"name":"软件","value":6},{"name":"Office","value":1},{"name":"LINGO学习记录","value":1},{"name":"LaTeX","value":1},{"name":"学生邮箱","value":1},{"name":"优惠信息","value":1},{"name":"Andriod","value":1}],
+                data: [{"name":"ArchLinux","value":1},{"name":"Julia","value":1},{"name":"学习笔记","value":1},{"name":"软件","value":6},{"name":"Office","value":1},{"name":"学生邮箱","value":1},{"name":"LINGO学习记录","value":1},{"name":"LaTeX","value":1},{"name":"优惠信息","value":1},{"name":"Andriod","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -540,7 +545,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["论文写作","文献管理","注册码","数学建模","IJulia","AMD","KDE","数理统计","百度云","Word"]
+                data: ["数学建模","注册码","论文写作","文献管理","AMD","KDE","IJulia","数理统计","百度云","Word"]
             }
         ],
         yAxis: [
@@ -581,6 +586,7 @@
     categoriesChart.setOption(categoriesOption);
     tagsChart.setOption(tagsOption);
 </script>
+
 
                 
 
@@ -670,12 +676,6 @@
         <div class="tag-chips center-align">
             
             
-            <a href="/tags/IJulia/">
-                <span class="chip center-align waves-effect waves-light chip-default">IJulia</span>
-            </a>
-            
-            
-            
             <a href="/tags/AMD/">
                 <span class="chip center-align waves-effect waves-light chip-default">AMD</span>
             </a>
@@ -688,6 +688,12 @@
             
             
             
+            <a href="/tags/IJulia/">
+                <span class="chip center-align waves-effect waves-light chip-default">IJulia</span>
+            </a>
+            
+            
+            
             <a href="/tags/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/">
                 <span class="chip center-align waves-effect waves-light chip-default">数理统计</span>
             </a>
@@ -696,6 +702,18 @@
             
             <a href="/tags/%E7%99%BE%E5%BA%A6%E4%BA%91/">
                 <span class="chip center-align waves-effect waves-light chip-default">百度云</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">
+                <span class="chip center-align waves-effect waves-light chip-default">数学建模</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E6%B3%A8%E5%86%8C%E7%A0%81/">
+                <span class="chip center-align waves-effect waves-light chip-default">注册码</span>
             </a>
             
             
@@ -718,20 +736,14 @@
             
             
             
-            <a href="/tags/%E6%B3%A8%E5%86%8C%E7%A0%81/">
-                <span class="chip center-align waves-effect waves-light chip-default">注册码</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">
-                <span class="chip center-align waves-effect waves-light chip-default">数学建模</span>
-            </a>
-            
-            
-            
             <a href="/tags/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/">
                 <span class="chip center-align waves-effect waves-light chip-default">日常生活</span>
+            </a>
+            
+            
+            
+            <a href="/tags/edu-%E9%82%AE%E7%AE%B1/">
+                <span class="chip center-align waves-effect waves-light chip-default">edu 邮箱</span>
             </a>
             
             
@@ -758,12 +770,6 @@
             
             <a href="/tags/VSCode/">
                 <span class="chip center-align waves-effect waves-light chip-default">VSCode</span>
-            </a>
-            
-            
-            
-            <a href="/tags/edu-%E9%82%AE%E7%AE%B1/">
-                <span class="chip center-align waves-effect waves-light chip-default">edu 邮箱</span>
             </a>
             
             
@@ -806,9 +812,24 @@
     </div>
 </main>
 
+
     <footer class="page-footer bg-color">
     
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+</style>
 <div class="">
     
     <div class="row">
@@ -818,7 +839,7 @@
                    id="540968"
                    fixed='true'
                    autoplay='false'
-                   theme:='#42b983'
+                   theme='#42b983'
                    loop='all'
                    order='random'
                    preload='auto'
@@ -837,7 +858,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             <span id="year">2018</span>
-            <a href="https://sukanka.github.io" target="_blank">sukanka</a>
+            <a href="/about" target="_blank">sukanka</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
@@ -915,9 +936,10 @@
 <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/js/search.js"></script>
 <script type="text/javascript">
 $(function () {
-    searchFunc("https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/" + "search.xml", 'searchInput', 'searchResult');
+    searchFunc("https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/search.xml", 'searchInput', 'searchResult');
 });
 </script>
+
     <!-- 回到顶部按钮 -->
 <div id="backTop" class="top-scroll">
     <a class="btn-floating btn-large waves-effect waves-light" href="#!">
@@ -932,9 +954,6 @@ $(function () {
     <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/js/matery.js"></script>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-
 
     <!-- Baidu Analytics -->
 
@@ -972,7 +991,7 @@ $(function () {
     
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
     
-    
+
     
     <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/instantpage/instantpage.js" type="module"></script>
     

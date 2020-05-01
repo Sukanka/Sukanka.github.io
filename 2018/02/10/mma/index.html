@@ -13,6 +13,9 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
     <title>Mathematica 激活指北 | sukanka 的博客</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/favicon.png">
 
@@ -25,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/css/my.css">
 
     <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/jquery/jquery.min.js"></script>
-    
+
 <meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -131,6 +134,7 @@
   </li>
 </ul>
 
+
 <div id="mobile-nav" class="side-nav sidenav">
 
     <div class="mobile-head bg-color">
@@ -230,6 +234,7 @@
     </ul>
 </div>
 
+
         </div>
 
         
@@ -323,14 +328,14 @@
     #toc-content .toc-link::before {
         background-color: transparent;
         max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
     }
 
     #toc-content .is-active-link {
         color: #42b983;
-    }
-
-    #toc-content .is-active-link::before {
-        background-color: #42b983;
     }
 
     #floating-toc-btn {
@@ -420,7 +425,6 @@
                     </div>
 				
             </div>
-
         </div>
         <hr class="clearfix">
         <div class="card-content article-card-content">
@@ -452,7 +456,7 @@ md5: b55381e5eb58a81bcf8f5e5ddf991b69 <img src="/2018/02/10/mma/mmacn.png" alt="
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://sukanka.github.io" rel="external nofollow noreferrer">sukanka</a>
+                    <a href="/about" rel="external nofollow noreferrer">sukanka</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -475,7 +479,7 @@ md5: b55381e5eb58a81bcf8f5e5ddf991b69 <img src="/2018/02/10/mma/mmacn.png" alt="
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="https://sukanka.github.io" target="_blank">sukanka</a>
+                    <a href="/about" target="_blank">sukanka</a>
                     !
                 </span>
             </div>
@@ -509,9 +513,8 @@ md5: b55381e5eb58a81bcf8f5e5ddf991b69 <img src="/2018/02/10/mma/mmacn.png" alt="
                 </div>
                 <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
                     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/share/css/share.min.css">
-
 <div id="article-share">
-    
+
     
     <div class="social-share" data-sites="qq,qzone,wechat,weibo,douban,linkedin,twitter,facebook,google" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/share/js/social-share.min.js"></script>
@@ -648,6 +651,7 @@ md5: b55381e5eb58a81bcf8f5e5ddf991b69 <img src="/2018/02/10/mma/mmacn.png" alt="
         $('.tabs').tabs();
     });
 </script>
+
             
         </div>
     </div>
@@ -680,6 +684,8 @@ md5: b55381e5eb58a81bcf8f5e5ddf991b69 <img src="/2018/02/10/mma/mmacn.png" alt="
     </div>
     <!-- City版安装代码已完成 -->
 </div>
+    
+
     
 
     
@@ -917,9 +923,24 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
 
+
     <footer class="page-footer bg-color">
     
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+</style>
 <div class="">
     
     <div class="row">
@@ -929,7 +950,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                    id="540968"
                    fixed='true'
                    autoplay='false'
-                   theme:='#42b983'
+                   theme='#42b983'
                    loop='all'
                    order='random'
                    preload='auto'
@@ -948,7 +969,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             <span id="year">2018</span>
-            <a href="https://sukanka.github.io" target="_blank">sukanka</a>
+            <a href="/about" target="_blank">sukanka</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
@@ -1026,9 +1047,10 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/js/search.js"></script>
 <script type="text/javascript">
 $(function () {
-    searchFunc("https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/" + "search.xml", 'searchInput', 'searchResult');
+    searchFunc("https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/search.xml", 'searchInput', 'searchResult');
 });
 </script>
+
     <!-- 回到顶部按钮 -->
 <div id="backTop" class="top-scroll">
     <a class="btn-floating btn-large waves-effect waves-light" href="#!">
@@ -1043,9 +1065,6 @@ $(function () {
     <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/js/matery.js"></script>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-
 
     <!-- Baidu Analytics -->
 
@@ -1083,7 +1102,7 @@ $(function () {
     
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
     
-    
+
     
     <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/instantpage/instantpage.js" type="module"></script>
     

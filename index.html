@@ -13,6 +13,9 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
     <title>sukanka 的博客</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/favicon.png">
 
@@ -25,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/css/my.css">
 
     <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/jquery/jquery.min.js"></script>
-    
+
 <meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -131,6 +134,7 @@
   </li>
 </ul>
 
+
 <div id="mobile-nav" class="side-nav sidenav">
 
     <div class="mobile-head bg-color">
@@ -230,6 +234,7 @@
     </ul>
 </div>
 
+
         </div>
 
         
@@ -270,7 +275,7 @@
     }
 
     .carousel-control:hover {
-        background-color:rgba(0, 0, 0, .4);
+        background-color: rgba(0, 0, 0, .4);
     }
 
     .carousel-control i {
@@ -318,7 +323,7 @@
 
 <script>
     // 每天切换 banner 图.  Switch banner image every day.
-    $('.bg-cover').css('background-image', 'url(https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/medias/banner/' + new Date().getDay() + '.jpg)');
+    $('.bg-cover').css('background-image', 'url(https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/medias/banner/5.jpg)');
 </script>
 
 
@@ -369,7 +374,6 @@
 </div>
 
 <script>
-    // TODO 此处的轮播尚需优化，PC/Mobile 在触摸切换时都感觉相当不灵活
     $(function () {
         let coverSlider = $('.carousel');
 
@@ -402,7 +406,7 @@
         let carouselIntervalId;
         
         // Loop to call the next cover article picture.
-        let autoCarousel = function() {
+        let autoCarousel = function () {
             carouselIntervalId = setInterval(function () {
                 coverSlider.carousel('next');
             }, 5000);
@@ -449,10 +453,11 @@
     
     <div class="row">
         <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
-            "Whenever you feel like criticizing any one," he told me, "just remember that all the people in this world haven't had the advantages that you've had." —— F. Scott Fitzgerald
+            &#34;Whenever you feel like criticizing any one,&#34; he told me, &#34;just remember that all the people in this world haven&#39;t had the advantages that you&#39;ve had.&#34; —— F. Scott Fitzgerald
         </div>
     </div>
 </div>
+
                     
 
                     
@@ -895,6 +900,20 @@ Windows 和 Linux 推荐使用
     <footer class="page-footer bg-color">
     
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+</style>
 <div class="">
     
     <div class="row">
@@ -904,7 +923,7 @@ Windows 和 Linux 推荐使用
                    id="540968"
                    fixed='true'
                    autoplay='false'
-                   theme:='#42b983'
+                   theme='#42b983'
                    loop='all'
                    order='random'
                    preload='auto'
@@ -923,7 +942,7 @@ Windows 和 Linux 推荐使用
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             <span id="year">2018</span>
-            <a href="https://sukanka.github.io" target="_blank">sukanka</a>
+            <a href="/about" target="_blank">sukanka</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
@@ -1001,9 +1020,10 @@ Windows 和 Linux 推荐使用
 <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/js/search.js"></script>
 <script type="text/javascript">
 $(function () {
-    searchFunc("https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/" + "search.xml", 'searchInput', 'searchResult');
+    searchFunc("https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/search.xml", 'searchInput', 'searchResult');
 });
 </script>
+
     <!-- 回到顶部按钮 -->
 <div id="backTop" class="top-scroll">
     <a class="btn-floating btn-large waves-effect waves-light" href="#!">
@@ -1018,9 +1038,6 @@ $(function () {
     <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/js/matery.js"></script>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-
 
     <!-- Baidu Analytics -->
 
@@ -1058,7 +1075,7 @@ $(function () {
     
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
     
-    
+
     
     <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/instantpage/instantpage.js" type="module"></script>
     

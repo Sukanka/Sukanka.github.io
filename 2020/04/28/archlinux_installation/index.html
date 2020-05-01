@@ -13,6 +13,9 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
     <title>华硕天选R7-4800H+RTX2060 安装 ArchLinux | sukanka 的博客</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/favicon.png">
 
@@ -25,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/css/my.css">
 
     <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/jquery/jquery.min.js"></script>
-    
+
 <meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -131,6 +134,7 @@
   </li>
 </ul>
 
+
 <div id="mobile-nav" class="side-nav sidenav">
 
     <div class="mobile-head bg-color">
@@ -230,6 +234,7 @@
     </ul>
 </div>
 
+
         </div>
 
         
@@ -323,14 +328,14 @@
     #toc-content .toc-link::before {
         background-color: transparent;
         max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
     }
 
     #toc-content .is-active-link {
         color: #42b983;
-    }
-
-    #toc-content .is-active-link::before {
-        background-color: #42b983;
     }
 
     #floating-toc-btn {
@@ -399,14 +404,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-04-28
+                    2020-04-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    600
+                    602
                 </div>
                 
 
@@ -424,7 +429,6 @@
                     </div>
 				
             </div>
-
         </div>
         <hr class="clearfix">
         <div class="card-content article-card-content">
@@ -460,7 +464,7 @@
 <p>这部分记录自己常用的软件。其中 <code>texlive</code> 实际安装的是从<a href="https://tug.org/" target="_blank" rel="noopener">TeX Users Group</a> 下载的最新版本，之后安装<code>texlive-dummy</code>让 Arch 认为 <code>texlive</code> 已经安装。</p>
 <pre><code>$ pacman -Qe
 -----------------------------------------------------------------------------------
-amd-ucode anaconda android-sdk android-sdk-platform-tools archlinuxcn-keyring aria2 ark autoconf automake base bbswitch-ati-git binutils bison bluedevil breeze breeze-gtk clash dhcpcd dialog dolphin drkonqi efibootmgr fakeroot fcitx-cloudpinyin file findutils flex flutter-beta gawk gcc gettext gnome-keyring google-chrome grep groff grub gwenview gzip julia kactivitymanagerd kate kcm-fcitx kde-cli-tools kde-gtk-config kdeconnect kdecoration kdeplasma-addons kgamma5 khotkeys kinfocenter kmenuedit knetattach kscreen kscreenlocker ksshaskpass ksysguard kwallet-pam kwayland-integration kwin kwrited libdbusmenu-glib libkscreen libksysguard libtool linux linux-firmware m4 make mathpix-snipping-tool milou mpv neofetch network-manager-applet networkmanager nodejs npm ntfs-3g nvidia okular optimus-manager-amd-git os-prober oxygen p7zip pacman pamac-aur pandoc pandoc-citeproc pandoc-crossref patch peek pkgconf plank plasma polkit-kde-agent powerdevil proxychains-ng qq-linux qt5-imageformats r samba sddm-kcm sed spectacle sudo systemd-kcm systemsettings texinfo texlive-dummy tk typora unrar user-manager vim visual-studio-code-bin wget which wpa_supplicant wps-office-cn wps-office-mui-zh-cn  xf86-video-amdgpu xf86-video-vesa xorg yakuake yay zotero zsh </code></pre>
+amd-ucode anaconda android-sdk android-sdk-platform-tools archlinuxcn-keyring aria2 ark autoconf automake base bbswitch-ati-git binutils bison bluedevil breeze breeze-gtk clash dhcpcd dialog dolphin drkonqi efibootmgr fakeroot fcitx-cloudpinyin file filelight findutils flex flutter-beta gawk gcc gettext gnome-keyring google-chrome grep groff grub gwenview gzip julia kactivitymanagerd kate kcm-fcitx kde-cli-tools kde-gtk-config kdeconnect kdecoration kdeplasma-addons kgamma5 khotkeys kinfocenter kmenuedit knetattach kscreen kscreenlocker ksshaskpass ksysguard ksystemlog kwallet-pam kwayland-integration kwin kwrited libdbusmenu-glib libkscreen libksysguard libtool linux linux-firmware m4 make mathpix-snipping-tool milou mpv neofetch network-manager-applet networkmanager nodejs npm ntfs-3g nvidia okular optimus-manager-amd-git os-prober oxygen p7zip pacman pamac-aur pandoc pandoc-citeproc pandoc-crossref patch peek pkgconf plank plasma polkit-kde-agent powerdevil proxychains-ng qq-linux qt5-imageformats r samba sddm-kcm sed spectacle sudo systemd-kcm systemsettings texinfo texlive-dummy tk typora unrar user-manager vim visual-studio-code-bin wget which wpa_supplicant wps-office-cn wps-office-mui-zh-cn  xf86-video-amdgpu xf86-video-vesa xorg yakuake yay zotero zsh </code></pre>
 <h2 id="双显卡方案">双显卡方案</h2>
 <p>我以前用的 <code>Bumblebee</code> 但是听说性能不行，后来换了 <code>optimus-manager</code> 由于是 AMD处理器，应该使用 <code>optimus-manager-amd-git</code><span class="math inline">\(^{\text{AUR}}\)</span> ，同时该包依赖的 <code>bbswitch</code> 也需要换成 <code>bbswitch-ati-git</code><span class="math inline">\(^{\text{AUR}}\)</span></p>
 <p>具体配置可以看 <a href="https://blog.edward-p.xyz/optimus-manager/" target="_blank" rel="noopener">使用 optimus-manager 来管理显卡切换</a>。</p>
@@ -481,7 +485,7 @@ amd-ucode anaconda android-sdk android-sdk-platform-tools archlinuxcn-keyring ar
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://sukanka.github.io" rel="external nofollow noreferrer">sukanka</a>
+                    <a href="/about" rel="external nofollow noreferrer">sukanka</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -504,7 +508,7 @@ amd-ucode anaconda android-sdk android-sdk-platform-tools archlinuxcn-keyring ar
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="https://sukanka.github.io" target="_blank">sukanka</a>
+                    <a href="/about" target="_blank">sukanka</a>
                     !
                 </span>
             </div>
@@ -542,9 +546,8 @@ amd-ucode anaconda android-sdk android-sdk-platform-tools archlinuxcn-keyring ar
                 </div>
                 <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
                     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/share/css/share.min.css">
-
 <div id="article-share">
-    
+
     
     <div class="social-share" data-sites="qq,qzone,wechat,weibo,douban,linkedin,twitter,facebook,google" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/share/js/social-share.min.js"></script>
@@ -681,6 +684,7 @@ amd-ucode anaconda android-sdk android-sdk-platform-tools archlinuxcn-keyring ar
         $('.tabs').tabs();
     });
 </script>
+
             
         </div>
     </div>
@@ -713,6 +717,8 @@ amd-ucode anaconda android-sdk android-sdk-platform-tools archlinuxcn-keyring ar
     </div>
     <!-- City版安装代码已完成 -->
 </div>
+    
+
     
 
     
@@ -955,9 +961,24 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </script>
 
 
+
     <footer class="page-footer bg-color">
     
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+</style>
 <div class="">
     
     <div class="row">
@@ -967,7 +988,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                    id="540968"
                    fixed='true'
                    autoplay='false'
-                   theme:='#42b983'
+                   theme='#42b983'
                    loop='all'
                    order='random'
                    preload='auto'
@@ -986,7 +1007,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             <span id="year">2018</span>
-            <a href="https://sukanka.github.io" target="_blank">sukanka</a>
+            <a href="/about" target="_blank">sukanka</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
@@ -1064,9 +1085,10 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/js/search.js"></script>
 <script type="text/javascript">
 $(function () {
-    searchFunc("https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/" + "search.xml", 'searchInput', 'searchResult');
+    searchFunc("https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/search.xml", 'searchInput', 'searchResult');
 });
 </script>
+
     <!-- 回到顶部按钮 -->
 <div id="backTop" class="top-scroll">
     <a class="btn-floating btn-large waves-effect waves-light" href="#!">
@@ -1081,9 +1103,6 @@ $(function () {
     <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/js/matery.js"></script>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-
 
     <!-- Baidu Analytics -->
 
@@ -1121,7 +1140,7 @@ $(function () {
     
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
     
-    
+
     
     <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/instantpage/instantpage.js" type="module"></script>
     
