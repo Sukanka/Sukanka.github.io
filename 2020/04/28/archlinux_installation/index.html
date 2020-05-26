@@ -404,14 +404,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-04-29
+                    2020-05-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    602
+                    633
                 </div>
                 
 
@@ -434,6 +434,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="配置">配置</h1>
+<p>更新： 现在 Manjaro 已经可以进入图形界面，并且一切正常。但是 Arch 真香！</p>
 <p>我有幸以6599返100E卡抢到了一台4800H+2060的天选，之前想要安装 Manjaro, 但是LiveCD始终进入不了图形界面，因而放弃，转而选择了ArchLinux. 详细配置如下</p>
 <pre><code>$ neofetch   
 --------------------------------------------------------------------------------------
@@ -462,14 +463,14 @@
 <p>参照 <a href="https://www.viseator.com/2017/05/19/arch_setup/" target="_blank" rel="noopener">ArchLinux安装后的必须配置与图形界面安装教程</a></p>
 <h2 id="常用软件">常用软件</h2>
 <p>这部分记录自己常用的软件。其中 <code>texlive</code> 实际安装的是从<a href="https://tug.org/" target="_blank" rel="noopener">TeX Users Group</a> 下载的最新版本，之后安装<code>texlive-dummy</code>让 Arch 认为 <code>texlive</code> 已经安装。</p>
-<pre><code>$ pacman -Qe
+<pre><code>$ yay  -Qqe
 -----------------------------------------------------------------------------------
-amd-ucode anaconda android-sdk android-sdk-platform-tools archlinuxcn-keyring aria2 ark autoconf automake base bbswitch-ati-git binutils bison bluedevil breeze breeze-gtk clash dhcpcd dialog dolphin drkonqi efibootmgr fakeroot fcitx-cloudpinyin file filelight findutils flex flutter-beta gawk gcc gettext gnome-keyring google-chrome grep groff grub gwenview gzip julia kactivitymanagerd kate kcm-fcitx kde-cli-tools kde-gtk-config kdeconnect kdecoration kdeplasma-addons kgamma5 khotkeys kinfocenter kmenuedit knetattach kscreen kscreenlocker ksshaskpass ksysguard ksystemlog kwallet-pam kwayland-integration kwin kwrited libdbusmenu-glib libkscreen libksysguard libtool linux linux-firmware m4 make mathpix-snipping-tool milou mpv neofetch network-manager-applet networkmanager nodejs npm ntfs-3g nvidia okular optimus-manager-amd-git os-prober oxygen p7zip pacman pamac-aur pandoc pandoc-citeproc pandoc-crossref patch peek pkgconf plank plasma polkit-kde-agent powerdevil proxychains-ng qq-linux qt5-imageformats r samba sddm-kcm sed spectacle sudo systemd-kcm systemsettings texinfo texlive-dummy tk typora unrar user-manager vim visual-studio-code-bin wget which wpa_supplicant wps-office-cn wps-office-mui-zh-cn  xf86-video-amdgpu xf86-video-vesa xorg yakuake yay zotero zsh </code></pre>
+amd-ucode anaconda android-sdk android-sdk-platform-tools archlinuxcn-keyring aria2 ark autoconf automake base bbswitch-ati-dkms-git bind-tools binutils bison  clash cuda dialog dmidecode dnsmasq dolphin  efibootmgr fakeroot fcitx-baidupinyin fcitx-cloudpinyin file filelight findutils flameshot flex flutter-beta freerdp gawk gcc gettext gimp gnome-keyring google-chrome grep groff grub gwenview gzip inetutils inkscape inxi iptables-nft julia  kamoso kate kcm-fcitx kcron   kdeconnect  kdenlive  krdc krfb  ksystemlog  latte-dock libdbusmenu-glib   libtool linux linux-firmware m4 make mathpix-snipping-tool  mpv namcap neofetch net-tools netease-cloud-music network-manager-applet networkmanager nodejs-lts-erbium npm ntfs-3g nvidia okular opencc optimus-manager-amd-git os-prober  p7zip pacman pamac-aur pandoc pandoc-citeproc pandoc-crossref patch peek perl-tk picgo-appimage pkgconf plasma  proxychains-ng qemu qq-linux qt5-imageformats r samba  sed spectacle strace sudo systemd-kcm systemd-shutdown-diagnose  texinfo texlive-dummy tk typora unrar  vim virt-manager visual-studio-code-bin wget which wpa_supplicant wps-office-cn  xf86-video-amdgpu xf86-video-fbdev xorg yakuake yay zotero zsh </code></pre>
 <h2 id="双显卡方案">双显卡方案</h2>
 <p>我以前用的 <code>Bumblebee</code> 但是听说性能不行，后来换了 <code>optimus-manager</code> 由于是 AMD处理器，应该使用 <code>optimus-manager-amd-git</code><span class="math inline">\(^{\text{AUR}}\)</span> ，同时该包依赖的 <code>bbswitch</code> 也需要换成 <code>bbswitch-ati-git</code><span class="math inline">\(^{\text{AUR}}\)</span></p>
 <p>具体配置可以看 <a href="https://blog.edward-p.xyz/optimus-manager/" target="_blank" rel="noopener">使用 optimus-manager 来管理显卡切换</a>。</p>
 <h2 id="屏幕撕裂问题">屏幕撕裂问题</h2>
-<p>我的各种驱动装好后，开机过了一会儿之后，屏幕左下角会出现闪屏，在设置里面将屏幕刷新率设置成60Hz 之后就好了。</p>
+<p>我的各种驱动装好后，开机过了一会儿之后，屏幕左下角会出现闪屏，在设置里面将屏幕刷新率设置成60Hz 之后就好了。实际上并没有解决这个问题。</p>
 
             </div>
             <hr/>
