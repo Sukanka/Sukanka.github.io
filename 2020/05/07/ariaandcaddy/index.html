@@ -404,21 +404,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-05-07
+                    2020-05-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4,267
+                    4,264
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    22 分
+                    21 分
                 </div>
                 
 
@@ -434,287 +434,285 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>本文介绍利用甲骨文的免费VPS 搭建 Aria2+Caddy+filebrowser 的下载平台。给自己留一个备份。等到<a href="https://github.com/helloxz/ccaa" target="_blank" rel="noopener">ccaa2.0</a>版本支持caddy 也许本文就没有必要了。</p>
-<h1 id="获取免费服务器">获取免费服务器</h1>
-<p>甲骨文(Oracle) 公司提供免费服务器，需要外币卡（信用卡储蓄卡均可），如 Visa, MasterCard, JCB, AE 等，单标银联卡不行。具体见 <a href="https://51.ruyo.net/14138.html" target="_blank" rel="noopener">申请Oracle Cloud永久免费服务+300美元试用额度</a>.</p>
-<h1 id="绑定域名">绑定域名</h1>
-<p>以下我们假定域名为 <strong>example.com</strong>, 用于 ariaNg面板的域名为 <strong>aria.example.com</strong>, 用于 filebrowser 的域名为 <strong>file.example.com</strong>. 假设服务器ip地址为 <strong>132.145.123.159</strong>。</p>
+<h1 id="获取免费服务器"><a href="#获取免费服务器" class="headerlink" title="获取免费服务器"></a>获取免费服务器</h1><p>甲骨文(Oracle) 公司提供免费服务器，需要外币卡（信用卡储蓄卡均可），如 Visa, MasterCard, JCB, AE 等，单标银联卡不行。具体见 <a href="https://51.ruyo.net/14138.html" target="_blank" rel="noopener">申请Oracle Cloud永久免费服务+300美元试用额度</a>.</p>
+<h1 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h1><p>以下我们假定域名为 <strong>example.com</strong>, 用于 ariaNg面板的域名为 <strong>aria.example.com</strong>, 用于 filebrowser 的域名为 <strong>file.example.com</strong>. 假设服务器ip地址为 <strong>132.145.123.159</strong>。</p>
 <p>首先在域名提供商处将域名解析到对应的ip 地址 （A记录）。</p>
-<h1 id="搭建下载平台">搭建下载平台</h1>
-<p>在获取到免费服务器后，用 ssh 登录上去，准备安装 Aria2 等。</p>
-<p>这部分根据 https://github.com/helloxz/ccaa 改编。</p>
+<h1 id="搭建下载平台"><a href="#搭建下载平台" class="headerlink" title="搭建下载平台"></a>搭建下载平台</h1><p>在获取到免费服务器后，用 ssh 登录上去，准备安装 Aria2 等。</p>
+<p>这部分根据 <a href="https://github.com/helloxz/ccaa" target="_blank" rel="noopener">https://github.com/helloxz/ccaa</a> 改编。</p>
 <p>由于2.0版本去除了caddy, 本文使用的是1.0版本的脚本。</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="co">#####   一键安装Caddy + Aria2 + AriaNg      #####</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co">#####   作者：xiaoz.me                     #####</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="co">#####   更新时间：2019-05-15             #####</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="co">#导入环境变量</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="va">PATH=</span>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/bin:/sbin</span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="bu">export</span> <span class="va">PATH</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="va">aria_ver=</span>1.35.0</span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="va">caddy_ver=</span>2.0.0</span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="va">ariang_ver=</span>1.1.6</span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="co">#安装之前的准备</span></span>
-<span id="cb1-13"><a href="#cb1-13"></a><span class="kw">function</span><span class="fu"> setout()</span><span class="kw">{</span></span>
-<span id="cb1-14"><a href="#cb1-14"></a>    <span class="kw">if</span><span class="bu"> [</span> <span class="ot">-e</span> <span class="st">&quot;/usr/bin/yum&quot;</span><span class="bu"> ]</span></span>
-<span id="cb1-15"><a href="#cb1-15"></a>    <span class="kw">then</span></span>
-<span id="cb1-16"><a href="#cb1-16"></a>        <span class="ex">yum</span> -y install curl gcc gcc+ make bzip2</span>
-<span id="cb1-17"><a href="#cb1-17"></a>    <span class="kw">else</span></span>
-<span id="cb1-18"><a href="#cb1-18"></a>        <span class="co">#更新软件，否则可能make命令无法安装</span></span>
-<span id="cb1-19"><a href="#cb1-19"></a>        <span class="fu">sudo</span> apt-get update</span>
-<span id="cb1-20"><a href="#cb1-20"></a>        <span class="fu">sudo</span> apt-get install -y curl make</span>
-<span id="cb1-21"><a href="#cb1-21"></a>    <span class="kw">fi</span></span>
-<span id="cb1-22"><a href="#cb1-22"></a><span class="kw">}</span></span>
-<span id="cb1-23"><a href="#cb1-23"></a><span class="co">#安装Aria2</span></span>
-<span id="cb1-24"><a href="#cb1-24"></a><span class="kw">function</span><span class="fu"> install_aria2()</span><span class="kw">{</span></span>
-<span id="cb1-25"><a href="#cb1-25"></a>    <span class="co">#yum -y update</span></span>
-<span id="cb1-26"><a href="#cb1-26"></a>    <span class="co">#安装aria2静态编译版本，来源于https://github.com/q3aql/aria2-static-builds/</span></span>
-<span id="cb1-27"><a href="#cb1-27"></a>    <span class="fu">wget</span> -c https://github.com/q3aql/aria2-static-builds/releases/download/v<span class="va">${aria_ver}</span>/aria2-<span class="va">${aria_ver}</span>-linux-gnu-64bit-build1.tar.bz2</span>
-<span id="cb1-28"><a href="#cb1-28"></a>    <span class="fu">tar</span> jxvf aria2-<span class="va">${aria_ver}</span>-linux-gnu-64bit-build1.tar.bz2</span>
-<span id="cb1-29"><a href="#cb1-29"></a>    <span class="bu">cd</span> aria2-<span class="va">${aria_ver}</span>-linux-gnu-64bit-build1</span>
-<span id="cb1-30"><a href="#cb1-30"></a>    <span class="fu">make</span> install</span>
-<span id="cb1-31"><a href="#cb1-31"></a>    <span class="bu">cd</span> ..</span>
-<span id="cb1-32"><a href="#cb1-32"></a><span class="kw">}</span></span>
-<span id="cb1-33"><a href="#cb1-33"></a><span class="co">#安装caddy</span></span>
-<span id="cb1-34"><a href="#cb1-34"></a><span class="kw">function</span><span class="fu"> install_caddy()</span><span class="kw">{</span></span>
-<span id="cb1-35"><a href="#cb1-35"></a>    <span class="co">#一键安装https://caddyserver.com/download/linux/amd64?plugins=http.filemanager&amp;license=personal&amp;telemetry=off</span></span>
-<span id="cb1-36"><a href="#cb1-36"></a>    <span class="co">#curl https://getcaddy.com | bash -s personal http.filemanager</span></span>
-<span id="cb1-37"><a href="#cb1-37"></a>    <span class="co">#安装caddy</span></span>
-<span id="cb1-38"><a href="#cb1-38"></a>    <span class="fu">wget</span> https://github.com/caddyserver/caddy/releases/download/v<span class="va">${caddy_ver}</span>/caddy_<span class="va">${caddy_ver}</span>_linux_amd64.tar.gz -O caddy.tar.gz</span>
-<span id="cb1-39"><a href="#cb1-39"></a>    <span class="fu">tar</span> -zxvf caddy.tar.gz</span>
-<span id="cb1-40"><a href="#cb1-40"></a>    <span class="fu">mv</span> caddy /usr/sbin/</span>
-<span id="cb1-41"><a href="#cb1-41"></a>    <span class="fu">chmod</span> +x /usr/sbin/caddy</span>
-<span id="cb1-42"><a href="#cb1-42"></a>    <span class="co">#添加服务</span></span>
-<span id="cb1-43"><a href="#cb1-43"></a>    <span class="co">#mv init/linux-systemd/caddy.service /lib/systemd/system</span></span>
-<span id="cb1-44"><a href="#cb1-44"></a>    <span class="co">#chmod +x /lib/systemd/system/caddy.service</span></span>
-<span id="cb1-45"><a href="#cb1-45"></a>    <span class="co">#开机启动</span></span>
-<span id="cb1-46"><a href="#cb1-46"></a>    <span class="co">#systemctl enable caddy.service</span></span>
-<span id="cb1-47"><a href="#cb1-47"></a><span class="kw">}</span></span>
-<span id="cb1-48"><a href="#cb1-48"></a><span class="kw">function</span><span class="fu"> install_file_browser()</span><span class="kw">{</span></span>
-<span id="cb1-49"><a href="#cb1-49"></a>    <span class="co">#下载File Browser</span></span>
-<span id="cb1-50"><a href="#cb1-50"></a>    <span class="fu">wget</span> https://github.com/filebrowser/filebrowser/releases/download/v2.1.0/linux-amd64-filebrowser.tar.gz</span>
-<span id="cb1-51"><a href="#cb1-51"></a>    <span class="co">#解压</span></span>
-<span id="cb1-52"><a href="#cb1-52"></a>    <span class="fu">tar</span> -zxvf linux-amd64-filebrowser.tar.gz</span>
-<span id="cb1-53"><a href="#cb1-53"></a>    <span class="co">#移动位置</span></span>
-<span id="cb1-54"><a href="#cb1-54"></a>    <span class="fu">mv</span> filebrowser /usr/sbin</span>
-<span id="cb1-55"><a href="#cb1-55"></a>    <span class="bu">cd</span></span>
-<span id="cb1-56"><a href="#cb1-56"></a><span class="kw">}</span></span>
-<span id="cb1-57"><a href="#cb1-57"></a><span class="co">#处理配置文件</span></span>
-<span id="cb1-58"><a href="#cb1-58"></a><span class="kw">function</span><span class="fu"> dealconf()</span><span class="kw">{</span></span>
-<span id="cb1-59"><a href="#cb1-59"></a>    <span class="co">#创建目录和文件</span></span>
-<span id="cb1-60"><a href="#cb1-60"></a>    <span class="fu">mkdir</span> -p /etc/ccaa/</span>
-<span id="cb1-61"><a href="#cb1-61"></a>    <span class="fu">touch</span> /etc/ccaa/aria2.session</span>
-<span id="cb1-62"><a href="#cb1-62"></a>    <span class="fu">touch</span> /etc/ccaa/aria2.log</span>
-<span id="cb1-63"><a href="#cb1-63"></a>    <span class="fu">touch</span> /etc/ccaa/caddy.log</span>
-<span id="cb1-64"><a href="#cb1-64"></a>    <span class="fu">cp</span> aria2.conf /etc/ccaa/</span>
-<span id="cb1-65"><a href="#cb1-65"></a>    <span class="fu">cp</span> caddy.conf /etc/ccaa/</span>
-<span id="cb1-66"><a href="#cb1-66"></a>    <span class="fu">cp</span> upbt.sh /etc/ccaa/</span>
-<span id="cb1-67"><a href="#cb1-67"></a>    <span class="fu">chmod</span> +x /etc/ccaa/upbt.sh</span>
-<span id="cb1-68"><a href="#cb1-68"></a>    <span class="fu">chmod</span> +x ccaa</span>
-<span id="cb1-69"><a href="#cb1-69"></a>    <span class="fu">cp</span> ccaa /usr/sbin</span>
-<span id="cb1-70"><a href="#cb1-70"></a><span class="kw">}</span></span>
-<span id="cb1-71"><a href="#cb1-71"></a><span class="co">#自动放行端口</span></span>
-<span id="cb1-72"><a href="#cb1-72"></a><span class="kw">function</span><span class="fu"> chk_firewall()</span><span class="kw">{</span></span>
-<span id="cb1-73"><a href="#cb1-73"></a>    <span class="kw">if</span><span class="bu"> [</span> <span class="ot">-e</span> <span class="st">&quot;/etc/sysconfig/iptables&quot;</span><span class="bu"> ]</span></span>
-<span id="cb1-74"><a href="#cb1-74"></a>    <span class="kw">then</span></span>
-<span id="cb1-75"><a href="#cb1-75"></a>        <span class="ex">iptables</span> -I INPUT -p tcp --dport 6080 -j ACCEPT</span>
-<span id="cb1-76"><a href="#cb1-76"></a>        <span class="ex">iptables</span> -I INPUT -p tcp --dport 6800 -j ACCEPT</span>
-<span id="cb1-77"><a href="#cb1-77"></a>        <span class="ex">iptables</span> -I INPUT -p tcp --dport 6998 -j ACCEPT</span>
-<span id="cb1-78"><a href="#cb1-78"></a>        <span class="ex">iptables</span> -I INPUT -p tcp --dport 51413 -j ACCEPT</span>
-<span id="cb1-79"><a href="#cb1-79"></a>        <span class="ex">service</span> iptables save</span>
-<span id="cb1-80"><a href="#cb1-80"></a>        <span class="ex">service</span> iptables restart</span>
-<span id="cb1-81"><a href="#cb1-81"></a>    <span class="kw">elif</span><span class="bu"> [</span> <span class="ot">-e</span> <span class="st">&quot;/etc/firewalld/zones/public.xml&quot;</span><span class="bu"> ]</span></span>
-<span id="cb1-82"><a href="#cb1-82"></a>    <span class="kw">then</span></span>
-<span id="cb1-83"><a href="#cb1-83"></a>        <span class="ex">firewall-cmd</span> --zone=public --add-port=6080/tcp --permanent</span>
-<span id="cb1-84"><a href="#cb1-84"></a>        <span class="ex">firewall-cmd</span> --zone=public --add-port=6800/tcp --permanent</span>
-<span id="cb1-85"><a href="#cb1-85"></a>        <span class="ex">firewall-cmd</span> --zone=public --add-port=6998/tcp --permanent</span>
-<span id="cb1-86"><a href="#cb1-86"></a>        <span class="ex">firewall-cmd</span> --zone=public --add-port=51413/tcp --permanent</span>
-<span id="cb1-87"><a href="#cb1-87"></a>        <span class="ex">firewall-cmd</span> --reload</span>
-<span id="cb1-88"><a href="#cb1-88"></a>    <span class="kw">elif</span><span class="bu"> [</span> <span class="ot">-e</span> <span class="st">&quot;/etc/ufw/before.rules&quot;</span><span class="bu"> ]</span></span>
-<span id="cb1-89"><a href="#cb1-89"></a>    <span class="kw">then</span></span>
-<span id="cb1-90"><a href="#cb1-90"></a>        <span class="fu">sudo</span> ufw allow 6080/tcp</span>
-<span id="cb1-91"><a href="#cb1-91"></a>        <span class="fu">sudo</span> ufw allow 6800/tcp</span>
-<span id="cb1-92"><a href="#cb1-92"></a>        <span class="fu">sudo</span> ufw allow 6998/tcp</span>
-<span id="cb1-93"><a href="#cb1-93"></a>        <span class="fu">sudo</span> ufw allow 51413/tcp</span>
-<span id="cb1-94"><a href="#cb1-94"></a>    <span class="kw">fi</span></span>
-<span id="cb1-95"><a href="#cb1-95"></a><span class="kw">}</span></span>
-<span id="cb1-96"><a href="#cb1-96"></a><span class="co">#删除端口</span></span>
-<span id="cb1-97"><a href="#cb1-97"></a><span class="kw">function</span><span class="fu"> del_post()</span> <span class="kw">{</span></span>
-<span id="cb1-98"><a href="#cb1-98"></a>    <span class="kw">if</span><span class="bu"> [</span> <span class="ot">-e</span> <span class="st">&quot;/etc/sysconfig/iptables&quot;</span><span class="bu"> ]</span></span>
-<span id="cb1-99"><a href="#cb1-99"></a>    <span class="kw">then</span></span>
-<span id="cb1-100"><a href="#cb1-100"></a>        <span class="fu">sed</span> -i <span class="st">&#39;/^.*6080.*/&#39;</span>d /etc/sysconfig/iptables</span>
-<span id="cb1-101"><a href="#cb1-101"></a>        <span class="fu">sed</span> -i <span class="st">&#39;/^.*6800.*/&#39;</span>d /etc/sysconfig/iptables</span>
-<span id="cb1-102"><a href="#cb1-102"></a>        <span class="fu">sed</span> -i <span class="st">&#39;/^.*6998.*/&#39;</span>d /etc/sysconfig/iptables</span>
-<span id="cb1-103"><a href="#cb1-103"></a>        <span class="fu">sed</span> -i <span class="st">&#39;/^.*51413.*/&#39;</span>d /etc/sysconfig/iptables</span>
-<span id="cb1-104"><a href="#cb1-104"></a>        <span class="ex">service</span> iptables save</span>
-<span id="cb1-105"><a href="#cb1-105"></a>        <span class="ex">service</span> iptables restart</span>
-<span id="cb1-106"><a href="#cb1-106"></a>    <span class="kw">elif</span><span class="bu"> [</span> <span class="ot">-e</span> <span class="st">&quot;/etc/firewalld/zones/public.xml&quot;</span><span class="bu"> ]</span></span>
-<span id="cb1-107"><a href="#cb1-107"></a>    <span class="kw">then</span></span>
-<span id="cb1-108"><a href="#cb1-108"></a>        <span class="ex">firewall-cmd</span> --zone=public --remove-port=6080/tcp --permanent</span>
-<span id="cb1-109"><a href="#cb1-109"></a>        <span class="ex">firewall-cmd</span> --zone=public --remove-port=6800/tcp --permanent</span>
-<span id="cb1-110"><a href="#cb1-110"></a>        <span class="ex">firewall-cmd</span> --zone=public --remove-port=6998/tcp --permanent</span>
-<span id="cb1-111"><a href="#cb1-111"></a>        <span class="ex">firewall-cmd</span> --zone=public --remove-port=51413/tcp --permanent</span>
-<span id="cb1-112"><a href="#cb1-112"></a>        <span class="ex">firewall-cmd</span> --reload</span>
-<span id="cb1-113"><a href="#cb1-113"></a>    <span class="kw">elif</span><span class="bu"> [</span> <span class="ot">-e</span> <span class="st">&quot;/etc/ufw/before.rules&quot;</span><span class="bu"> ]</span></span>
-<span id="cb1-114"><a href="#cb1-114"></a>    <span class="kw">then</span></span>
-<span id="cb1-115"><a href="#cb1-115"></a>        <span class="fu">sudo</span> ufw delete 6080/tcp</span>
-<span id="cb1-116"><a href="#cb1-116"></a>        <span class="fu">sudo</span> ufw delete 6800/tcp</span>
-<span id="cb1-117"><a href="#cb1-117"></a>        <span class="fu">sudo</span> ufw delete 6998/tcp</span>
-<span id="cb1-118"><a href="#cb1-118"></a>        <span class="fu">sudo</span> ufw delete 51413/tcp</span>
-<span id="cb1-119"><a href="#cb1-119"></a>    <span class="kw">fi</span></span>
-<span id="cb1-120"><a href="#cb1-120"></a><span class="kw">}</span></span>
-<span id="cb1-121"><a href="#cb1-121"></a><span class="co">#设置账号密码</span></span>
-<span id="cb1-122"><a href="#cb1-122"></a><span class="kw">function</span><span class="fu"> setting()</span><span class="kw">{</span></span>
-<span id="cb1-123"><a href="#cb1-123"></a>    <span class="bu">echo</span> <span class="st">&#39;-------------------------------------------------------------&#39;</span></span>
-<span id="cb1-124"><a href="#cb1-124"></a>    <span class="bu">read</span> -p <span class="st">&quot;设置下载路径（请填写绝对地址，默认/data/ccaaDown）:&quot;</span> <span class="va">downpath</span></span>
-<span id="cb1-125"><a href="#cb1-125"></a>    <span class="bu">read</span> -p <span class="st">&quot;Aria2 RPC 密钥:(字母或数字组合，不要含有特殊字符):&quot;</span> <span class="va">secret</span></span>
-<span id="cb1-126"><a href="#cb1-126"></a>    <span class="co">#如果Aria2密钥为空</span></span>
-<span id="cb1-127"><a href="#cb1-127"></a>    <span class="kw">while</span><span class="bu"> [</span> <span class="ot">-z</span> <span class="st">&quot;</span><span class="va">${secret}</span><span class="st">&quot;</span><span class="bu"> ]</span></span>
-<span id="cb1-128"><a href="#cb1-128"></a>    <span class="kw">do</span></span>
-<span id="cb1-129"><a href="#cb1-129"></a>        <span class="bu">read</span> -p <span class="st">&quot;Aria2 RPC 密钥:(字母或数字组合，不要含有特殊字符):&quot;</span> <span class="va">secret</span></span>
-<span id="cb1-130"><a href="#cb1-130"></a>    <span class="kw">done</span></span>
-<span id="cb1-131"><a href="#cb1-131"></a>    </span>
-<span id="cb1-132"><a href="#cb1-132"></a><span class="co">#   read -p &quot;设置Caddy用户名:&quot; caddyuser</span></span>
-<span id="cb1-133"><a href="#cb1-133"></a><span class="co">#   while [ -z &quot;${caddyuser}&quot; ]</span></span>
-<span id="cb1-134"><a href="#cb1-134"></a><span class="co">#   do</span></span>
-<span id="cb1-135"><a href="#cb1-135"></a><span class="co">#       read -p &quot;设置Caddy用户名:&quot; caddyuser</span></span>
-<span id="cb1-136"><a href="#cb1-136"></a><span class="co">#   done</span></span>
-<span id="cb1-137"><a href="#cb1-137"></a><span class="co">#   </span></span>
-<span id="cb1-138"><a href="#cb1-138"></a><span class="co">#   read -p &quot;设置Caddy密码:&quot; caddypass</span></span>
-<span id="cb1-139"><a href="#cb1-139"></a><span class="co">#   while [ -z &quot;${caddypass}&quot; ]</span></span>
-<span id="cb1-140"><a href="#cb1-140"></a><span class="co">#   do</span></span>
-<span id="cb1-141"><a href="#cb1-141"></a><span class="co">#       read -p &quot;设置Caddy密码:&quot; caddypass</span></span>
-<span id="cb1-142"><a href="#cb1-142"></a><span class="co">#   done</span></span>
-<span id="cb1-143"><a href="#cb1-143"></a>    <span class="bu">read</span> -p <span class="st">&quot;Filebrowser 域名地址：(filebrowser.example.com):&quot;</span> <span class="va">filebrowser_domain</span></span>
-<span id="cb1-144"><a href="#cb1-144"></a>    <span class="kw">while</span><span class="bu"> [</span> <span class="ot">-z</span> <span class="st">&quot;</span><span class="va">${filebrowser_domain}</span><span class="st">&quot;</span><span class="bu"> ]</span></span>
-<span id="cb1-145"><a href="#cb1-145"></a>    <span class="kw">do</span> </span>
-<span id="cb1-146"><a href="#cb1-146"></a>        <span class="bu">read</span> -p <span class="st">&quot;Filebrowser 域名地址：(filebrowser.example.com):&quot;</span> <span class="va">filebrowser_domain</span></span>
-<span id="cb1-147"><a href="#cb1-147"></a>    <span class="kw">done</span></span>
-<span id="cb1-148"><a href="#cb1-148"></a>    </span>
-<span id="cb1-149"><a href="#cb1-149"></a>    <span class="bu">read</span> -p <span class="st">&quot;AriaNg 面板域名地址：(aria.example.com):&quot;</span> <span class="va">ariang_domain</span></span>
-<span id="cb1-150"><a href="#cb1-150"></a>    <span class="kw">while</span><span class="bu"> [</span> <span class="ot">-z</span> <span class="st">&quot;</span><span class="va">${ariang_domain}</span><span class="st">&quot;</span><span class="bu"> ]</span></span>
-<span id="cb1-151"><a href="#cb1-151"></a>    <span class="kw">do</span></span>
-<span id="cb1-152"><a href="#cb1-152"></a>        <span class="bu">read</span> -p <span class="st">&quot;AriaNg 面板域名地址：(aria.example.com):&quot;</span> <span class="va">ariang_domain</span></span>
-<span id="cb1-153"><a href="#cb1-153"></a>    <span class="kw">done</span></span>
-<span id="cb1-154"><a href="#cb1-154"></a>    </span>
-<span id="cb1-155"><a href="#cb1-155"></a></span>
-<span id="cb1-156"><a href="#cb1-156"></a>    <span class="co">#如果下载路径为空，设置默认下载路径</span></span>
-<span id="cb1-157"><a href="#cb1-157"></a>    <span class="kw">if</span><span class="bu"> [</span> <span class="ot">-z</span> <span class="st">&quot;</span><span class="va">${downpath}</span><span class="st">&quot;</span><span class="bu"> ]</span></span>
-<span id="cb1-158"><a href="#cb1-158"></a>    <span class="kw">then</span></span>
-<span id="cb1-159"><a href="#cb1-159"></a>        <span class="va">downpath=</span><span class="st">&#39;/data/ccaaDown&#39;</span></span>
-<span id="cb1-160"><a href="#cb1-160"></a>    <span class="kw">fi</span></span>
-<span id="cb1-161"><a href="#cb1-161"></a></span>
-<span id="cb1-162"><a href="#cb1-162"></a>    <span class="co">#执行替换操作</span></span>
-<span id="cb1-163"><a href="#cb1-163"></a>    <span class="fu">mkdir</span> -p <span class="va">${downpath}</span></span>
-<span id="cb1-164"><a href="#cb1-164"></a>    <span class="fu">sed</span> -i <span class="st">&quot;s%dir=%dir=</span><span class="va">${downpath}</span><span class="st">%g&quot;</span> /etc/ccaa/aria2.conf</span>
-<span id="cb1-165"><a href="#cb1-165"></a>    <span class="fu">sed</span> -i <span class="st">&quot;s/rpc-secret=/rpc-secret=</span><span class="va">${secret}</span><span class="st">/g&quot;</span> /etc/ccaa/aria2.conf</span>
-<span id="cb1-166"><a href="#cb1-166"></a><span class="co">#   sed -i &quot;s/username/${caddyuser}/g&quot; /etc/ccaa/caddy.conf</span></span>
-<span id="cb1-167"><a href="#cb1-167"></a><span class="co">#   sed -i &quot;s/password/${caddypass}/g&quot; /etc/ccaa/caddy.conf</span></span>
-<span id="cb1-168"><a href="#cb1-168"></a><span class="co">#   sed -i &quot;s%/home%${downpath}%g&quot; /etc/ccaa/caddy.conf</span></span>
-<span id="cb1-169"><a href="#cb1-169"></a><span class="co">#   sed -i &quot;s%/admin%/admin ${downpath}%g&quot; /etc/ccaa/caddy.conf</span></span>
-<span id="cb1-170"><a href="#cb1-170"></a>    <span class="co">#更新tracker</span></span>
-<span id="cb1-171"><a href="#cb1-171"></a>    <span class="fu">bash</span> ./upbt.sh</span>
-<span id="cb1-172"><a href="#cb1-172"></a></span>
-<span id="cb1-173"><a href="#cb1-173"></a>    <span class="co">#安装AriaNg</span></span>
-<span id="cb1-174"><a href="#cb1-174"></a>    <span class="fu">wget</span> -O AriaNg.zip https://github.com/mayswind/AriaNg/releases/download/<span class="va">${ariang_ver}</span>/AriaNg-<span class="va">${ariang_ver}</span>.zip</span>
-<span id="cb1-175"><a href="#cb1-175"></a>    <span class="fu">unzip</span> AriaNg.zip</span>
-<span id="cb1-176"><a href="#cb1-176"></a>    <span class="fu">sed</span> -i <span class="st">&#39;s|&lt;/ul&gt;&lt;/section&gt;&lt;/aside&gt;|&lt;li&gt;&lt;a class=&quot;toolbar&quot; title=&quot;文件管理&quot; href=&quot;https://_filebrowser.example.com&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;fa fa-folder-o&quot;&gt;&lt;/i&gt; 文件管理&lt;/a&gt;&lt;/li&gt;&amp;|&#39;</span> AriaNg/index.html</span>
-<span id="cb1-177"><a href="#cb1-177"></a>    <span class="fu">sed</span> -i <span class="st">&quot;s/_filebrowser.example.com/</span><span class="va">${filebrowser_domain}</span><span class="st">/g&quot;</span>  AriaNg/index.html</span>
-<span id="cb1-178"><a href="#cb1-178"></a>    <span class="fu">cp</span> -a AriaNg /etc/ccaa</span>
-<span id="cb1-179"><a href="#cb1-179"></a></span>
-<span id="cb1-180"><a href="#cb1-180"></a>    <span class="co">#启动服务</span></span>
-<span id="cb1-181"><a href="#cb1-181"></a>    <span class="fu">nohup</span> aria2c --conf-path=/etc/ccaa/aria2.conf <span class="op">&gt;</span> /etc/ccaa/aria2.log <span class="op">2&gt;&amp;1</span> <span class="kw">&amp;</span></span>
-<span id="cb1-182"><a href="#cb1-182"></a>    <span class="fu">nohup</span> caddy -conf=<span class="st">&quot;/etc/ccaa/caddy.conf&quot;</span> <span class="op">&gt;</span> /etc/ccaa/caddy.log <span class="op">2&gt;&amp;1</span> <span class="kw">&amp;</span></span>
-<span id="cb1-183"><a href="#cb1-183"></a></span>
-<span id="cb1-184"><a href="#cb1-184"></a>    <span class="co">#获取ip</span></span>
-<span id="cb1-185"><a href="#cb1-185"></a>    <span class="va">osip=$(</span><span class="ex">curl</span> -4s https://api.ip.sb/ip<span class="va">)</span></span>
-<span id="cb1-186"><a href="#cb1-186"></a></span>
-<span id="cb1-187"><a href="#cb1-187"></a>    <span class="bu">echo</span> <span class="st">&#39;-------------------------------------------------------------&#39;</span></span>
-<span id="cb1-188"><a href="#cb1-188"></a>    <span class="bu">echo</span> <span class="st">&quot;大功告成，请访问: http://</span><span class="va">${osip}</span><span class="st">:6080/&quot;</span></span>
-<span id="cb1-189"><a href="#cb1-189"></a>    <span class="bu">echo</span> <span class="st">&#39;用户名:&#39;</span> <span class="va">${caddyuser}</span></span>
-<span id="cb1-190"><a href="#cb1-190"></a>    <span class="bu">echo</span> <span class="st">&#39;密码:&#39;</span> <span class="va">${caddypass}</span></span>
-<span id="cb1-191"><a href="#cb1-191"></a>    <span class="bu">echo</span> <span class="st">&#39;Aria2 RPC 密钥:&#39;</span> <span class="va">${secret}</span></span>
-<span id="cb1-192"><a href="#cb1-192"></a>    <span class="bu">echo</span> <span class="st">&#39;帮助文档: https://dwz.ovh/ccaa （必看）&#39;</span> </span>
-<span id="cb1-193"><a href="#cb1-193"></a>    <span class="bu">echo</span> <span class="st">&#39;-------------------------------------------------------------&#39;</span></span>
-<span id="cb1-194"><a href="#cb1-194"></a><span class="kw">}</span></span>
-<span id="cb1-195"><a href="#cb1-195"></a><span class="co">#清理工作</span></span>
-<span id="cb1-196"><a href="#cb1-196"></a><span class="kw">function</span><span class="fu"> cleanup()</span><span class="kw">{</span></span>
-<span id="cb1-197"><a href="#cb1-197"></a>    <span class="fu">rm</span> -rf *.zip</span>
-<span id="cb1-198"><a href="#cb1-198"></a>    <span class="fu">rm</span> -rf *.gz</span>
-<span id="cb1-199"><a href="#cb1-199"></a>    <span class="fu">rm</span> -rf *.txt</span>
-<span id="cb1-200"><a href="#cb1-200"></a>    <span class="fu">rm</span> -rf aria2-1.3*</span>
-<span id="cb1-201"><a href="#cb1-201"></a>    <span class="co">#rm -rf *.conf</span></span>
-<span id="cb1-202"><a href="#cb1-202"></a>    <span class="fu">rm</span> -rf init</span>
-<span id="cb1-203"><a href="#cb1-203"></a><span class="kw">}</span></span>
-<span id="cb1-204"><a href="#cb1-204"></a></span>
-<span id="cb1-205"><a href="#cb1-205"></a><span class="co">#卸载</span></span>
-<span id="cb1-206"><a href="#cb1-206"></a><span class="kw">function</span><span class="fu"> uninstall()</span><span class="kw">{</span></span>
-<span id="cb1-207"><a href="#cb1-207"></a>    <span class="co">#停止所有服务</span></span>
-<span id="cb1-208"><a href="#cb1-208"></a>    <span class="bu">kill</span> -9 <span class="va">$(</span><span class="ex">pgrep</span> <span class="st">&#39;aria2c&#39;</span><span class="va">)</span></span>
-<span id="cb1-209"><a href="#cb1-209"></a>    <span class="bu">kill</span> -9 <span class="va">$(</span><span class="ex">pgrep</span> <span class="st">&#39;caddy&#39;</span><span class="va">)</span></span>
-<span id="cb1-210"><a href="#cb1-210"></a></span>
-<span id="cb1-211"><a href="#cb1-211"></a>    <span class="co">#删除服务</span></span>
-<span id="cb1-212"><a href="#cb1-212"></a>    <span class="co">#systemctl disable caddy.service</span></span>
-<span id="cb1-213"><a href="#cb1-213"></a>    <span class="co">#rm -rf /lib/systemd/system/caddy.service</span></span>
-<span id="cb1-214"><a href="#cb1-214"></a>    <span class="co">#删除文件</span></span>
-<span id="cb1-215"><a href="#cb1-215"></a>    <span class="fu">rm</span> -rf /etc/ccaa</span>
-<span id="cb1-216"><a href="#cb1-216"></a>    <span class="fu">rm</span> -rf /usr/sbin/caddy</span>
-<span id="cb1-217"><a href="#cb1-217"></a>    <span class="fu">rm</span> -rf /usr/sbin/ccaa</span>
-<span id="cb1-218"><a href="#cb1-218"></a>    <span class="fu">rm</span> -rf /usr/bin/aria2c</span>
-<span id="cb1-219"><a href="#cb1-219"></a>    <span class="fu">rm</span> -rf aria2-1.*</span>
-<span id="cb1-220"><a href="#cb1-220"></a>    <span class="fu">rm</span> -rf AriaNg*</span>
-<span id="cb1-221"><a href="#cb1-221"></a>    </span>
-<span id="cb1-222"><a href="#cb1-222"></a></span>
-<span id="cb1-223"><a href="#cb1-223"></a>    <span class="fu">rm</span> -rf /usr/share/man/man1/aria2c.1</span>
-<span id="cb1-224"><a href="#cb1-224"></a>    <span class="fu">rm</span> -rf /etc/ssl/certs/ca-certificates.crt</span>
-<span id="cb1-225"><a href="#cb1-225"></a>    <span class="co">#删除端口</span></span>
-<span id="cb1-226"><a href="#cb1-226"></a>    <span class="ex">del_post</span></span>
-<span id="cb1-227"><a href="#cb1-227"></a>    <span class="bu">echo</span> <span class="st">&quot;------------------------------------------------&quot;</span></span>
-<span id="cb1-228"><a href="#cb1-228"></a>    <span class="bu">echo</span> <span class="st">&#39;卸载完成！&#39;</span></span>
-<span id="cb1-229"><a href="#cb1-229"></a>    <span class="bu">echo</span> <span class="st">&quot;------------------------------------------------&quot;</span></span>
-<span id="cb1-230"><a href="#cb1-230"></a><span class="kw">}</span></span>
-<span id="cb1-231"><a href="#cb1-231"></a></span>
-<span id="cb1-232"><a href="#cb1-232"></a><span class="co">#选择安装方式</span></span>
-<span id="cb1-233"><a href="#cb1-233"></a><span class="bu">echo</span> <span class="st">&quot;------------------------------------------------&quot;</span></span>
-<span id="cb1-234"><a href="#cb1-234"></a><span class="bu">echo</span> <span class="st">&quot;Linux + Caddy + Aria2 + AriaNg一键安装脚本(CCAA)&quot;</span></span>
-<span id="cb1-235"><a href="#cb1-235"></a><span class="bu">echo</span> <span class="st">&quot;1) 安装CCAA&quot;</span></span>
-<span id="cb1-236"><a href="#cb1-236"></a><span class="bu">echo</span> <span class="st">&quot;2) 卸载CCAA&quot;</span></span>
-<span id="cb1-237"><a href="#cb1-237"></a><span class="bu">echo</span> <span class="st">&quot;3) 更新bt-tracker&quot;</span></span>
-<span id="cb1-238"><a href="#cb1-238"></a><span class="bu">echo</span> <span class="st">&quot;q) 退出！&quot;</span></span>
-<span id="cb1-239"><a href="#cb1-239"></a><span class="bu">read</span> -p <span class="st">&quot;:&quot;</span> <span class="va">istype</span></span>
-<span id="cb1-240"><a href="#cb1-240"></a><span class="kw">case</span> <span class="va">$istype</span><span class="kw"> in</span></span>
-<span id="cb1-241"><a href="#cb1-241"></a>    1<span class="kw">)</span> </span>
-<span id="cb1-242"><a href="#cb1-242"></a>        <span class="ex">setout</span></span>
-<span id="cb1-243"><a href="#cb1-243"></a>        <span class="ex">install_aria2</span> <span class="kw">&amp;&amp;</span> <span class="kw">\</span></span>
-<span id="cb1-244"><a href="#cb1-244"></a>        <span class="ex">install_caddy</span> <span class="kw">&amp;&amp;</span> <span class="kw">\</span></span>
-<span id="cb1-245"><a href="#cb1-245"></a>        <span class="ex">dealconf</span> <span class="kw">&amp;&amp;</span> <span class="kw">\</span></span>
-<span id="cb1-246"><a href="#cb1-246"></a>        <span class="ex">chk_firewall</span> <span class="kw">&amp;&amp;</span> <span class="kw">\</span></span>
-<span id="cb1-247"><a href="#cb1-247"></a>        <span class="ex">setting</span> <span class="kw">&amp;&amp;</span> <span class="kw">\</span></span>
-<span id="cb1-248"><a href="#cb1-248"></a>        <span class="ex">cleanup</span></span>
-<span id="cb1-249"><a href="#cb1-249"></a>    <span class="kw">;;</span></span>
-<span id="cb1-250"><a href="#cb1-250"></a>    2<span class="kw">)</span> </span>
-<span id="cb1-251"><a href="#cb1-251"></a>        <span class="ex">uninstall</span></span>
-<span id="cb1-252"><a href="#cb1-252"></a>    <span class="kw">;;</span></span>
-<span id="cb1-253"><a href="#cb1-253"></a>    3<span class="kw">)</span> </span>
-<span id="cb1-254"><a href="#cb1-254"></a>        <span class="fu">bash</span> ./upbt.sh</span>
-<span id="cb1-255"><a href="#cb1-255"></a>    <span class="kw">;;</span></span>
-<span id="cb1-256"><a href="#cb1-256"></a>    q<span class="kw">)</span> </span>
-<span id="cb1-257"><a href="#cb1-257"></a>        <span class="bu">exit</span></span>
-<span id="cb1-258"><a href="#cb1-258"></a>    <span class="kw">;;</span></span>
-<span id="cb1-259"><a href="#cb1-259"></a>    *<span class="kw">)</span> <span class="bu">echo</span> <span class="st">&#39;参数错误！&#39;</span></span>
-<span id="cb1-260"><a href="#cb1-260"></a><span class="kw">esac</span></span></code></pre></div>
-<h2 id="使用方式">使用方式</h2>
-<p>下载 https://github.com/helloxz/ccaa/archive/v1.0.zip， 然后解压，将<code>ccaa.sh</code> 的内容修改为上述内容。</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">sudo</span> su <span class="co"># 切换为root</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">wget</span> https://github.com/helloxz/ccaa/archive/v1.0.zip</span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="fu">unzip</span> v1.0.zip</span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="co"># 然后修改 ccaa.sh 的内容并加上执行权限。</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="co"># 然后运行 ccaa.sh选择安装</span></span></code></pre></div>
+<p>注意：FileBrowser 2.1.0 版本有 Bug, 无法编辑文件，建议使用 2.0.16版本。</p>
+<pre class="line-numbers language-lang-bash"><code class="language-lang-bash">#!/bin/bash
+#####    一键安装Caddy + Aria2 + AriaNg        #####
+#####    作者：xiaoz.me                        #####
+#####    更新时间：2019-05-15                #####
+
+#导入环境变量
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/bin:/sbin
+export PATH
+aria_ver=1.35.0
+caddy_ver=2.0.0
+ariang_ver=1.1.6
+#安装之前的准备
+function setout(){
+    if [ -e "/usr/bin/yum" ]
+    then
+        yum -y install curl gcc gcc+ make bzip2
+    else
+        #更新软件，否则可能make命令无法安装
+        sudo apt-get update
+        sudo apt-get install -y curl make
+    fi
+}
+#安装Aria2
+function install_aria2(){
+    #yum -y update
+    #安装aria2静态编译版本，来源于https://github.com/q3aql/aria2-static-builds/
+    wget -c https://github.com/q3aql/aria2-static-builds/releases/download/v${aria_ver}/aria2-${aria_ver}-linux-gnu-64bit-build1.tar.bz2
+    tar jxvf aria2-${aria_ver}-linux-gnu-64bit-build1.tar.bz2
+    cd aria2-${aria_ver}-linux-gnu-64bit-build1
+    make install
+    cd ..
+}
+#安装caddy
+function install_caddy(){
+    #一键安装https://caddyserver.com/download/linux/amd64?plugins=http.filemanager&license=personal&telemetry=off
+    #curl https://getcaddy.com | bash -s personal http.filemanager
+    #安装caddy
+    wget https://github.com/caddyserver/caddy/releases/download/v${caddy_ver}/caddy_${caddy_ver}_linux_amd64.tar.gz -O caddy.tar.gz
+    tar -zxvf caddy.tar.gz
+    mv caddy /usr/sbin/
+    chmod +x /usr/sbin/caddy
+    #添加服务
+    #mv init/linux-systemd/caddy.service /lib/systemd/system
+    #chmod +x /lib/systemd/system/caddy.service
+    #开机启动
+    #systemctl enable caddy.service
+}
+function install_file_browser(){
+    #下载File Browser
+    wget https://github.com/filebrowser/filebrowser/releases/download/v2.0.16/linux-amd64-filebrowser.tar.gz
+    #解压
+    tar -zxvf linux-amd64-filebrowser.tar.gz
+    #移动位置
+    mv filebrowser /usr/sbin
+    cd
+}
+#处理配置文件
+function dealconf(){
+    #创建目录和文件
+    mkdir -p /etc/ccaa/
+    touch /etc/ccaa/aria2.session
+    touch /etc/ccaa/aria2.log
+    touch /etc/ccaa/caddy.log
+    cp aria2.conf /etc/ccaa/
+    cp caddy.conf /etc/ccaa/
+    cp upbt.sh /etc/ccaa/
+    chmod +x /etc/ccaa/upbt.sh
+    chmod +x ccaa
+    cp ccaa /usr/sbin
+}
+#自动放行端口
+function chk_firewall(){
+    if [ -e "/etc/sysconfig/iptables" ]
+    then
+        iptables -I INPUT -p tcp --dport 6080 -j ACCEPT
+        iptables -I INPUT -p tcp --dport 6800 -j ACCEPT
+        iptables -I INPUT -p tcp --dport 6998 -j ACCEPT
+        iptables -I INPUT -p tcp --dport 51413 -j ACCEPT
+        service iptables save
+        service iptables restart
+    elif [ -e "/etc/firewalld/zones/public.xml" ]
+    then
+        firewall-cmd --zone=public --add-port=6080/tcp --permanent
+        firewall-cmd --zone=public --add-port=6800/tcp --permanent
+        firewall-cmd --zone=public --add-port=6998/tcp --permanent
+        firewall-cmd --zone=public --add-port=51413/tcp --permanent
+        firewall-cmd --reload
+    elif [ -e "/etc/ufw/before.rules" ]
+    then
+        sudo ufw allow 6080/tcp
+        sudo ufw allow 6800/tcp
+        sudo ufw allow 6998/tcp
+        sudo ufw allow 51413/tcp
+    fi
+}
+#删除端口
+function del_post() {
+    if [ -e "/etc/sysconfig/iptables" ]
+    then
+        sed -i '/^.*6080.*/'d /etc/sysconfig/iptables
+        sed -i '/^.*6800.*/'d /etc/sysconfig/iptables
+        sed -i '/^.*6998.*/'d /etc/sysconfig/iptables
+        sed -i '/^.*51413.*/'d /etc/sysconfig/iptables
+        service iptables save
+        service iptables restart
+    elif [ -e "/etc/firewalld/zones/public.xml" ]
+    then
+        firewall-cmd --zone=public --remove-port=6080/tcp --permanent
+        firewall-cmd --zone=public --remove-port=6800/tcp --permanent
+        firewall-cmd --zone=public --remove-port=6998/tcp --permanent
+        firewall-cmd --zone=public --remove-port=51413/tcp --permanent
+        firewall-cmd --reload
+    elif [ -e "/etc/ufw/before.rules" ]
+    then
+        sudo ufw delete 6080/tcp
+        sudo ufw delete 6800/tcp
+        sudo ufw delete 6998/tcp
+        sudo ufw delete 51413/tcp
+    fi
+}
+#设置账号密码
+function setting(){
+    echo '-------------------------------------------------------------'
+    read -p "设置下载路径（请填写绝对地址，默认/data/ccaaDown）:" downpath
+    read -p "Aria2 RPC 密钥:(字母或数字组合，不要含有特殊字符):" secret
+    #如果Aria2密钥为空
+    while [ -z "${secret}" ]
+    do
+        read -p "Aria2 RPC 密钥:(字母或数字组合，不要含有特殊字符):" secret
+    done
+
+#     read -p "设置Caddy用户名:" caddyuser
+#     while [ -z "${caddyuser}" ]
+#     do
+#         read -p "设置Caddy用户名:" caddyuser
+#     done
+#     
+#     read -p "设置Caddy密码:" caddypass
+#     while [ -z "${caddypass}" ]
+#     do
+#         read -p "设置Caddy密码:" caddypass
+#     done
+    read -p "Filebrowser 域名地址：(filebrowser.example.com):" filebrowser_domain
+    while [ -z "${filebrowser_domain}" ]
+    do 
+        read -p "Filebrowser 域名地址：(filebrowser.example.com):" filebrowser_domain
+    done
+
+    read -p "AriaNg 面板域名地址：(aria.example.com):" ariang_domain
+    while [ -z "${ariang_domain}" ]
+    do
+        read -p "AriaNg 面板域名地址：(aria.example.com):" ariang_domain
+    done
+
+
+    #如果下载路径为空，设置默认下载路径
+    if [ -z "${downpath}" ]
+    then
+        downpath='/data/ccaaDown'
+    fi
+
+    #执行替换操作
+    mkdir -p ${downpath}
+    sed -i "s%dir=%dir=${downpath}%g" /etc/ccaa/aria2.conf
+    sed -i "s/rpc-secret=/rpc-secret=${secret}/g" /etc/ccaa/aria2.conf
+#     sed -i "s/username/${caddyuser}/g" /etc/ccaa/caddy.conf
+#     sed -i "s/password/${caddypass}/g" /etc/ccaa/caddy.conf
+#     sed -i "s%/home%${downpath}%g" /etc/ccaa/caddy.conf
+#     sed -i "s%/admin%/admin ${downpath}%g" /etc/ccaa/caddy.conf
+    #更新tracker
+    bash ./upbt.sh
+
+    #安装AriaNg
+    wget -O AriaNg.zip https://github.com/mayswind/AriaNg/releases/download/${ariang_ver}/AriaNg-${ariang_ver}.zip
+    unzip AriaNg.zip
+    sed -i 's|</ul></section></aside>|<li><a class="toolbar" title="文件管理" href="https://_filebrowser.example.com" target="_blank"><i class="fa fa-folder-o"></i> 文件管理</a></li>&|' AriaNg/index.html
+    sed -i "s/_filebrowser.example.com/${filebrowser_domain}/g"  AriaNg/index.html
+    cp -a AriaNg /etc/ccaa
+
+    #启动服务
+    nohup aria2c --conf-path=/etc/ccaa/aria2.conf > /etc/ccaa/aria2.log 2>&1 &
+    nohup caddy -conf="/etc/ccaa/caddy.conf" > /etc/ccaa/caddy.log 2>&1 &
+
+    #获取ip
+    osip=$(curl -4s https://api.ip.sb/ip)
+
+    echo '-------------------------------------------------------------'
+    echo "大功告成，请访问: http://${osip}:6080/"
+    echo '用户名:' ${caddyuser}
+    echo '密码:' ${caddypass}
+    echo 'Aria2 RPC 密钥:' ${secret}
+    echo '帮助文档: https://dwz.ovh/ccaa （必看）' 
+    echo '-------------------------------------------------------------'
+}
+#清理工作
+function cleanup(){
+    rm -rf *.zip
+    rm -rf *.gz
+    rm -rf *.txt
+    rm -rf aria2-1.3*
+    #rm -rf *.conf
+    rm -rf init
+}
+
+#卸载
+function uninstall(){
+    #停止所有服务
+    kill -9 $(pgrep 'aria2c')
+    kill -9 $(pgrep 'caddy')
+
+    #删除服务
+    #systemctl disable caddy.service
+    #rm -rf /lib/systemd/system/caddy.service
+    #删除文件
+    rm -rf /etc/ccaa
+    rm -rf /usr/sbin/caddy
+    rm -rf /usr/sbin/ccaa
+    rm -rf /usr/bin/aria2c
+    rm -rf aria2-1.*
+    rm -rf AriaNg*
+
+
+    rm -rf /usr/share/man/man1/aria2c.1
+    rm -rf /etc/ssl/certs/ca-certificates.crt
+    #删除端口
+    del_post
+    echo "------------------------------------------------"
+    echo '卸载完成！'
+    echo "------------------------------------------------"
+}
+
+#选择安装方式
+echo "------------------------------------------------"
+echo "Linux + Caddy + Aria2 + AriaNg一键安装脚本(CCAA)"
+echo "1) 安装CCAA"
+echo "2) 卸载CCAA"
+echo "3) 更新bt-tracker"
+echo "q) 退出！"
+read -p ":" istype
+case $istype in
+    1) 
+        setout
+        install_aria2 && \
+        install_caddy && \
+        dealconf && \
+        chk_firewall && \
+        setting && \
+        cleanup
+    ;;
+    2) 
+        uninstall
+    ;;
+    3) 
+        bash ./upbt.sh
+    ;;
+    q) 
+        exit
+    ;;
+    *) echo '参数错误！'
+esac
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><p>下载 <a href="https://github.com/helloxz/ccaa/archive/v1.0.zip，" target="_blank" rel="noopener">https://github.com/helloxz/ccaa/archive/v1.0.zip，</a> 然后解压，将<code>ccaa.sh</code> 的内容修改为上述内容。 </p>
+<pre class="line-numbers language-lang-bash"><code class="language-lang-bash">sudo su # 切换为root
+wget https://github.com/helloxz/ccaa/archive/v1.0.zip
+unzip v1.0.zip
+# 然后修改 ccaa.sh 的内容并加上执行权限。
+# 然后运行 ccaa.sh选择安装
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>安装完 ccaa 之后， 我们需要手动配置 <code>filebrowser</code></p>
 <pre><code>touch /etc/ccaa/filebrowser.db
-chmod 0777 -R /etc/ccaa/ # 用于解决权限问题</code></pre>
-<h3 id="配置-filebrowser">配置 filebrowser</h3>
-<pre><code>#创建并初始化数据库
+chmod 0777 -R /etc/ccaa/ # 用于解决权限问题
+</code></pre><h3 id="配置-filebrowser"><a href="#配置-filebrowser" class="headerlink" title="配置 filebrowser"></a>配置 filebrowser</h3><pre><code>#创建并初始化数据库
 filebrowser -d /etc/ccaa/filebrowser.db config init
 
 #设置filebrowser监听地址
@@ -730,11 +728,10 @@ filebrowser -d /etc/ccaa/filebrowser.db config set --locale zh-cn
 filebrowser -d /etc/ccaa/filebrowser.db config set --log /var/log/filebrowser.log
 
 #设置filebrowser Web控制台界面账号和密码 (root, 123456)
-filebrowser -d /etc/ccaa/filebrowser.db users add root 123456 --perm.admin</code></pre>
-<h3 id="修改网站配置">修改网站配置</h3>
-<p>如果你有域名，可以配置 https 访问。</p>
-<pre><code>vim /etc/ccaa/caddy.conf</code></pre>
-<pre><code>aria.example.com { # 你的 ariaNg 控制面板的域名
+filebrowser -d /etc/ccaa/filebrowser.db users add root 123456 --perm.admin
+</code></pre><h3 id="修改网站配置"><a href="#修改网站配置" class="headerlink" title="修改网站配置"></a>修改网站配置</h3><p>如果你有域名，可以配置 https 访问。</p>
+<pre><code>vim /etc/ccaa/caddy.conf
+</code></pre><pre><code>aria.example.com { # 你的 ariaNg 控制面板的域名
         root /etc/ccaa/AriaNg
         gzip
         #超时时间
@@ -747,19 +744,17 @@ filebrowser.example.com { # filebrowser 管理界面域名
         tls your_email@example.com # 你的邮件地址
         proxy / http://127.0.0.1:8099 # 注意端口号改成之前设置的 filebrowser 的端口号
 }
-</code></pre>
-<p>配置好之后，输入</p>
-<pre><code>/sbin/caddy -log stdout -agree=true -conf=/etc/ccaa/caddy.conf -root=/var/tmp -quic</code></pre>
-<p>查看 输出，会给你一个类似于 <code>https://acme-v02.api.letsencrypt.org/acme/authz-v3/440733xxx</code>的地址。复制里面的 <code>token</code> 的内容（不含引号），添加到域名的txt 记录里面,如</p>
-<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200507034356.png"></p>
+</code></pre><p>配置好之后，输入 </p>
+<pre><code>/sbin/caddy -log stdout -agree=true -conf=/etc/ccaa/caddy.conf -root=/var/tmp -quic
+</code></pre><p>查看 输出，会给你一个类似于 <code>https://acme-v02.api.letsencrypt.org/acme/authz-v3/440733xxx</code>的地址。复制里面的 <code>token</code> 的内容（不含引号），添加到域名的txt 记录里面,如</p>
+<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200507034356.png" alt></p>
 <p>其中，我的ariang 面板域名是 <code>aria.mydomain.suffix</code></p>
-<p>再次运行</p>
-<pre><code>/sbin/caddy -log stdout -agree=true -conf=/etc/ccaa/caddy.conf -root=/var/tmp -quic</code></pre>
-<p>看是否正常运行。</p>
-<h3 id="修改-ariang-面板">修改 AriaNg 面板</h3>
-<pre><code>sed -i &#39;s|http://server_ip:6081/|https://prefix.yourdomain.suffix|g&#39; etc/ccaa/AriaNg/index.html # 注意修改域名</code></pre>
-<h4 id="filebrowser-自启动文件">filebrowser 自启动文件</h4>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="ex">vim</span> /etc/systemd/system/filebrowser.service</span></code></pre></div>
+<p>再次运行 </p>
+<pre><code>/sbin/caddy -log stdout -agree=true -conf=/etc/ccaa/caddy.conf -root=/var/tmp -quic
+</code></pre><p>看是否正常运行。</p>
+<h3 id="修改-AriaNg-面板"><a href="#修改-AriaNg-面板" class="headerlink" title="修改 AriaNg 面板"></a>修改 AriaNg 面板</h3><pre><code>sed -i &#39;s|http://server_ip:6081/|https://prefix.yourdomain.suffix|g&#39; etc/ccaa/AriaNg/index.html # 注意修改域名
+</code></pre><h4 id="filebrowser-自启动文件"><a href="#filebrowser-自启动文件" class="headerlink" title="filebrowser 自启动文件"></a>filebrowser 自启动文件</h4><pre class="line-numbers language-lang-bash"><code class="language-lang-bash">vim /etc/systemd/system/filebrowser.service
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>输入以下内容</p>
 <pre><code>[Unit]
 Description=Filebrowser
@@ -769,10 +764,9 @@ After=network.target
 ExecStart=/usr/sbin/filebrowser -d /etc/ccaa/filebrowser.db
 
 [Install]
-WantedBy=multi-user.target</code></pre>
-<h3 id="caddy-自启动">caddy 自启动</h3>
-<pre><code>vim /etc/systemd/system/filebrowser.service</code></pre>
-<pre><code>[Unit]
+WantedBy=multi-user.target
+</code></pre><h3 id="caddy-自启动"><a href="#caddy-自启动" class="headerlink" title="caddy 自启动"></a>caddy 自启动</h3><pre><code>vim /etc/systemd/system/filebrowser.service
+</code></pre><pre><code>[Unit]
 Description=Caddy HTTP/2 web server
 Documentation=https://caddyserver.com/docs
 After=network-online.target
@@ -821,30 +815,26 @@ AmbientCapabilities=CAP_NET_BIND_SERVICE
 NoNewPrivileges=true
 
 [Install]
-WantedBy=multi-user.target</code></pre>
-<h4 id="aria2-自启动">aria2 自启动</h4>
-<pre><code>vim /etc/systemd/system/aria2.service </code></pre>
-<pre><code>Description=aria2
+WantedBy=multi-user.target
+</code></pre><h4 id="aria2-自启动"><a href="#aria2-自启动" class="headerlink" title="aria2 自启动"></a>aria2 自启动</h4><pre><code>vim /etc/systemd/system/aria2.service
+</code></pre><pre><code>Description=aria2
 After=network.target
 
 [Service]
 ExecStart=/usr/bin/aria2c --conf-path=/etc/ccaa/aria2.conf
 
 [Install]
-WantedBy=multi-user.target</code></pre>
-<h3 id="加载自启动文件">加载自启动文件</h3>
-<pre><code>systemctl daemon-reload 
+WantedBy=multi-user.target
+</code></pre><h3 id="加载自启动文件"><a href="#加载自启动文件" class="headerlink" title="加载自启动文件"></a>加载自启动文件</h3><pre><code>systemctl daemon-reload 
 systemctl start aria2.service
 systemctl start caddy.service
 systemctl start filebrowser.service
 
 systemctl enable aria2.service
 systemctl enable caddy.service
-systemctl enable filebrowser.service</code></pre>
-<p>可以使用 <code>systemctl status aria2</code>来查看 aria2 的运行状态。</p>
-<h1 id="附录">附录</h1>
-<h2 id="我的aria2.conf">我的<code>aria2.conf</code></h2>
-<pre><code>## Manjaro
+systemctl enable filebrowser.service
+</code></pre><p> 可以使用 <code>systemctl status aria2</code>来查看 aria2 的运行状态。</p>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="我的aria2-conf"><a href="#我的aria2-conf" class="headerlink" title="我的aria2.conf"></a>我的<code>aria2.conf</code></h2><pre><code>## Manjaro
 ## &#39;#&#39;开头为注释内容, 选项都有相应的注释说明, 根据需要修改 ##
 ## 被注释的选项填写的是默认值, 建议在需要修改时再取消注释  ##
 
@@ -979,19 +969,18 @@ force-save=false
 bt-save-metadata=true
 # trackers
 bt-tracker=udp://93.158.213.92:1337/announce,http://93.158.213.92:1337/announce,udp://188.241.58.209:6969/announce,udp://62.210.97.59:1337/announce,http://62.210.97.59:1337/announce,udp://151.80.120.114:2710/announce,udp://151.80.120.115:2710/announce,udp://208.83.20.20:6969/announce,udp://185.181.60.67:80/announce,udp://194.182.165.153:6969/announce,udp://37.235.174.46:2710/announce,udp://5.206.13.166:6969/announce,udp://89.234.156.205:451/announce,udp://92.223.105.178:6969/announce,udp://176.113.71.60:6961/announce,http://176.113.71.60:6961/announce,udp://207.241.226.111:6969/announce,udp://51.15.40.114:80/announce,udp://207.241.231.226:6969/announce,udp://184.105.151.164:6969/announce,http://184.105.151.164:6969/announce,udp://212.47.227.58:6969/announce,udp://31.210.170.169:2710/announce,udp://46.148.18.250:2710/announce,udp://51.15.55.204:1337/announce,udp://91.149.192.31:6969/announce,udp://5.226.148.20:6969/announce,udp://217.76.183.53:80/announce,udp://51.81.46.170:6969/announce,udp://46.148.18.254:2710/announce,http://51.15.55.204:1337/announce,http://51.81.46.170:6969/announce,udp://207.246.121.172:2000/announce,udp://62.171.179.41:80/announce,udp://212.1.226.176:2710/announce,udp://173.82.240.104:6969/announce,http://95.107.48.115:80/announce,udp://94.224.67.24:6969/announce,udp://51.158.23.91:6969/announce,udp://78.46.225.225:2710/announce,udp://194.26.183.158:6969/announce,udp://159.89.208.145:8866/announce,http://78.46.225.225:2710/announce,http://159.89.208.145:8866/announce,udp://103.196.36.31:6969/announce,udp://167.179.77.133:1/announce,udp://165.227.0.51:6969/announce,udp://222.84.65.27:6969/announce,udp://49.12.75.231:6969/announce,udp://78.30.254.12:2710/announce,udp://218.5.41.129:2710/announce,udp://80.211.26.119:9696/announce,http://122.116.144.108:80/announce,http://165.227.0.51:6969/announce,http://149.129.63.70:6969/announce,http://222.84.65.27:6969/announce,http://116.203.120.203:6969/announce,http://177.139.10.157:6969/announce,http://51.38.230.101:80/announce,http://54.39.179.91:6699/announce,http://78.30.254.12:2710/announce,http://51.79.71.167:80/announce,udp://182.150.53.61:8080/announce,udp://163.172.209.40:2710/announce,udp://176.113.68.67:6961/announce,udp://75.127.14.224:2710/announce,udp://52.58.128.163:6969/announce,udp://51.15.3.74:6969/announce,udp://139.99.100.97:8080/announce,http://182.150.53.61:8080/announce,http://176.113.68.67:6961/announce,http://54.37.106.164:80/announce
-</code></pre>
-<p>使用 https 时注意以下几行</p>
+</code></pre><p>使用 https 时注意以下几行</p>
 <pre><code># 启用加密后 RPC 服务需要使用 https 或者 wss 协议连接
 rpc-secure=true
 # 在 RPC 服务中启用 SSL/TLS 加密时的证书文件,
 # 使用 PEM 格式时，您必须通过 --rpc-private-key 指定私钥
 rpc-certificate=/root/.caddy/acme/acme-v02.api.letsencrypt.org/sites/aria.example.com/aria.example.com.crt
 # 在 RPC 服务中启用 SSL/TLS 加密时的私钥文件
-rpc-private-key=/root/.caddy/acme/acme-v02.api.letsencrypt.org/sites/aria.example.com/aria.example.com.key</code></pre>
-<p>这几行是 aria2 的口令</p>
+rpc-private-key=/root/.caddy/acme/acme-v02.api.letsencrypt.org/sites/aria.example.com/aria.example.com.key
+</code></pre><p>这几行是 aria2 的口令</p>
 <pre><code># 设置的RPC授权令牌, v1.18.4新增功能, 取代 --rpc-user 和 --rpc-passwd 选项
-rpc-secret=mypassword</code></pre>
-
+rpc-secret=mypassword
+</code></pre>
             </div>
             <hr/>
 
