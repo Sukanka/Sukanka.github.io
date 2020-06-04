@@ -407,7 +407,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    596
+                    503
                 </div>
                 
 
@@ -429,14 +429,13 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>背景:班主任下周要开一个一对一见面会,要根据同学们的时间安排先后顺序. <a id="more"></a> # 收集数据</p>
-<ul>
-<li>首先建一个excel表格,将93个候选时间排成一行,38个同学按学号排成一列,得到一个38$$93的矩阵.</li>
+                <p>背景:班主任下周要开一个一对一见面会,要根据同学们的时间安排先后顺序.<br><a id="more"></a></p>
+<h1 id="收集数据"><a href="#收集数据" class="headerlink" title="收集数据"></a>收集数据</h1><ul>
+<li>首先建一个excel表格,将93个候选时间排成一行,38个同学按学号排成一列,得到一个38$\times$93的矩阵.</li>
 <li>将表格共享,每个同学在自己有空的时间填1,无空的时间填0.</li>
-<li>回收表格.将得到的38$$93矩阵在Excel中命名为<code>data</code></li>
+<li>回收表格.将得到的38$\times$93矩阵在Excel中命名为<code>data</code></li>
 </ul>
-<h1 id="建立模型">建立模型</h1>
-<p>本模型只有约束条件,无目标函数.最终的安排也为一个38$$93矩阵</p>
+<h1 id="建立模型"><a href="#建立模型" class="headerlink" title="建立模型"></a>建立模型</h1><p>本模型只有约束条件,无目标函数.最终的安排也为一个38$\times$93矩阵</p>
 <ul>
 <li>每个同学只去一次,也必须去一次.</li>
 <li>每个时间最多只有一个同学去.</li>
@@ -444,29 +443,27 @@
 <li>去或不去是0,1变量,1表示去,0表示不去.</li>
 <li>(目标函数)期望同学们尽早去见面会.</li>
 </ul>
-<h1 id="数学化表达">数学化表达</h1>
-<h2 id="符号约定">符号约定</h2>
-<ul>
-<li><span class="math inline">\(\mathbf{C}=(c\_{ij})\_{38\times93}\)</span> 表示收集到的数据,其中<span class="math inline">\(c\_{ij}\in \{0,1\}\)</span></li>
-<li><span class="math inline">\(\mathbf{X}=(x\_{ij})\_{38\times93}\)</span> 表示最终的安排,其中<span class="math inline">\(x\_{ij}\in \{0,1\}\)</span></li>
+<h1 id="数学化表达"><a href="#数学化表达" class="headerlink" title="数学化表达"></a>数学化表达</h1><h2 id="符号约定"><a href="#符号约定" class="headerlink" title="符号约定"></a>符号约定</h2><ul>
+<li>$\mathbf{C}=(c_{ij})_{38\times93}$ 表示收集到的数据,其中$c_{ij}\in {0,1}$</li>
+<li>$\mathbf{X}=(x_{ij})_{38\times93}$ 表示最终的安排,其中$x_{ij}\in {0,1}$</li>
 </ul>
-<h2 id="约束条件">约束条件</h2>
-<ul>
+<h2 id="约束条件"><a href="#约束条件" class="headerlink" title="约束条件"></a>约束条件</h2><ul>
 <li><p>每个人只去一次,也必须去一次:</p>
-<p><span class="math display">\[ \sum\_{j=1}^{93}x\_{ij}=1 \]</span></p></li>
-<li><p>每个时间最多只有一个同学去: <span class="math display">\[ \sum\_{i=1}^{38}x\_{ij}\leqslant 1 \]</span></p></li>
-<li><p>每个同学只在自己有空的时间去: <span class="math display">\[ x\_{ij}\leqslant c\_{ij} \]</span></p></li>
-<li><p>目标函数,尽量早去 <span class="math display">\[ \min \sum\_{i,j}x\_{ij}*j \]</span></p></li>
+<script type="math/tex; mode=display">\sum\_{j=1}^{93}x\_{ij}=1</script></li>
+<li><p>每个时间最多只有一个同学去:</p>
+<script type="math/tex; mode=display">\sum\_{i=1}^{38}x\_{ij}\leqslant 1</script></li>
+<li><p>每个同学只在自己有空的时间去:</p>
+<script type="math/tex; mode=display">x\_{ij}\leqslant c\_{ij}</script></li>
+<li><p>目标函数,尽量早去</p>
+<script type="math/tex; mode=display">\min \sum\_{i,j}x\_{ij}*j</script></li>
 </ul>
-<h2 id="一些说明">一些说明</h2>
-<ul>
+<h2 id="一些说明"><a href="#一些说明" class="headerlink" title="一些说明"></a>一些说明</h2><ul>
 <li>LINGO不区分大小写</li>
 <li>LINGO 不区分&lt;和&lt;=,不区分&gt;和&gt;=,都视为包含等号.</li>
-<li>我事前把矩阵<span class="math inline">\(\mathbf{C}\)</span>对应的区域在EXCEL中取名为<code>data</code></li>
-<li>同时将另一个空白的38行,93列的区域命名为<code>data2</code> ,用于导出结果<span class="math inline">\(\mathbf{X}\)</span></li>
+<li>我事前把矩阵$\mathbf{C}$对应的区域在EXCEL中取名为<code>data</code></li>
+<li>同时将另一个空白的38行,93列的区域命名为<code>data2</code> ,用于导出结果$\mathbf{X}$</li>
 </ul>
-<h2 id="lingo-代码">LINGO 代码</h2>
-<pre class="lingo"><code>!模型:见面会安排;
+<h2 id="LINGO-代码"><a href="#LINGO-代码" class="headerlink" title="LINGO 代码"></a>LINGO 代码</h2><pre class="line-numbers language-lang-LINGO"><code class="language-lang-LINGO">!模型:见面会安排;
 sets:
 time/1..93/;
 student/1..38/;
@@ -475,20 +472,21 @@ timetable(student,time):c,x;
 endsets
 data:
 !导入数据将data的数据传输给C;
-c=@ole(&#39;D:\Users\ASUS\Desktop\data.xlsx&#39;,&#39;data&#39;);
+c=@ole('D:\Users\ASUS\Desktop\data.xlsx','data');
 !输出结果输出X到data2;
-@ole(&#39;D:\Users\ASUS\Desktop\data.xlsx&#39;,&#39;data2&#39;)=x;
+@ole('D:\Users\ASUS\Desktop\data.xlsx','data2')=x;
 enddata
 !期望尽早安排完;
 min= @sum(timetable(i,j):j*x(i,j));
 !只在有空的时间去;
-@for(timetable(i,j):x(i,j)&lt;= c(i,j));
+@for(timetable(i,j):x(i,j)<= c(i,j));
 !每个人只去一次;
 @for(student(i):@sum(time(j):x(i,j))=1);
 !每个时间最多有一个人;
-@for(time(j):@sum(student(i):x(i,j))&lt;=1);
+@for(time(j):@sum(student(i):x(i,j))<=1);
 !去或不去为0,1变量;
-@for(timetable(i,j):@bin(x(i,j)));</code></pre>
+@for(timetable(i,j):@bin(x(i,j)));
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -759,12 +757,9 @@ min= @sum(timetable(i,j):j*x(i,j));
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文记录了Fisher 信息量的两种等价计算方式. 
-说明
-本文积分以\(\int\)表示\(\int_{-\infty}^{+\infty}\) (主要原因是懒,请谅解.)
-Fisher 信息量
-定义
-设总体概率密度函数\(p(x;\th
+                            本文记录了Fisher 信息量的两种等价计算方式.
+说明本文积分以$\int$表示$\int_{-\infty}^{+\infty}$ (主要原因是懒,请谅解.)
+Fisher 信息量定义设总体概率密度函数$p(x;\theta),\the
                         
                     </div>
                     <div class="publish-info">
@@ -813,9 +808,9 @@ Fisher 信息量
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            当你成为大学生，拿到@edu.cn邮箱或者拿到学生证的时候，你就能享受到许多的教育优惠。当然高校老师也能享受很多优惠。  
-说明
-本文转自 https://github.com/ivmm/Student-resources 并基于其进行了修
+                            当你成为大学生，拿到@edu.cn邮箱或者拿到学生证的时候，你就能享受到许多的教育优惠。当然高校老师也能享受很多优惠。
+说明本文转自 https://github.com/ivmm/Student-resources 并基于其进行了修改。
+
                         
                     </div>
                     <div class="publish-info">
@@ -1034,7 +1029,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">19.8k</span>&nbsp;字
+                class="white-color">19.3k</span>&nbsp;字
             
             
             

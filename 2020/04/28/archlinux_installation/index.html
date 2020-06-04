@@ -433,8 +433,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="配置">配置</h1>
-<p>更新： 现在 Manjaro 已经可以进入图形界面，并且一切正常。但是 Arch 真香！</p>
+                <h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>更新： 现在 Manjaro 已经可以进入图形界面，并且一切正常。但是 Arch 真香！</p>
 <p>我有幸以6599返100E卡抢到了一台4800H+2060的天选，之前想要安装 Manjaro, 但是LiveCD始终进入不了图形界面，因而放弃，转而选择了ArchLinux. 详细配置如下</p>
 <pre><code>$ neofetch   
 --------------------------------------------------------------------------------------
@@ -456,21 +455,17 @@
    `/ossssso+/:-        -:/+osssso+-     CPU: AMD Ryzen 7 4800H with Radeon Graphics (16) @ 2.900GHz 
   `+sso+:-`                 `.-/+oso:    GPU: AMD ATI 06:00.0 Renoir 
  `++:.                           `-/+/   GPU: NVIDIA 01:00.0 NVIDIA Corporation Device 1f15 
- .`                                 `/   Memory: 2492MiB / 31594MiB </code></pre>
-<p>首先我参考了<a href="https://www.viseator.com/2017/05/17/arch_install/" target="_blank" rel="noopener">以官方Wiki的方式安装ArchLinux</a></p>
+ .`                                 `/   Memory: 2492MiB / 31594MiB
+</code></pre><p>首先我参考了<a href="https://www.viseator.com/2017/05/17/arch_install/" target="_blank" rel="noopener">以官方Wiki的方式安装ArchLinux</a></p>
 <p>安装上了 ArchLinux, 需要注意的是，天选是 nvme的固态硬盘，因而没有<code>/dev/sda</code> 之类的，而是 <code>/dev/nvme0n1</code></p>
-<h1 id="图形界面">图形界面</h1>
-<p>参照 <a href="https://www.viseator.com/2017/05/19/arch_setup/" target="_blank" rel="noopener">ArchLinux安装后的必须配置与图形界面安装教程</a></p>
-<h2 id="常用软件">常用软件</h2>
-<p>这部分记录自己常用的软件。其中 <code>texlive</code> 实际安装的是从<a href="https://tug.org/" target="_blank" rel="noopener">TeX Users Group</a> 下载的最新版本，之后安装<code>texlive-dummy</code>让 Arch 认为 <code>texlive</code> 已经安装。</p>
+<h1 id="图形界面"><a href="#图形界面" class="headerlink" title="图形界面"></a>图形界面</h1><p>参照 <a href="https://www.viseator.com/2017/05/19/arch_setup/" target="_blank" rel="noopener">ArchLinux安装后的必须配置与图形界面安装教程</a></p>
+<h2 id="常用软件"><a href="#常用软件" class="headerlink" title="常用软件"></a>常用软件</h2><p>这部分记录自己常用的软件。其中 <code>texlive</code> 实际安装的是从<a href="https://tug.org/" target="_blank" rel="noopener">TeX Users Group</a> 下载的最新版本，之后安装<code>texlive-dummy</code>让 Arch 认为 <code>texlive</code> 已经安装。</p>
 <pre><code>$ yay  -Qqe
 -----------------------------------------------------------------------------------
-amd-ucode anaconda android-sdk android-sdk-platform-tools archlinuxcn-keyring aria2 ark autoconf automake base bbswitch-ati-dkms-git bind-tools binutils bison ca-certificates clash cuda dialog dmidecode dnsmasq dolphin  efibootmgr fakeroot fcitx-baidupinyin fcitx-cloudpinyin file filelight findutils flameshot flex flutter-beta freerdp gawk gcc gettext gimp gnome-keyring google-chrome grep groff grub gwenview gzip inetutils inkscape inxi iptables-nft julia  kamoso kate kcm-fcitx kcron   kdeconnect  kdenlive  krdc krfb  ksystemlog  latte-dock libdbusmenu-glib   libtool linux linux-firmware m4 make mathpix-snipping-tool  mpv namcap neofetch net-tools netease-cloud-music network-manager-applet networkmanager nodejs-lts-erbium npm ntfs-3g nvidia okular opencc optimus-manager-amd-git os-prober  p7zip pacman pamac-aur pandoc pandoc-citeproc pandoc-crossref patch peek perl-tk picgo-appimage pkgconf plasma  proxychains-ng qemu qq-linux qt5-imageformats r samba  sed spectacle strace sudo systemd-kcm systemd-shutdown-diagnose  texinfo texlive-dummy tk typora unrar  vim virt-manager visual-studio-code-bin wget which wpa_supplicant wps-office-cn  xf86-video-amdgpu xf86-video-fbdev xorg yakuake yay zotero zsh </code></pre>
-<h2 id="双显卡方案">双显卡方案</h2>
-<p>我以前用的 <code>Bumblebee</code> 但是听说性能不行，后来换了 <code>optimus-manager</code> 由于是 AMD处理器，应该使用 <code>optimus-manager-amd-git</code><span class="math inline">\(^{\text{AUR}}\)</span> ，同时该包依赖的 <code>bbswitch</code> 也需要换成 <code>bbswitch-ati-git</code><span class="math inline">\(^{\text{AUR}}\)</span></p>
+amd-ucode anaconda android-sdk android-sdk-platform-tools archlinuxcn-keyring aria2 ark autoconf automake base bbswitch-ati-dkms-git bind-tools binutils bison ca-certificates clash cuda dialog dmidecode dnsmasq dolphin  efibootmgr fakeroot fcitx-baidupinyin fcitx-cloudpinyin file filelight findutils flameshot flex flutter-beta freerdp gawk gcc gettext gimp gnome-keyring google-chrome grep groff grub gwenview gzip inetutils inkscape inxi iptables-nft julia  kamoso kate kcm-fcitx kcron   kdeconnect  kdenlive  krdc krfb  ksystemlog  latte-dock libdbusmenu-glib   libtool linux linux-firmware m4 make mathpix-snipping-tool  mpv namcap neofetch net-tools netease-cloud-music network-manager-applet networkmanager nodejs-lts-erbium npm ntfs-3g nvidia okular opencc optimus-manager-amd-git os-prober  p7zip pacman pamac-aur pandoc pandoc-citeproc pandoc-crossref patch peek perl-tk picgo-appimage pkgconf plasma  proxychains-ng qemu qq-linux qt5-imageformats r samba  sed spectacle strace sudo systemd-kcm systemd-shutdown-diagnose  texinfo texlive-dummy tk typora unrar  vim virt-manager visual-studio-code-bin wget which wpa_supplicant wps-office-cn  xf86-video-amdgpu xf86-video-fbdev xorg yakuake yay zotero zsh
+</code></pre><h2 id="双显卡方案"><a href="#双显卡方案" class="headerlink" title="双显卡方案"></a>双显卡方案</h2><p>我以前用的 <code>Bumblebee</code> 但是听说性能不行，后来换了 <code>optimus-manager</code> 由于是 AMD处理器，应该使用 <code>optimus-manager-amd-git</code>$^{\text{AUR}}$ ，同时该包依赖的 <code>bbswitch</code> 也需要换成 <code>bbswitch-ati-git</code>$^{\text{AUR}}$</p>
 <p>具体配置可以看 <a href="https://blog.edward-p.xyz/optimus-manager/" target="_blank" rel="noopener">使用 optimus-manager 来管理显卡切换</a>。</p>
-<h2 id="屏幕撕裂问题">屏幕撕裂问题</h2>
-<p>我的各种驱动装好后，开机过了一会儿之后，屏幕左下角会出现闪屏，在设置里面将屏幕刷新率设置成60Hz 之后就好了。实际上并没有解决这个问题。</p>
+<h2 id="屏幕撕裂问题"><a href="#屏幕撕裂问题" class="headerlink" title="屏幕撕裂问题"></a>屏幕撕裂问题</h2><p>我的各种驱动装好后，开机过了一会儿之后，屏幕左下角会出现闪屏，在设置里面将屏幕刷新率设置成60Hz 之后就好了。实际上并没有解决这个问题。</p>
 
             </div>
             <hr/>
@@ -783,8 +778,7 @@ amd-ucode anaconda android-sdk android-sdk-platform-tools archlinuxcn-keyring ar
                     <div class="summary block-with-text">
                         
                             本文主要介绍使用在 Windows 系统中 MS Word 配合 Citavi 进行论文写作和文献管理的小技巧。
-图表的交叉引用
-对于 Word 中插入的图表，在正文写作时可能需要对图表进行交叉引用，比如“由图 1 知”、“由表 2 可得”
+图表的交叉引用对于 Word 中插入的图表，在正文写作时可能需要对图表进行交叉引用，比如“由图 1 知”、“由表 2 可得”。
                         
                     </div>
                     <div class="publish-info">
@@ -806,16 +800,16 @@ amd-ucode anaconda android-sdk android-sdk-platform-tools archlinuxcn-keyring ar
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Word/">
-                        <span class="chip bg-color">Word</span>
-                    </a>
-                    
                     <a href="/tags/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/">
                         <span class="chip bg-color">论文写作</span>
                     </a>
                     
                     <a href="/tags/%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86/">
                         <span class="chip bg-color">文献管理</span>
+                    </a>
+                    
+                    <a href="/tags/Word/">
+                        <span class="chip bg-color">Word</span>
                     </a>
                     
                 </div>
@@ -1014,7 +1008,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">19.8k</span>&nbsp;字
+                class="white-color">19.3k</span>&nbsp;字
             
             
             

@@ -407,7 +407,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    939
+                    935
                 </div>
                 
 
@@ -429,55 +429,59 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>昨天偶然看见了Julia 的一篇介绍,介绍中有一段话使我开始对Julia 感兴趣起来 &gt; 一群拥有各种语言丰富编程经验的Matlab高级用户，对现有的科学计算编程工具感到不满——这些软件对自己专长的领域表现得非常棒，但在其它领域却非常糟糕。他们想要的是一个开源的软件，它要像C语言一般快速而有拥有如同Ruby的动态性；要具有Lisp般真正的同像性而又有Matlab般熟悉的数学记号；要像Python般通用、像R般在统计分析上得心应手、像Perl般自然地处理字符串、像Matlab般具有强大的线性代数运算能力、像shell般胶水语言的能力，易于学习而又不让真正的黑客感到无聊；还有，它应该是交互式的，同时又是编译型的…… <a id="more"></a> 2018-11-10 更新: 增加Julia 安装PyCall而不自动装Miniconda. bilibili 有个讲julia 的<a href="https://www.bilibili.com/video/av28178443/" target="_blank" rel="noopener">视频</a>讲得挺好的,可惜没出第二期.</p>
-<p>Julia 的快速、通用、还有强大的线性代数运算能力，以及熟悉的数学符号 吸引了我. （<del>其实我以前只接触过 Matlab, Python, 还有C++, 每个还都只是半吊子</del>）</p>
-<p>因此我马上就去下载了Julia 的安装软件(最新的1.0.0稳定版），安装完毕之后当然是要让我最常用的Jupyter 支持Julia了.于是谷歌之，还发现了Jupyter名字的来源: Julia, Python, R</p>
+                <p>昨天偶然看见了Julia 的一篇介绍,介绍中有一段话使我开始对Julia 感兴趣起来</p>
 <blockquote>
-<p>While Jupyter's roots are in Python (it evolved from IPython Notebooks), it is now multi-lingual. The name itself comes from three languages: Ju(lia) + Py(thon) + (e)R.</p>
+<p>一群拥有各种语言丰富编程经验的Matlab高级用户，对现有的科学计算编程工具感到不满——这些软件对自己专长的领域表现得非常棒，但在其它领域却非常糟糕。他们想要的是一个开源的软件，它要像C语言一般快速而有拥有如同Ruby的动态性；要具有Lisp般真正的同像性而又有Matlab般熟悉的数学记号；要像Python般通用、像R般在统计分析上得心应手、像Perl般自然地处理字符串、像Matlab般具有强大的线性代数运算能力、像shell般胶水语言的能力，易于学习而又不让真正的黑客感到无聊；还有，它应该是交互式的，同时又是编译型的……<br><a id="more"></a><br>2018-11-10 更新: 增加Julia 安装PyCall而不自动装Miniconda. bilibili 有个讲julia 的<a href="https://www.bilibili.com/video/av28178443/" target="_blank" rel="noopener">视频</a>讲得挺好的,可惜没出第二期. </p>
+</blockquote>
+<p>Julia 的快速、通用、还有强大的线性代数运算能力，以及熟悉的数学符号 吸引了我. （<del>其实我以前只接触过 Matlab, Python, 还有C++, 每个还都只是半吊子</del>）</p>
+<p>因此我马上就去下载了Julia 的安装软件(最新的1.0.0稳定版），安装完毕之后当然是要让我最常用的Jupyter 支持Julia了.于是谷歌之，还发现了Jupyter名字的来源:   Julia, Python, R</p>
+<blockquote>
+<p>While Jupyter’s roots are in Python (it evolved from IPython Notebooks), it is now multi-lingual. The name itself comes from three languages: Ju(lia) + Py(thon) + (e)R.</p>
 </blockquote>
 <p>然后找到了<a href="https://github.com/JuliaLang/IJulia.jl" target="_blank" rel="noopener">IJulia</a>, 根据说明文档来一步步安装Ijulia. 由于我已经安装了Anaconda, 自然是不想再多装一个jupyter.因此我的步骤是:</p>
-<ol type="1">
+<ol>
 <li>打开 anaconda prompt, 输入 <code>where jupyter</code> 查询下我的jupyter 安装在哪了，得到<code>C:\ProgramData\Anaconda3\Scripts\jupyter.exe</code></li>
-<li>复制得到的路径，先粘贴到记事本备用，将<code>\</code>改为<code>\\</code>，得到`<code>C:\\ProgramData\\Anaconda3\\Scripts\\jupyter.exe</code>（<del>我用的是notepad++</del>）</li>
+<li>复制得到的路径，先粘贴到记事本备用，将<code>\</code>改为<code>\\</code>，得到<code>`C:\\ProgramData\\Anaconda3\\Scripts\\jupyter.exe</code>（<del>我用的是notepad++</del>）</li>
 <li>打开 Julia,输入以下代码</li>
 </ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">import</span> Pkg <span class="co">#Julia 下的包管理器，类似于python的pip</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="cn">ENV</span>[<span class="st">&quot;JUPYTER&quot;</span>]<span class="op">=</span><span class="st">&quot;C:</span><span class="sc">\\</span><span class="st">ProgramData</span><span class="sc">\\</span><span class="st">Anaconda3</span><span class="sc">\\</span><span class="st">Scripts</span><span class="sc">\\</span><span class="st">jupyter&quot;</span> </span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># 刚刚得到的jupyter 路径，注意是\\,注意没有.exe</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># 如果你将jupyter 加入到了系统路径，那么输入 ENV[&quot;JUPYTER&quot;]=&quot;jupyter&quot; 也可以</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a>Pkg.add(<span class="st">&quot;IJulia&quot;</span>)</span>
-<span id="cb1-6"><a href="#cb1-6"></a>Pkg.build(<span class="st">&quot;IJulia&quot;</span>)</span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="kw">using</span> IJulia</span>
-<span id="cb1-8"><a href="#cb1-8"></a>notebook()</span></code></pre></div>
+<pre class="line-numbers language-lang-Julia"><code class="language-lang-Julia">import Pkg #Julia 下的包管理器，类似于python的pip
+ENV["JUPYTER"]="C:\\ProgramData\\Anaconda3\\Scripts\\jupyter" 
+# 刚刚得到的jupyter 路径，注意是\\,注意没有.exe
+# 如果你将jupyter 加入到了系统路径，那么输入 ENV["JUPYTER"]="jupyter" 也可以
+Pkg.add("IJulia")
+Pkg.build("IJulia")
+using IJulia
+notebook()
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>我按照上面的步骤弄好之后，进入到了jupyter 界面，新建一个Julia文档， 然后输入一个简单的计算<code>1+1</code> 结果一直没有反馈。当然，用jupyter lab 也不行，即使是kernel idle 状态也不能。</p>
-<figure>
-<img src="/2018/08/20/about_julia/ju.png" alt><figcaption>jupyter notebook</figcaption>
-</figure>
-<p>本着不服输的精神，我又开始疯狂搜索相关的提问，终于在Ijulia 的 issue里面找到了解决方案，原链接在<a href="https://github.com/JuliaLang/IJulia.jl/issues/693" target="_blank" rel="noopener">这里</a></p>
+<p><img src="/2018/08/20/about_julia/ju.png" alt="jupyter notebook"></p>
+<p>本着不服输的精神，我又开始疯狂搜索相关的提问，终于在Ijulia 的 issue里面找到了解决方案，原链接在<a href="https://github.com/JuliaLang/IJulia.jl/issues/693" target="_blank" rel="noopener">这里</a> </p>
 <p>具体的做法是：</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1"></a>julia<span class="op">&gt;</span> <span class="kw">import</span> Pkg</span>
-<span id="cb2-2"><a href="#cb2-2"></a>(v1<span class="fl">.0</span>) pkg<span class="op">&gt;</span> add IJulia</span>
-<span id="cb2-3"><a href="#cb2-3"></a>julia<span class="op">&gt;</span> <span class="cn">ENV</span>[<span class="st">&quot;IJULIA_DEBUG&quot;</span>] <span class="op">=</span> <span class="ex">true</span> </span>
-<span id="cb2-4"><a href="#cb2-4"></a>(v1<span class="fl">.0</span>) pkg<span class="op">&gt;</span> dev IJulia </span>
-<span id="cb2-5"><a href="#cb2-5"></a>(v1<span class="fl">.0</span>) pkg<span class="op">&gt;</span> build IJulia</span></code></pre></div>
+<pre class="line-numbers language-lang-Julia"><code class="language-lang-Julia">julia> import Pkg
+(v1.0) pkg> add IJulia
+julia> ENV["IJULIA_DEBUG"] = true 
+(v1.0) pkg> dev IJulia 
+(v1.0) pkg> build IJulia
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>其中，在julia 的console 里面按<code>]</code>即可切换到 <code>(v1.0) pkg&gt;</code>,再按backspace 键即可切换回 <code>julia&gt;</code></p>
 <p>最后输入</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">using</span> IJulia</span>
-<span id="cb3-2"><a href="#cb3-2"></a>notebook()</span></code></pre></div>
+<pre class="line-numbers language-lang-Julia"><code class="language-lang-Julia">using IJulia
+notebook()
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>即可， 此后就可以通过powershell 直接输入 <code>jupyter lab</code> 打开jupyterlab 了, 并且可以正常使用julia 的功能。</p>
-<figure>
-<img src="/2018/08/20/about_julia/ju2.png" alt><figcaption>julia in jupyterlab</figcaption>
-</figure>
+<p><img src="/2018/08/20/about_julia/ju2.png" alt="julia in jupyterlab"></p>
 <p>Julia 还可以调用Python, 这可以通过PyCall 库来实现,如果直接</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">using</span> Pkg</span>
-<span id="cb4-2"><a href="#cb4-2"></a>Pkg.add(<span class="st">&quot;PyCall&quot;</span>)</span>
-<span id="cb4-3"><a href="#cb4-3"></a>Pkg.build(<span class="st">&quot;PyCall&quot;</span>)</span></code></pre></div>
+<pre class="line-numbers language-lang-Julia"><code class="language-lang-Julia">using Pkg
+Pkg.add("PyCall")
+Pkg.build("PyCall")
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>会安装一个MiniConda, 但是我已经有Anaconda 了,不需要miniconda</p>
 <p>因此只需要事先指定python的路径就好了,查询python 路径得方法和查询jupyter 得方法是一样的.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1"></a><span class="cn">ENV</span>[<span class="st">&quot;PYTHON&quot;</span>]<span class="op">=</span><span class="st">&quot;C:</span><span class="sc">\\</span><span class="st">ProgramData</span><span class="sc">\\</span><span class="st">Anaconda3</span><span class="sc">\\</span><span class="st">python&quot;</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">using</span> Pkg</span>
-<span id="cb5-3"><a href="#cb5-3"></a>Pkg.add(<span class="st">&quot;PyCall&quot;</span>)</span>
-<span id="cb5-4"><a href="#cb5-4"></a>Pkg.build(<span class="st">&quot;PyCall&quot;</span>)</span></code></pre></div>
+<pre class="line-numbers language-lang-Julia"><code class="language-lang-Julia">ENV["PYTHON"]="C:\\ProgramData\\Anaconda3\\python"
+using Pkg
+Pkg.add("PyCall")
+Pkg.build("PyCall")
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这样就不会安装miniconda了.</p>
 <p>最后，希望我能 <del>学好Julia</del> 坚持学得久一点</p>
 
@@ -795,12 +799,9 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文记录了Fisher 信息量的两种等价计算方式. 
-说明
-本文积分以\(\int\)表示\(\int_{-\infty}^{+\infty}\) (主要原因是懒,请谅解.)
-Fisher 信息量
-定义
-设总体概率密度函数\(p(x;\th
+                            本文记录了Fisher 信息量的两种等价计算方式.
+说明本文积分以$\int$表示$\int_{-\infty}^{+\infty}$ (主要原因是懒,请谅解.)
+Fisher 信息量定义设总体概率密度函数$p(x;\theta),\the
                         
                     </div>
                     <div class="publish-info">
@@ -1015,7 +1016,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">19.8k</span>&nbsp;字
+                class="white-color">19.3k</span>&nbsp;字
             
             
             

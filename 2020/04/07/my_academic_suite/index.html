@@ -368,14 +368,6 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/">
-                                <span class="chip bg-color">论文写作</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86/">
-                                <span class="chip bg-color">文献管理</span>
-                            </a>
-                        
                             <a href="/tags/LaTeX/">
                                 <span class="chip bg-color">LaTeX</span>
                             </a>
@@ -386,6 +378,14 @@
                         
                             <a href="/tags/VSCode/">
                                 <span class="chip bg-color">VSCode</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/">
+                                <span class="chip bg-color">论文写作</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86/">
+                                <span class="chip bg-color">文献管理</span>
                             </a>
                         
                     </div>
@@ -423,14 +423,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1,510
+                    1,502
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    5 分
                 </div>
                 
 
@@ -445,51 +445,42 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>在平时的论文写作中，如果能够事先将工具配置好能够节省非常多的精力。本文介绍 <span class="math inline">\(\LaTeX\)</span> 配合 VSCode 和 Zotero 进行论文写作和文献管理。</p>
-<h1 id="tex-套装配置"><span class="math inline">\(\TeX\)</span> 套装配置</h1>
-<h2 id="套装选择">套装选择</h2>
-<p>Windows 和 Linux 推荐使用 TeXLive, 截至目前，最新的 TeXLive 2020版已于 4月10日发布。Mac 推荐使用MacTeX。 都推荐安装完整版，这样不用每次都去下载需要的包。安装教程可以看<a href="https://www.tug.org/texlive/doc/texlive-zh-cn/texlive-zh-cn.pdf" target="_blank" rel="noopener"><span class="math inline">\(\TeX\)</span> <em>Live</em> 指南—2020</a>。</p>
-<h2 id="vscode-latex-配置">VSCode LaTeX 配置</h2>
-<h3 id="latexworkshop-插件">LaTeXWorkshop 插件</h3>
-<p>编辑器个人推荐使用 VSCode, VSCode 是一款便捷强大的编辑器，界面也十分美观，它的 <a href="https://github.com/James-Yu/LaTeX-Workshop" target="_blank" rel="noopener"><span class="math inline">\(\LaTeX\)</span>-WorkShop</a> 插件提供了 <span class="math inline">\(\LaTeX\)</span> 支持，它提供了代码高亮、自动补全、自定义代码片段、编译链、正向跳转、逆向跳转等功能。</p>
-<p>VSCode 还可以为不同的工作区应用不同的设置，因此在写 <span class="math inline">\(\LaTeX\)</span> 时，我们可以为工作区禁用 Python、CodeRunner 等不需要的插件。</p>
-<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200407234822.gif"></p>
+                <p>在平时的论文写作中，如果能够事先将工具配置好能够节省非常多的精力。本文介绍 $\LaTeX$ 配合 VSCode 和 Zotero 进行论文写作和文献管理。</p>
+<h1 id="TeX-套装配置"><a href="#TeX-套装配置" class="headerlink" title="$\TeX$ 套装配置"></a>$\TeX$ 套装配置</h1><h2 id="套装选择"><a href="#套装选择" class="headerlink" title="套装选择"></a>套装选择</h2><p>Windows 和 Linux 推荐使用 TeXLive, 截至目前，最新的 TeXLive 2020版已于 4月10日发布。Mac 推荐使用MacTeX。 都推荐安装完整版，这样不用每次都去下载需要的包。安装教程可以看<a href="https://www.tug.org/texlive/doc/texlive-zh-cn/texlive-zh-cn.pdf" target="_blank" rel="noopener">$\TeX$ <em>Live</em> 指南—2020</a>。</p>
+<h2 id="VSCode-LaTeX-配置"><a href="#VSCode-LaTeX-配置" class="headerlink" title="VSCode LaTeX 配置"></a>VSCode LaTeX 配置</h2><h3 id="LaTeXWorkshop-插件"><a href="#LaTeXWorkshop-插件" class="headerlink" title="LaTeXWorkshop 插件"></a>LaTeXWorkshop 插件</h3><p>编辑器个人推荐使用 VSCode, VSCode 是一款便捷强大的编辑器，界面也十分美观，它的 <a href="https://github.com/James-Yu/LaTeX-Workshop" target="_blank" rel="noopener">$\LaTeX$-WorkShop</a> 插件提供了 $\LaTeX$ 支持，它提供了代码高亮、自动补全、自定义代码片段、编译链、正向跳转、逆向跳转等功能。</p>
+<p>VSCode 还可以为不同的工作区应用不同的设置，因此在写 $\LaTeX$ 时，我们可以为工作区禁用 Python、CodeRunner 等不需要的插件。</p>
+<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200407234822.gif" alt></p>
 <p>编译链配置可以参考 <a href="https://zhuanlan.zhihu.com/p/38178015" target="_blank" rel="noopener">使用VSCode编写LaTeX</a>。</p>
 <p>在实际中经常用到的编译工具主要有编译文档的pdflatex, xelatex 和编译bib文件的 bibtex 和bier。 如果把各种常用情形都考虑在内至少需要6种编译链。实际上，在tex 文档设置好了编译工具之后，可以通过快捷键编译而不需要手动选择编译链。</p>
-<p>在你的 <span class="math inline">\(\TeX\)</span> 主文件的最开头设置好编译工具，如下面的命令指定了使用 xelatex 来编译文档，biber 来编译bib文件，然后在 tex 文档中使用 快捷键调起 <code>TeXMagicProgramWithArgs</code> 就可以编译。</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">%!TEX program = xelatex</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="co">%!BIB program = biber</span></span></code></pre></div>
-<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200408000033.png"></p>
+<p>在你的 $\TeX$ 主文件的最开头设置好编译工具，如下面的命令指定了使用 xelatex 来编译文档，biber 来编译bib文件，然后在 tex 文档中使用 快捷键调起 <code>TeXMagicProgramWithArgs</code> 就可以编译。</p>
+<pre class="line-numbers language-lang-latex"><code class="language-lang-latex">%!TEX program = xelatex
+%!BIB program = biber
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200408000033.png" alt></p>
 <p>下面是我常用的一些快捷方式</p>
 <ul>
 <li>使用<code>TeXMagicProgramWithArgs</code>编译： Ctrl+Alt+B</li>
 <li>正向跳转：Ctrl+Alt+J</li>
 <li>逆向跳转（pdf 到 tex): Ctrl+Click</li>
 </ul>
-<p><span class="math inline">\(\LaTeX\)</span>-WorkShop 插件还提供了各种各样的代码片段，例如可以使用 <code>\equation</code> 产生</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">\begin</span>{<span class="ex">equation</span>}</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="ss">    </span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">\end</span>{<span class="ex">equation</span>}</span></code></pre></div>
-<p>此外还有 <code>\figure</code> 等代码片段用于插入图片。插入表格虽然有 <code>\table</code> 代码片段但是仍然比较麻烦，推荐先在 Excel 做好表格，然后使用 <a href="https://github.com/krlmlr/Excel2LaTeX" target="_blank" rel="noopener">Excel2LaTeX</a> 或者 <a href="https://www.tablesgenerator.com/latex_tables" target="_blank" rel="noopener">LaTeX Tables Generator 网站</a>将Excel 表格转换成 <span class="math inline">\(\LaTeX\)</span> 表格并粘贴。</p>
-<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200408000432.gif"></p>
-<h3 id="其他插件">其他插件</h3>
-<ul>
+<p>$\LaTeX$-WorkShop 插件还提供了各种各样的代码片段，例如可以使用 <code>\equation</code> 产生</p>
+<pre class="line-numbers language-lang-latex"><code class="language-lang-latex">\begin{equation}
+
+\end{equation}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>此外还有 <code>\figure</code> 等代码片段用于插入图片。插入表格虽然有 <code>\table</code> 代码片段但是仍然比较麻烦，推荐先在 Excel 做好表格，然后使用 <a href="https://github.com/krlmlr/Excel2LaTeX" target="_blank" rel="noopener">Excel2LaTeX</a> 或者 <a href="https://www.tablesgenerator.com/latex_tables" target="_blank" rel="noopener">LaTeX Tables Generator 网站</a>将Excel 表格转换成 $\LaTeX$ 表格并粘贴。</p>
+<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200408000432.gif" alt></p>
+<h3 id="其他插件"><a href="#其他插件" class="headerlink" title="其他插件"></a>其他插件</h3><ul>
 <li><a href="https://github.com/tecosaur/LaTeX-Utilities" target="_blank" rel="noopener">LaTeX Utilities</a>: 提供字数统计、zotero交互等功能</li>
-<li><a href="https://github.com/valentjn/vscode-ltex" target="_blank" rel="noopener">LTeX</a> : 为<span class="math inline">\(\LaTeX\)</span> 和 Markdown 提供拼写检查、语法检查等功能, 需要与 LTeX - Chinese support 、LTeX - English support 等语言扩展一起使用。</li>
+<li><a href="https://github.com/valentjn/vscode-ltex" target="_blank" rel="noopener">LTeX</a> : 为$\LaTeX$ 和 Markdown 提供拼写检查、语法检查等功能, 需要与 LTeX - Chinese support 、LTeX - English support 等语言扩展一起使用。</li>
 </ul>
-<h1 id="zotero">Zotero</h1>
-<p><strong>Zotero</strong> <a href="https://zh.wikipedia.org/wiki/Help:英語國際音標" target="_blank" rel="noopener">/zoʊˈtɛroʊ/</a>是一款<a href="https://zh.wikipedia.org/wiki/自由及开放源代码软件" target="_blank" rel="noopener">自由及开放源代码</a>的<a href="https://zh.wikipedia.org/wiki/文献管理软件" target="_blank" rel="noopener">文献管理软件</a>，管理书目信息（如作者、标题、出版社、摘要、阅读笔记等）及相关材料（如<a href="https://zh.wikipedia.org/wiki/PDF" target="_blank" rel="noopener">PDF</a>文件等)。其最著名的特性是作为浏览器插件、在线同步、与文档编辑软件如<a href="https://zh.wikipedia.org/wiki/Microsoft_Word" target="_blank" rel="noopener">Microsoft Word</a>、<a href="https://zh.wikipedia.org/wiki/LibreOffice" target="_blank" rel="noopener">LibreOffice</a>、<a href="https://zh.wikipedia.org/wiki/OpenOffice.org_Writer" target="_blank" rel="noopener">OpenOffice.org Writer</a>、<a href="https://zh.wikipedia.org/wiki/NeoOffice" target="_blank" rel="noopener">NeoOffice</a>等集成，可生成<a href="https://zh.wikipedia.org/w/index.php?title=文内引用&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">文内引用</a>、生成页面脚注或文后的参考文献（bibliographies）。</p>
-<figure>
-<img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200408002300.png" alt><figcaption>Zotero</figcaption>
-</figure>
+<h1 id="Zotero"><a href="#Zotero" class="headerlink" title="Zotero"></a>Zotero</h1><p><strong>Zotero</strong> <a href="https://zh.wikipedia.org/wiki/Help:英語國際音標" target="_blank" rel="noopener">/zoʊˈtɛroʊ/</a>是一款<a href="https://zh.wikipedia.org/wiki/自由及开放源代码软件" target="_blank" rel="noopener">自由及开放源代码</a>的<a href="https://zh.wikipedia.org/wiki/文献管理软件" target="_blank" rel="noopener">文献管理软件</a>，管理书目信息（如作者、标题、出版社、摘要、阅读笔记等）及相关材料（如<a href="https://zh.wikipedia.org/wiki/PDF" target="_blank" rel="noopener">PDF</a>文件等)。其最著名的特性是作为浏览器插件、在线同步、与文档编辑软件如<a href="https://zh.wikipedia.org/wiki/Microsoft_Word" target="_blank" rel="noopener">Microsoft Word</a>、<a href="https://zh.wikipedia.org/wiki/LibreOffice" target="_blank" rel="noopener">LibreOffice</a>、<a href="https://zh.wikipedia.org/wiki/OpenOffice.org_Writer" target="_blank" rel="noopener">OpenOffice.org Writer</a>、<a href="https://zh.wikipedia.org/wiki/NeoOffice" target="_blank" rel="noopener">NeoOffice</a>等集成，可生成<a href="https://zh.wikipedia.org/w/index.php?title=文内引用&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">文内引用</a>、生成页面脚注或文后的参考文献（bibliographies）。</p>
+<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200408002300.png" alt="Zotero"></p>
 <p>Zotero 可以与浏览器集成实现自动抓取文献，如果你有下载权限还会自动下载pdf。</p>
-<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200408004156.gif"></p>
-<figure>
-<img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200408004255.png" alt><figcaption>此处pdf 还未下载好</figcaption>
-</figure>
-<h2 id="zotero-插件">Zotero 插件</h2>
-<p>zotero 最大的特点是可以使用各种各样的插件来满足你的需要，以下是我使用的一些插件。</p>
-<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200408002518.png"></p>
+<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200408004156.gif" alt></p>
+<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200408004255.png" alt="此处pdf 还未下载好"></p>
+<h2 id="Zotero-插件"><a href="#Zotero-插件" class="headerlink" title="Zotero 插件"></a>Zotero 插件</h2><p>zotero 最大的特点是可以使用各种各样的插件来满足你的需要，以下是我使用的一些插件。</p>
+<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200408002518.png" alt></p>
 <ul>
 <li><a href="http://retorque.re/zotero-better-bibtex/" target="_blank" rel="noopener">Better BibTeX</a> : 将 zotero 的文献导出为bib 文件。</li>
 <li><a href="https://github.com/fei0810/markdownhere4zotero" target="_blank" rel="noopener">Markdown Here</a>: 在 Zotero 中使用 Markdown 做笔记。</li>
@@ -499,20 +490,16 @@
 <li><a href="http://zotfile.com/" target="_blank" rel="noopener">ZotFile</a> : zotero pdf文件管理器。</li>
 </ul>
 <p>zotero 也有 Word 插件，可以在Word 中插入参考文献，但是由于我不怎么使用word, 此处不再介绍。</p>
-<h1 id="公式输入">公式输入</h1>
-<p>如果需要将其他地方的公式输入到自己的 TeX 文件中，自己动手打一遍固然好，但是如果能够直接把别人的公式粘贴过来岂不美哉！ <a href="https://mathpix.com/" target="_blank" rel="noopener">Mathpix</a> 就是这样一个工具，它可以将截图中的公式转换成 <span class="math inline">\(\LaTeX\)</span> 代码。省去手动敲代码的时间。下面是其官网的一个例子。</p>
-<p><img src="https://mathpix.com/images/mathpix-page/snip_new_mac.png"></p>
-<h1 id="用-git-进行版本管理">用 Git 进行版本管理</h1>
-<p>由于 <span class="math inline">\(\LaTeX\)</span> 是纯文本文档，因此可以很方便的用git 进行版本管理。配合 git 还可以实现多人协作，批注修改等功能。在此不再赘述，git 教程可见 <a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener">Git Book</a> 。</p>
-<p>但是，由于git 是以行为最小修改单位，而 <span class="math inline">\(\LaTeX\)</span> 的换行需要空一行，因此可以在写 tex文件时，每写一句话就换一行。这样通过git 可以很方便的看到每次修改了哪些地方。</p>
-<p>当你需要给一个不会用git 的人看你相比于某次修改了什么内容时，可以使用 <a href="https://gitlab.com/git-latexdiff/git-latexdiff" target="_blank" rel="noopener">git-latexdiff</a>, 它会产生一个包含修改的 <span class="math inline">\(\LaTeX\)</span> 文档，对其进行编译即可生成修改内容的pdf. 它本质上是对 git 和 <a href="https://github.com/ftilmann/latexdiff/" target="_blank" rel="noopener">latexdiff</a> 的一个包装。</p>
+<h1 id="公式输入"><a href="#公式输入" class="headerlink" title="公式输入"></a>公式输入</h1><p>如果需要将其他地方的公式输入到自己的 TeX 文件中，自己动手打一遍固然好，但是如果能够直接把别人的公式粘贴过来岂不美哉！ <a href="https://mathpix.com/" target="_blank" rel="noopener">Mathpix</a> 就是这样一个工具，它可以将截图中的公式转换成 $\LaTeX$ 代码。省去手动敲代码的时间。下面是其官网的一个例子。</p>
+<p><img src="https://mathpix.com/images/mathpix-page/snip_new_mac.png" alt></p>
+<h1 id="用-Git-进行版本管理"><a href="#用-Git-进行版本管理" class="headerlink" title="用 Git 进行版本管理"></a>用 Git 进行版本管理</h1><p>由于 $\LaTeX$ 是纯文本文档，因此可以很方便的用git 进行版本管理。配合 git 还可以实现多人协作，批注修改等功能。在此不再赘述，git 教程可见 <a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener">Git Book</a> 。</p>
+<p>但是，由于git 是以行为最小修改单位，而 $\LaTeX$ 的换行需要空一行，因此可以在写 tex文件时，每写一句话就换一行。这样通过git 可以很方便的看到每次修改了哪些地方。</p>
+<p>当你需要给一个不会用git 的人看你相比于某次修改了什么内容时，可以使用 <a href="https://gitlab.com/git-latexdiff/git-latexdiff" target="_blank" rel="noopener">git-latexdiff</a>, 它会产生一个包含修改的 $\LaTeX$ 文档，对其进行编译即可生成修改内容的pdf. 它本质上是对 git 和 <a href="https://github.com/ftilmann/latexdiff/" target="_blank" rel="noopener">latexdiff</a> 的一个包装。</p>
 <p>latexdiff 能够将两个文件进行比较，然后得到一个新的可编译的tex文件，编译之后可以在pdf中查看文章的改动。</p>
-<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200408010014.png"></p>
-<h1 id="latex-转-word"><span class="math inline">\(\LaTeX\)</span> 转 Word</h1>
-<p>目前 <span class="math inline">\(\LaTeX\)</span> 转 word 主要有两种比较好的方式，但是都不完美，一种是使用 pandoc 转换，一个简单的教程见<a href="https://www.jianshu.com/p/dc62b915920e" target="_blank" rel="noopener">怎么用Pandoc把Latex转换成MS Word文档</a> 优点是公式、表格都转换的比较好，缺点是参考文献部分会转换失败。也可以使用 Acrobat 将 生成的pdf 转换成 word, 这个各个方面都不错，就是公式转换的不好。两者可以互为补充。</p>
-<h1 id="结语">结语</h1>
-<p>本文到这里就结束了，如果你也有想要分享的技巧或者插件，可以在下方留言。后面预计会找一位使用Word写论文的大佬分享他的写作和管理参考文献的经验。</p>
-<p>最后是私货时间，欢迎大家使用<a href="https://github.com/sukanka/LaTeX-SWUFE-Bachelor-Thesis" target="_blank" rel="noopener">西财的 <span class="math inline">\(\LaTeX\)</span> 本科毕业论文模板</a>, 另外，我也想寻找几位同学接手模板的后续维护工作。</p>
+<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200408010014.png" alt></p>
+<h1 id="LaTeX-转-Word"><a href="#LaTeX-转-Word" class="headerlink" title="$\LaTeX$ 转 Word"></a>$\LaTeX$ 转 Word</h1><p>目前 $\LaTeX$ 转 word 主要有两种比较好的方式，但是都不完美，一种是使用 pandoc 转换，一个简单的教程见<a href="https://www.jianshu.com/p/dc62b915920e" target="_blank" rel="noopener">怎么用Pandoc把Latex转换成MS Word文档</a> 优点是公式、表格都转换的比较好，缺点是参考文献部分会转换失败。也可以使用 Acrobat 将 生成的pdf 转换成 word, 这个各个方面都不错，就是公式转换的不好。两者可以互为补充。</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>本文到这里就结束了，如果你也有想要分享的技巧或者插件，可以在下方留言。后面预计会找一位使用Word写论文的大佬分享他的写作和管理参考文献的经验。 </p>
+<p>最后是私货时间，欢迎大家使用<a href="https://github.com/sukanka/LaTeX-SWUFE-Bachelor-Thesis" target="_blank" rel="noopener">西财的 $\LaTeX$ 本科毕业论文模板</a>, 另外，我也想寻找几位同学接手模板的后续维护工作。</p>
 
             </div>
             <hr/>
@@ -576,14 +563,6 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/">
-                                    <span class="chip bg-color">论文写作</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86/">
-                                    <span class="chip bg-color">文献管理</span>
-                                </a>
-                            
                                 <a href="/tags/LaTeX/">
                                     <span class="chip bg-color">LaTeX</span>
                                 </a>
@@ -594,6 +573,14 @@
                             
                                 <a href="/tags/VSCode/">
                                     <span class="chip bg-color">VSCode</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/">
+                                    <span class="chip bg-color">论文写作</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86/">
+                                    <span class="chip bg-color">文献管理</span>
                                 </a>
                             
                         </div>
@@ -800,8 +787,7 @@
                     <div class="summary block-with-text">
                         
                             本文主要介绍使用在 Windows 系统中 MS Word 配合 Citavi 进行论文写作和文献管理的小技巧。
-图表的交叉引用
-对于 Word 中插入的图表，在正文写作时可能需要对图表进行交叉引用，比如“由图 1 知”、“由表 2 可得”
+图表的交叉引用对于 Word 中插入的图表，在正文写作时可能需要对图表进行交叉引用，比如“由图 1 知”、“由表 2 可得”。
                         
                     </div>
                     <div class="publish-info">
@@ -823,16 +809,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Word/">
-                        <span class="chip bg-color">Word</span>
-                    </a>
-                    
                     <a href="/tags/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/">
                         <span class="chip bg-color">论文写作</span>
                     </a>
                     
                     <a href="/tags/%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86/">
                         <span class="chip bg-color">文献管理</span>
+                    </a>
+                    
+                    <a href="/tags/Word/">
+                        <span class="chip bg-color">Word</span>
                     </a>
                     
                 </div>
@@ -1076,7 +1062,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">19.8k</span>&nbsp;字
+                class="white-color">19.3k</span>&nbsp;字
             
             
             

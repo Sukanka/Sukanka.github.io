@@ -283,7 +283,7 @@
 
 <script>
     // 每天切换 banner 图.  Switch banner image every day.
-    $('.bg-cover').css('background-image', 'url(https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/medias/banner/3.jpg)');
+    $('.bg-cover').css('background-image', 'url(https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/medias/banner/4.jpg)');
 </script>
 
 
@@ -469,7 +469,7 @@
         },
         xAxis: {
             type: 'category',
-            data: ["2019-05","2019-06","2019-07","2019-08","2019-09","2019-10","2019-11","2019-12","2020-01","2020-02","2020-03","2020-04","2020-05"]
+            data: ["2019-06","2019-07","2019-08","2019-09","2019-10","2019-11","2019-12","2020-01","2020-02","2020-03","2020-04","2020-05","2020-06"]
         },
         yAxis: {
             type: 'value',
@@ -479,7 +479,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,0,0,0,0,0,0,0,0,4,2],
+                data: [0,0,0,0,0,0,0,0,0,0,4,2,0],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -521,7 +521,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"ArchLinux","value":1},{"name":"Julia","value":1},{"name":"软件","value":6},{"name":"学习笔记","value":1},{"name":"Office","value":1},{"name":"VPS","value":1},{"name":"学生邮箱","value":1},{"name":"LaTeX","value":2},{"name":"优惠信息","value":1},{"name":"LINGO学习记录","value":1},{"name":"Andriod","value":1}],
+                data: [{"name":"学习笔记","value":1},{"name":"ArchLinux","value":1},{"name":"Julia","value":1},{"name":"软件","value":6},{"name":"学生邮箱","value":1},{"name":"LaTeX","value":2},{"name":"VPS","value":1},{"name":"Office","value":1},{"name":"LINGO学习记录","value":1},{"name":"优惠信息","value":1},{"name":"Andriod","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -545,7 +545,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["论文写作","文献管理","数学建模","注册码","AMD","KDE","IJulia","百度云","数理统计","日常生活"]
+                data: ["注册码","数学建模","论文写作","文献管理","数理统计","AMD","KDE","IJulia","下载器","百度云"]
             }
         ],
         yAxis: [
@@ -676,6 +676,12 @@
         <div class="tag-chips center-align">
             
             
+            <a href="/tags/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/">
+                <span class="chip center-align waves-effect waves-light chip-default">数理统计</span>
+            </a>
+            
+            
+            
             <a href="/tags/AMD/">
                 <span class="chip center-align waves-effect waves-light chip-default">AMD</span>
             </a>
@@ -694,38 +700,8 @@
             
             
             
-            <a href="/tags/%E7%99%BE%E5%BA%A6%E4%BA%91/">
-                <span class="chip center-align waves-effect waves-light chip-default">百度云</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/">
-                <span class="chip center-align waves-effect waves-light chip-default">数理统计</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/">
-                <span class="chip center-align waves-effect waves-light chip-default">日常生活</span>
-            </a>
-            
-            
-            
-            <a href="/tags/Word/">
-                <span class="chip center-align waves-effect waves-light chip-default">Word</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/">
-                <span class="chip center-align waves-effect waves-light chip-default">论文写作</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86/">
-                <span class="chip center-align waves-effect waves-light chip-default">文献管理</span>
+            <a href="/tags/%E6%B3%A8%E5%86%8C%E7%A0%81/">
+                <span class="chip center-align waves-effect waves-light chip-default">注册码</span>
             </a>
             
             
@@ -736,26 +712,20 @@
             
             
             
-            <a href="/tags/%E6%B3%A8%E5%86%8C%E7%A0%81/">
-                <span class="chip center-align waves-effect waves-light chip-default">注册码</span>
-            </a>
-            
-            
-            
             <a href="/tags/%E4%B8%8B%E8%BD%BD%E5%99%A8/">
                 <span class="chip center-align waves-effect waves-light chip-default">下载器</span>
             </a>
             
             
             
-            <a href="/tags/aria2/">
-                <span class="chip center-align waves-effect waves-light chip-default">aria2</span>
+            <a href="/tags/%E7%99%BE%E5%BA%A6%E4%BA%91/">
+                <span class="chip center-align waves-effect waves-light chip-default">百度云</span>
             </a>
             
             
             
-            <a href="/tags/caddy/">
-                <span class="chip center-align waves-effect waves-light chip-default">caddy</span>
+            <a href="/tags/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/">
+                <span class="chip center-align waves-effect waves-light chip-default">日常生活</span>
             </a>
             
             
@@ -780,14 +750,32 @@
             
             
             
-            <a href="/tags/%E5%AD%A6%E7%94%9F/">
-                <span class="chip center-align waves-effect waves-light chip-default">学生</span>
+            <a href="/tags/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/">
+                <span class="chip center-align waves-effect waves-light chip-default">论文写作</span>
             </a>
             
             
             
-            <a href="/tags/%E6%95%99%E5%B8%88/">
-                <span class="chip center-align waves-effect waves-light chip-default">教师</span>
+            <a href="/tags/%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86/">
+                <span class="chip center-align waves-effect waves-light chip-default">文献管理</span>
+            </a>
+            
+            
+            
+            <a href="/tags/aria2/">
+                <span class="chip center-align waves-effect waves-light chip-default">aria2</span>
+            </a>
+            
+            
+            
+            <a href="/tags/caddy/">
+                <span class="chip center-align waves-effect waves-light chip-default">caddy</span>
+            </a>
+            
+            
+            
+            <a href="/tags/Word/">
+                <span class="chip center-align waves-effect waves-light chip-default">Word</span>
             </a>
             
             
@@ -806,6 +794,18 @@
             
             <a href="/tags/Linux/">
                 <span class="chip center-align waves-effect waves-light chip-default">Linux</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E5%AD%A6%E7%94%9F/">
+                <span class="chip center-align waves-effect waves-light chip-default">学生</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E6%95%99%E5%B8%88/">
+                <span class="chip center-align waves-effect waves-light chip-default">教师</span>
             </a>
             
             
@@ -888,7 +888,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">19.8k</span>&nbsp;字
+                class="white-color">19.3k</span>&nbsp;字
             
             
             
