@@ -29,7 +29,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<meta name="generator" content="Hexo 5.0.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
@@ -404,21 +404,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-05-26
+                    2020-08-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    635
+                    896
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -433,7 +433,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>更新： 现在 Manjaro 已经可以进入图形界面，并且一切正常。但是 Arch 真香！</p>
+                <h1 id="配置">配置</h1>
 <p>我有幸以6599返100E卡抢到了一台4800H+2060的天选，之前想要安装 Manjaro, 但是LiveCD始终进入不了图形界面，因而放弃，转而选择了ArchLinux. 详细配置如下</p>
 <pre><code>$ neofetch   
 --------------------------------------------------------------------------------------
@@ -455,17 +455,173 @@
    `/ossssso+/:-        -:/+osssso+-     CPU: AMD Ryzen 7 4800H with Radeon Graphics (16) @ 2.900GHz 
   `+sso+:-`                 `.-/+oso:    GPU: AMD ATI 06:00.0 Renoir 
  `++:.                           `-/+/   GPU: NVIDIA 01:00.0 NVIDIA Corporation Device 1f15 
- .`                                 `/   Memory: 2492MiB / 31594MiB
-</code></pre><p>首先我参考了<a href="https://www.viseator.com/2017/05/17/arch_install/" target="_blank" rel="noopener">以官方Wiki的方式安装ArchLinux</a></p>
+ .`                                 `/   Memory: 2492MiB / 31594MiB </code></pre>
+<p>首先我参考了<a href="https://www.viseator.com/2017/05/17/arch_install/" target="_blank" rel="noopener">以官方Wiki的方式安装ArchLinux</a></p>
 <p>安装上了 ArchLinux, 需要注意的是，天选是 nvme的固态硬盘，因而没有<code>/dev/sda</code> 之类的，而是 <code>/dev/nvme0n1</code></p>
-<h1 id="图形界面"><a href="#图形界面" class="headerlink" title="图形界面"></a>图形界面</h1><p>参照 <a href="https://www.viseator.com/2017/05/19/arch_setup/" target="_blank" rel="noopener">ArchLinux安装后的必须配置与图形界面安装教程</a></p>
-<h2 id="常用软件"><a href="#常用软件" class="headerlink" title="常用软件"></a>常用软件</h2><p>这部分记录自己常用的软件。其中 <code>texlive</code> 实际安装的是从<a href="https://tug.org/" target="_blank" rel="noopener">TeX Users Group</a> 下载的最新版本，之后安装<code>texlive-dummy</code>让 Arch 认为 <code>texlive</code> 已经安装。</p>
-<pre><code>$ yay  -Qqe
+<h1 id="图形界面">图形界面</h1>
+<p>参照 <a href="https://www.viseator.com/2017/05/19/arch_setup/" target="_blank" rel="noopener">ArchLinux安装后的必须配置与图形界面安装教程</a></p>
+<h2 id="常用软件">常用软件</h2>
+<p>这部分记录自己常用的软件。其中 <code>texlive</code> 实际安装的是从<a href="https://tug.org/" target="_blank" rel="noopener">TeX Users Group</a> 下载的最新版本，之后安装<code>texlive-dummy</code>让 Arch 认为 <code>texlive</code> 已经安装。</p>
+<pre><code>$ yay -Qeqt
 -----------------------------------------------------------------------------------
-amd-ucode anaconda android-sdk android-sdk-platform-tools archlinuxcn-keyring aria2 ark autoconf automake base bbswitch-ati-dkms-git bind-tools binutils bison ca-certificates clash cuda dialog dmidecode dnsmasq dolphin  efibootmgr fakeroot fcitx-baidupinyin fcitx-cloudpinyin file filelight findutils flameshot flex flutter-beta freerdp gawk gcc gettext gimp gnome-keyring google-chrome grep groff grub gwenview gzip inetutils inkscape inxi iptables-nft julia  kamoso kate kcm-fcitx kcron   kdeconnect  kdenlive  krdc krfb  ksystemlog  latte-dock libdbusmenu-glib   libtool linux linux-firmware m4 make mathpix-snipping-tool  mpv namcap neofetch net-tools netease-cloud-music network-manager-applet networkmanager nodejs-lts-erbium npm ntfs-3g nvidia okular opencc optimus-manager-amd-git os-prober  p7zip pacman pamac-aur pandoc pandoc-citeproc pandoc-crossref patch peek perl-tk picgo-appimage pkgconf plasma  proxychains-ng qemu qq-linux qt5-imageformats r samba  sed spectacle strace sudo systemd-kcm systemd-shutdown-diagnose  texinfo texlive-dummy tk typora unrar  vim virt-manager visual-studio-code-bin wget which wpa_supplicant wps-office-cn  xf86-video-amdgpu xf86-video-fbdev xorg yakuake yay zotero zsh
-</code></pre><h2 id="双显卡方案"><a href="#双显卡方案" class="headerlink" title="双显卡方案"></a>双显卡方案</h2><p>我以前用的 <code>Bumblebee</code> 但是听说性能不行，后来换了 <code>optimus-manager</code> 由于是 AMD处理器，应该使用 <code>optimus-manager-amd-git</code>$^{\text{AUR}}$ ，同时该包依赖的 <code>bbswitch</code> 也需要换成 <code>bbswitch-ati-git</code>$^{\text{AUR}}$</p>
+acpi
+amd-ucode
+anaconda
+android-sdk-build-tools
+archlinuxcn-keyring
+aria2
+ark
+autoconf
+automake
+base
+bison
+calibre-python3
+clash
+cuda
+deepin.com.qq.im
+dialog
+dolphin
+fakeroot
+fcitx5-chinese-addons
+fcitx5-configtool
+fcitx5-gtk
+fcitx5-material-color
+fcitx5-pinyin-moegirl
+fcitx5-pinyin-zhwiki
+filelight
+flameshot
+flex
+flutter
+gimp
+glfw-x11
+go
+google-chrome
+grub
+gwenview
+inetutils
+inkscape
+inxi
+julia
+kamoso
+kate
+kcron
+kde-gtk-config
+kdenlive
+kdeplasma-addons
+kgamma5
+khotkeys
+kinfocenter
+krdc
+krfb
+ksystemlog
+kwallet-pam
+kwayland-integration
+kwrited
+latte-dock
+mathpix-snipping-tool
+mkcert
+mpv
+namcap
+neofetch
+network-manager-applet
+nvidia
+oh-my-zsh-git
+okular
+optimus-manager-amd-git
+oxygen
+pamac-aur
+perl-log-dispatch
+perl-log-log4perl
+perl-namespace-autoclean
+perl-params-validationcompiler
+perl-specio
+perl-tk
+perl-unicode-linebreak
+perl-yaml-tiny
+picgo-appimage
+pkgconf
+plasma-browser-integration
+plasma-pa
+plasma-sdk
+plasma-thunderbolt
+plasma-vault
+proxychains-ng
+python-aiohttp
+qtcreator
+rstudio-desktop-bin
+scrcpy
+sddm-kcm
+simplescreenrecorder
+spectacle
+spotify
+strace
+systemd-kcm
+tlp-rdw
+typora
+user-manager
+vim
+virt-manager
+visual-studio-code-bin
+wget
+wps-office-cn
+xdg-desktop-portal-kde
+xf86-video-ati
+xf86-video-fbdev
+xf86-video-vesa
+xorg-bdftopcf
+xorg-docs
+xorg-font-util
+xorg-fonts-100dpi
+xorg-fonts-75dpi
+xorg-iceauth
+xorg-luit
+xorg-server-xephyr
+xorg-server-xnest
+xorg-server-xvfb
+xorg-server-xwayland
+xorg-sessreg
+xorg-smproxy
+xorg-x11perf
+xorg-xbacklight
+xorg-xcmsdb
+xorg-xcursorgen
+xorg-xdriinfo
+xorg-xev
+xorg-xgamma
+xorg-xhost
+xorg-xinput
+xorg-xkbevd
+xorg-xkbutils
+xorg-xkill
+xorg-xlsatoms
+xorg-xlsclients
+xorg-xmodmap
+xorg-xpr
+xorg-xrefresh
+xorg-xvinfo
+xorg-xwd
+xorg-xwud
+yakuake
+yay
+zotero</code></pre>
+<h2 id="双显卡方案">双显卡方案</h2>
+<p>我以前用的 <code>Bumblebee</code> 但是听说性能不行，后来换了 <code>optimus-manager</code> 由于是 AMD处理器，应该使用 <code>optimus-manager-amd-git</code><span class="math inline">\(^{\text{AUR}}\)</span> ，同时该包依赖的 <code>bbswitch</code> 也需要换成 <code>bbswitch-ati-git</code><span class="math inline">\(^{\text{AUR}}\)</span></p>
 <p>具体配置可以看 <a href="https://blog.edward-p.xyz/optimus-manager/" target="_blank" rel="noopener">使用 optimus-manager 来管理显卡切换</a>。</p>
-<h2 id="屏幕撕裂问题"><a href="#屏幕撕裂问题" class="headerlink" title="屏幕撕裂问题"></a>屏幕撕裂问题</h2><p>我的各种驱动装好后，开机过了一会儿之后，屏幕左下角会出现闪屏，在设置里面将屏幕刷新率设置成60Hz 之后就好了。实际上并没有解决这个问题。</p>
+<h2 id="屏幕撕裂问题">屏幕撕裂问题</h2>
+<p>我的各种驱动装好后，开机过了一会儿之后，屏幕左下角会出现闪屏，在设置里面将屏幕刷新率设置成60Hz 之后就好了。</p>
+<h2 id="屏幕亮度无法调节问题">屏幕亮度无法调节问题</h2>
+<p>我的 ArchLinux 一直无法调节屏幕亮度，按快捷键调节虽然屏幕亮度条在变，但是实际u亮度并没有改变，一直是最高亮度。昨天晚上觉得太亮了，决定搞定它。</p>
+<p>参考了 ArchWiki 的 <a href="https://wiki.archlinux.org/index.php/backlight" target="_blank" rel="noopener">Backlight</a> 部分，但是当我按照 ACPI 小节的指示输入时，居然有两个！</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>$ <span class="fu">ls</span> /sys/class/backlight/</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="ex">----------------------------------------------------------------------</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="ex">amdgpu_bl0</span> asus-nb-wmi</span></code></pre></div>
+<p>而且当我尝试使用 root 修改 brightness 文件时，居然无法修改(改了之后还是原来的值)。</p>
+<p>后来看到 Wiki 里面有一句</p>
+<blockquote>
+<p>If you find that changing the <code>acpi_video0</code> backlight does not actually change the brightness, you may need to use <code>acpi_backlight=none</code>.</p>
+</blockquote>
+<p>于是尝试修改内核参数为 <code>acpi_backlight=none</code>，关于如何修改内核参数可见 <a href="https://wiki.archlinux.org/index.php/Kernel_parameters_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)" target="_blank" rel="noopener">内核参数</a>.</p>
+<p>改好后就一切正常了，我还突然有点不习惯了。</p>
 
             </div>
             <hr/>
@@ -778,7 +934,8 @@ amd-ucode anaconda android-sdk android-sdk-platform-tools archlinuxcn-keyring ar
                     <div class="summary block-with-text">
                         
                             本文主要介绍使用在 Windows 系统中 MS Word 配合 Citavi 进行论文写作和文献管理的小技巧。
-图表的交叉引用对于 Word 中插入的图表，在正文写作时可能需要对图表进行交叉引用，比如“由图 1 知”、“由表 2 可得”。
+图表的交叉引用
+对于 Word 中插入的图表，在正文写作时可能需要对图表进行交叉引用，比如“由图 1 知”、“由表 2 可得”
                         
                     </div>
                     <div class="publish-info">
@@ -800,16 +957,16 @@ amd-ucode anaconda android-sdk android-sdk-platform-tools archlinuxcn-keyring ar
                 
                 <div class="card-action article-tags">
                     
+                    <a href="/tags/Word/">
+                        <span class="chip bg-color">Word</span>
+                    </a>
+                    
                     <a href="/tags/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/">
                         <span class="chip bg-color">论文写作</span>
                     </a>
                     
                     <a href="/tags/%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86/">
                         <span class="chip bg-color">文献管理</span>
-                    </a>
-                    
-                    <a href="/tags/Word/">
-                        <span class="chip bg-color">Word</span>
                     </a>
                     
                 </div>
@@ -1008,7 +1165,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">19.3k</span>&nbsp;字
+                class="white-color">20.3k</span>&nbsp;字
             
             
             

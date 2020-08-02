@@ -29,7 +29,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<meta name="generator" content="Hexo 5.0.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
@@ -435,20 +435,18 @@
             <div id="articleContent">
                 <p>在回到学校隔离之后觉得十分无聊，又翻了翻刘海洋老师的 《LaTeX 入门》。发现我的 TeXLive 安装得并不完整，至少字体没有被系统用上。本文大部分内容摘自《LaTeX 入门》第8页至第9页。</p>
 <p><strong>Windows 系统没有必要看本文！ </strong> 因为安装时应该已经配置好了。</p>
-<h1 id="为-XeTeX-配置字体"><a href="#为-XeTeX-配置字体" class="headerlink" title="为 XeTeX 配置字体"></a>为 XeTeX 配置字体</h1><p>为 XeTeX 配置字体目的是让操作系统的 fontconfig 库能够找到 TeXLive 附带的大量字体。下面是具体步骤：</p>
-<ol>
+<h1 id="为-xetex-配置字体">为 XeTeX 配置字体</h1>
+<p>为 XeTeX 配置字体目的是让操作系统的 fontconfig 库能够找到 TeXLive 附带的大量字体。下面是具体步骤：</p>
+<ol type="1">
 <li><p>将 <code>TEXMFSYSVAR/fonts/conf/texlive-fontconfig.conf</code> 链接到 <code>/etc/fonts/conf.d/09-texlive.conf</code>。 其中 <code>TEXMFSYSVAR</code> 是一个变量，在安装时指定，我使用的是 TeXLive 2020, 安装于 <code>/opt/texlive</code>.我使用的命令为</p>
-<pre class="line-numbers language-lang-bash"><code class="language-lang-bash">sudo ln -s /opt/texlive/2020/texmf-var/fonts/conf/texlive-fontconfig.conf  /etc/fonts/conf.d/09-texlive.conf
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="fu">sudo</span> ln -s /opt/texlive/2020/texmf-var/fonts/conf/texlive-fontconfig.conf  /etc/fonts/conf.d/09-texlive.conf</span></code></pre></div></li>
 <li><p>刷新字体缓存。</p>
-<pre class="line-numbers language-lang-bash"><code class="language-lang-bash">sudo fc-cache -fsv
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="fu">sudo</span> fc-cache -fsv</span></code></pre></div></li>
 </ol>
-<h1 id="让-XeTeX-能按字体文件名找到系统字体"><a href="#让-XeTeX-能按字体文件名找到系统字体" class="headerlink" title="让 XeTeX 能按字体文件名找到系统字体"></a>让 XeTeX 能按字体文件名找到系统字体</h1><p>有时候字体的名称和字体名并不相同，字体的名称并不容易看到。但是可以通过修改 TeXLive 安装目录下的 <code>texmf.cnf</code>, 在里面修改 <code>OSFONTDIR</code> 的值， 如</p>
-<pre><code>OSFONTDIR = /usr/share/fonts//
-</code></pre>
+<h1 id="让-xetex-能按字体文件名找到系统字体">让 XeTeX 能按字体文件名找到系统字体</h1>
+<p>有时候字体的名称和字体名并不相同，字体的名称并不容易看到。但是可以通过修改 TeXLive 安装目录下的 <code>texmf.cnf</code>, 在里面修改 <code>OSFONTDIR</code> 的值， 如</p>
+<pre><code>OSFONTDIR = /usr/share/fonts//</code></pre>
+
             </div>
             <hr/>
 
@@ -706,53 +704,51 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/05/17/texlive_postinstallation/">
+                <a href="/2020/08/03/localhost_https/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/medias/featureimages/13.jpg" class="responsive-img" alt="Linux 系统安装 TeXLive 之后的事">
+                        <img src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/medias/featureimages/17.jpg" class="responsive-img" alt="为 localhost 启用 https">
                         
-                        <span class="card-title">Linux 系统安装 TeXLive 之后的事</span>
+                        <span class="card-title">为 localhost 启用 https</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            在回到学校隔离之后觉得十分无聊，又翻了翻刘海洋老师的 《LaTeX 入门》。发现我的 TeXLive 安装得并不完整，至少字体没有被系统用上。本文大部分内容摘自《LaTeX 入门》第8页至第9页。
-Windows 系统没有必要看本文！  因
+                            引言
+我一直使用 AriaNG 作为 aria2 的图形界面，同时使用 yacd 作为 clash 的控制面板，但是这两个网站最近我都打不开了。因此想在我自己的服务器上部署这两个面板。但是我的服务器使用了 https, 不支持 http. 
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-17
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-03
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/LaTeX/" class="post-category">
-                                    LaTeX
+                            <a href="/categories/%E8%BD%AF%E4%BB%B6/" class="post-category">
+                                    软件
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/TeXLive/">
-                        <span class="chip bg-color">TeXLive</span>
+                    <a href="/tags/clash/">
+                        <span class="chip bg-color">clash</span>
                     </a>
                     
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
+                    <a href="/tags/AriaNg/">
+                        <span class="chip bg-color">AriaNg</span>
                     </a>
                     
                 </div>
@@ -778,7 +774,8 @@ Windows 系统没有必要看本文！  因
                     <div class="summary block-with-text">
                         
                             本文介绍利用甲骨文的免费VPS 搭建 Aria2+Caddy+filebrowser 的下载平台。给自己留一个备份。等到ccaa2.0版本支持caddy 也许本文就没有必要了。
-获取免费服务器甲骨文(Oracle) 公司提供免费服务器，需要
+获取免费服务器
+甲骨文(Oracle) 公司提供免费服务器，需
                         
                     </div>
                     <div class="publish-info">
@@ -997,7 +994,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">19.3k</span>&nbsp;字
+                class="white-color">20.3k</span>&nbsp;字
             
             
             

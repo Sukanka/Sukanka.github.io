@@ -29,7 +29,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<meta name="generator" content="Hexo 5.0.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
@@ -407,7 +407,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    963
+                    979
                 </div>
                 
 
@@ -431,32 +431,53 @@
             <div id="articleContent">
                 <p>百度网盘很早就开始限速了，虽然有百度云转外链的方法，但是，如果下载时间过长，可能会还没下完外链就失效了。本文提供了一个解决百度云PC5.7.1及以前版本客户端限速的办法。</p>
 <a id="more"></a>
-<p><strong>2018.11.10 更新:</strong> 方法已无法使用,推荐使用<a href="https://pandownload.com/" target="_blank" rel="noopener">pandownload</a>或者其他工具<br><strong>2018.3.4更新：</strong>好像没用了，虽然显示剩余时间还很长，但是下载速度很慢，和未加速一样。</p>
-<h1 id="安装百度云"><a href="#安装百度云" class="headerlink" title="安装百度云"></a>安装百度云</h1><p>此方法仅对百度网盘<strong>5.7.1及以前的版本有效</strong>，对最新的5.7.2无效！如果您已经安装了之后版本的百度云，请先卸载。查看百度云的版本方式如下：</p>
-<p><img src="/2018/01/29/crack_baiduyun/查看版本.png" alt="check_version"></p>
+<p><strong>2018.11.10 更新:</strong> 方法已无法使用,推荐使用<a href="https://pandownload.com/" target="_blank" rel="noopener">pandownload</a>或者其他工具 <strong>2018.3.4更新：</strong>好像没用了，虽然显示剩余时间还很长，但是下载速度很慢，和未加速一样。 # 安装百度云 此方法仅对百度网盘<strong>5.7.1及以前的版本有效</strong>，对最新的5.7.2无效！如果您已经安装了之后版本的百度云，请先卸载。查看百度云的版本方式如下：</p>
+<figure>
+<img src="/2018/01/29/crack_baiduyun/查看版本.png" alt><figcaption>check_version</figcaption>
+</figure>
 <p>首先，我们要找到一个5.7.1版本的百度云网盘，按照我的想法，我是<em>尽量去官网下载软件</em>，第三方下载的可能被修改过。百度云的官方网站只提供最新版本5.7.2，不提供历史版本下载。但是我还是找到了<strong>官方的下载链接</strong>：点击<a href="http://issuecdn.baidupcs.com/issue/netdisk/yunguanjia/BaiduNetdisk_5.7.1.exe" target="_blank" rel="noopener">这里</a>进行下载。注：本文对<strong>百度云</strong>和<strong>百度网盘</strong>不加区分。</p>
 <p>正常下载之后进行安装，把安装的文件夹记下来。</p>
-<p><img src="/2018/01/29/crack_baiduyun/安装.png" alt="安装文件夹"></p>
-<p>安装完成之后，我们进入百度网盘安装的文件夹，<strong>删除掉AutoUpdate文件夹</strong>(我的是<em>D:\Programs\BaiduNetdisk</em>).之后打开百度云网盘，登陆账号，并<strong>关闭自动升级</strong>。</p>
-<p><img src="/2018/01/29/crack_baiduyun/取消升级.png" alt="关闭升级"></p>
+<figure>
+<img src="/2018/01/29/crack_baiduyun/安装.png" alt><figcaption>安装文件夹</figcaption>
+</figure>
+<p>安装完成之后，我们进入百度网盘安装的文件夹，<strong>删除掉AutoUpdate文件夹</strong>(我的是*D:).之后打开百度云网盘，登陆账号，并<strong>关闭自动升级</strong>。</p>
+<figure>
+<img src="/2018/01/29/crack_baiduyun/取消升级.png" alt><figcaption>关闭升级</figcaption>
+</figure>
 <p>注：<strong>删除AutoUpdate文件夹步骤不可省略，否则即使关闭了自动升级，百度云还是会自动升级。</strong></p>
 <p>到这里百度云我们就设置好了。</p>
-<h1 id="安装Cheat-Engine"><a href="#安装Cheat-Engine" class="headerlink" title="安装Cheat Engine"></a>安装Cheat Engine</h1><p>Cheat Engine 是一个修改本地内存数据来达到作弊的效果的软件。我们可以用它来把百度云本来只有300秒的加速时间修改成很长的时间，从而一直使用加速。可以点击<strong><a href="http://www.cheatengine.org/" target="_blank" rel="noopener">这里</a></strong>去官网下载安装.</p>
-<h1 id="无限试用加速"><a href="#无限试用加速" class="headerlink" title="无限试用加速"></a>无限试用加速</h1><p>安装完成后，先打开百度云，下载你要下载的文件，等到出现<em>免费试用</em>的提示的时候，(要下载一个超过200MB的文件才会出现试用加速)<br>打开Cheat Engine, 点击那个颜色渐变的一闪一闪的按钮</p>
-<p><img src="/2018/01/29/crack_baiduyun/ch1.png" alt="button"></p>
+<h1 id="安装cheat-engine">安装Cheat Engine</h1>
+<p>Cheat Engine 是一个修改本地内存数据来达到作弊的效果的软件。我们可以用它来把百度云本来只有300秒的加速时间修改成很长的时间，从而一直使用加速。可以点击<strong><a href="http://www.cheatengine.org/" target="_blank" rel="noopener">这里</a></strong>去官网下载安装.</p>
+<h1 id="无限试用加速">无限试用加速</h1>
+<p>安装完成后，先打开百度云，下载你要下载的文件，等到出现<em>免费试用</em>的提示的时候，(要下载一个超过200MB的文件才会出现试用加速) 打开Cheat Engine, 点击那个颜色渐变的一闪一闪的按钮</p>
+<figure>
+<img src="/2018/01/29/crack_baiduyun/ch1.png" alt><figcaption>button</figcaption>
+</figure>
 <p>选择<strong>百度云</strong>，并点击<strong>OPEN</strong></p>
-<p><img src="/2018/01/29/crack_baiduyun/ch2.png" alt="click"></p>
+<figure>
+<img src="/2018/01/29/crack_baiduyun/ch2.png" alt><figcaption>click</figcaption>
+</figure>
 <p>应该会看见这样一个界面(290是我输入的)</p>
-<p><img src="/2018/01/29/crack_baiduyun/ch3.png" alt="screen"></p>
-<p>然后在我输入的那个地方输入290（其实可以是0-300之间的任意整数），然后切到百度云，点击<strong>免费试用</strong>并迅速切换到Cheat Engine，看到剩余时间还有290秒的时候，点下Cheat Engine上的<strong>First Scan</strong>,<br><img src="/2018/01/29/crack_baiduyun/ch4.png" alt="first"></p>
+<figure>
+<img src="/2018/01/29/crack_baiduyun/ch3.png" alt><figcaption>screen</figcaption>
+</figure>
+<p>然后在我输入的那个地方输入290（其实可以是0-300之间的任意整数），然后切到百度云，点击<strong>免费试用</strong>并迅速切换到Cheat Engine，看到剩余时间还有290秒的时候，点下Cheat Engine上的<strong>First Scan</strong>, <img src="/2018/01/29/crack_baiduyun/ch4.png" alt="first"></p>
 <p>再把290改成<strong>280</strong>，等到试用时间还剩280秒的时候点击<strong>Next Scan</strong> ，(由于要写博客，我改的是250）</p>
-<p><img src="/2018/01/29/crack_baiduyun/ch5.png" alt="sec"></p>
+<figure>
+<img src="/2018/01/29/crack_baiduyun/ch5.png" alt><figcaption>sec</figcaption>
+</figure>
 <p>应该就能确定唯一一个值，并且它每秒钟减少1，我们先双击一下左边找出来的那条数据，在下面会添加一条记录出来.然后我们点击一下<strong>Active下面的方框</strong>，发现数值已经不再减少了。（其实到这里就可以了）</p>
-<p><img src="/2018/01/29/crack_baiduyun/ch6.png" alt="stop"></p>
+<figure>
+<img src="/2018/01/29/crack_baiduyun/ch6.png" alt><figcaption>stop</figcaption>
+</figure>
 <p>​但是我们仍然不放心，于是我们双击Value下面的那个数值，把它改成一个很大的数值，比如999999999（建议不要超过10位）。</p>
-<p><img src="/2018/01/29/crack_baiduyun/ch7.png" alt="改数值"></p>
+<figure>
+<img src="/2018/01/29/crack_baiduyun/ch7.png" alt><figcaption>改数值</figcaption>
+</figure>
 <p>​最后我们发现百度云的超级会员加速试用也变成999999999了。(实际可能会相差1，原因不明）</p>
-<p><img src="/2018/01/29/crack_baiduyun/ch8.png" alt="result"></p>
+<figure>
+<img src="/2018/01/29/crack_baiduyun/ch8.png" alt><figcaption>result</figcaption>
+</figure>
 <p>百度云会员加速<strong>一天可以试用两次</strong>，如果你第一次失败了，可以关掉取消下载，并关掉百度云和Cheat Engine 再试一次。</p>
 <p>​我们的教程到这里就结束了。本博客暂未开通评论功能，如有任何问题，可以给我发邮件。</p>
 
@@ -729,8 +750,10 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            我在 Windows 上成功部署了 Hexo, 并把本地文件也推送到了 GitHub ，突然想到通过 Termux, 在手机上也可以写博客。本文是我在手机上部署 Hexo 遇到的问题及解决办法。
-安装 Termux何为 TermuxTerm
+                            我在 Windows 上成功部署了 Hexo, 并把本地文件也推送到了 GitHub ，突然想到通过 Termux, 在手机上也可以写博客。本文是我在手机上部署 Hexo 遇到的问题及解决办法。 
+安装 Termux
+何为 Termux
+T
                         
                     </div>
                     <div class="publish-info">
@@ -1001,7 +1024,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">19.3k</span>&nbsp;字
+                class="white-color">20.3k</span>&nbsp;字
             
             
             

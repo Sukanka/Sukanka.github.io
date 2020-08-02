@@ -29,7 +29,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<meta name="generator" content="Hexo 5.0.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
@@ -407,14 +407,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    214
+                    613
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -429,62 +429,74 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>本文记录了Fisher 信息量的两种等价计算方式.<br><a id="more"></a></p>
-<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>本文积分以$\int$表示$\int_{-\infty}^{+\infty}$ (主要原因是懒,请谅解.)</p>
-<h1 id="Fisher-信息量"><a href="#Fisher-信息量" class="headerlink" title="Fisher 信息量"></a>Fisher 信息量</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>设总体概率密度函数$p(x;\theta),\theta \in \mathbb{\Theta}$满足下列条件:</p>
-<ol>
-<li>参数空间$\Theta$是直线上的一个开区间;</li>
-<li>支撑$S={x|p(x;\theta)}$与$\theta$无关;</li>
-<li>导数$\dfrac{\partial }{\partial \theta}p(x;\theta)$对一切$\theta \in \Theta$都存在;</li>
-<li>对$p(x;\theta)$,积分与微分可以交换顺序,即:</li>
+                <p>本文记录了Fisher 信息量的两种等价计算方式. <a id="more"></a></p>
+<h1 id="说明">说明</h1>
+<p>本文积分以<span class="math inline">\(\int\)</span>表示<span class="math inline">\(\int_{-\infty}^{+\infty}\)</span> (主要原因是懒,请谅解.)</p>
+<h1 id="fisher-信息量">Fisher 信息量</h1>
+<h2 id="定义">定义</h2>
+<p>设总体概率密度函数<span class="math inline">\(p(x;\theta),\theta \in \mathbb{\Theta}\)</span>满足下列条件:</p>
+<ol type="1">
+<li>参数空间<span class="math inline">\(\Theta\)</span>是直线上的一个开区间;</li>
+<li>支撑<span class="math inline">\(S=\{x|p(x;\theta)\}\)</span>与<span class="math inline">\(\theta\)</span>无关;</li>
+<li>导数<span class="math inline">\(\dfrac{\partial }{\partial \theta}p(x;\theta)\)</span>对一切<span class="math inline">\(\theta \in \Theta\)</span>都存在;</li>
+<li>对<span class="math inline">\(p(x;\theta)\)</span>,积分与微分可以交换顺序,即:</li>
 </ol>
-<script type="math/tex; mode=display">\dfrac{\partial}{\partial \theta}\int p(x;\theta)\,\mathrm{d}x=\int \dfrac{\partial}{\partial \theta}p(x;\theta)\,\mathrm{d}x</script><ol>
-<li>期望$E\left[\dfrac{\partial}{\partial \theta}\ln p(x;\theta)\right]^2$存在.</li>
+<p><span class="math display">\[\dfrac{\partial}{\partial \theta}\int p(x;\theta)\,\mathrm{d}x=\int \dfrac{\partial}{\partial \theta}p(x;\theta)\,\mathrm{d}x\]</span></p>
+<ol start="5" type="1">
+<li>期望<span class="math inline">\(E\left[\dfrac{\partial}{\partial \theta}\ln p(x;\theta)\right]^2\)</span>存在.</li>
 </ol>
 <p>则称</p>
-<script type="math/tex; mode=display">I(\theta)=E\left[\dfrac{\partial}{\partial \theta}\ln p(x;\theta)\right]^2</script><p>为总体分布的Fisher 信息量.</p>
-<h2 id="另一种表示法"><a href="#另一种表示法" class="headerlink" title="另一种表示法"></a>另一种表示法</h2><p>Fisher信息量$I(\theta)$也可以表示为</p>
-<script type="math/tex; mode=display">I(\theta)=-E\left[\dfrac{\partial ^2}{\partial \theta ^2}\ln p(x;\theta)\right]</script><p>有时候这种计算方法更加方便</p>
+<p><span class="math display">\[I(\theta)=E\left[\dfrac{\partial}{\partial \theta}\ln p(x;\theta)\right]^2\]</span></p>
+<p>为总体分布的Fisher 信息量.</p>
+<h2 id="另一种表示法">另一种表示法</h2>
+<p>Fisher信息量<span class="math inline">\(I(\theta)\)</span>也可以表示为</p>
+<p><span class="math display">\[I(\theta)=-E\left[\dfrac{\partial ^2}{\partial \theta ^2}\ln p(x;\theta)\right]\]</span></p>
+<p>有时候这种计算方法更加方便</p>
 <p><strong>证明</strong></p>
-<p>首先,有:</p>
-<script type="math/tex; mode=display">
+<p>首先,有: <span class="math display">\[
 \begin{equation}
 E\left[\dfrac{\partial}{\partial \theta}\ln p(x;\theta)\right]=0
-\end{equation}</script><p>这是因为:</p>
-<script type="math/tex; mode=display">
+\end{equation}
+\]</span></p>
+<p>这是因为:</p>
+<p><span class="math display">\[
 \begin{aligned}
-&E\left[\dfrac{\partial}{\partial \theta}\ln p(x;\theta)\right]\\ 
-=&\int \dfrac{\partial \ln p(x;\theta)}{\partial \theta} p(x;\theta)\, \mathrm{d}x \\
-=&\int \dfrac{1}{p(x;\theta)}\dfrac{\partial p(x;\theta)}{\partial \theta} p(x;\theta)\, \mathrm{d}x\\
-=&\int \dfrac{\partial p(x;\theta)}{\partial \theta} \, \mathrm{d}x\\
-=&\dfrac{\partial }{\partial \theta}\int p(x;\theta)\, \mathrm{d}x\\
-=&0
-\end{aligned}</script><p>然后,有</p>
-<script type="math/tex; mode=display">
+&amp;E\left[\dfrac{\partial}{\partial \theta}\ln p(x;\theta)\right]\\ 
+=&amp;\int \dfrac{\partial \ln p(x;\theta)}{\partial \theta} p(x;\theta)\, \mathrm{d}x \\
+=&amp;\int \dfrac{1}{p(x;\theta)}\dfrac{\partial p(x;\theta)}{\partial \theta} p(x;\theta)\, \mathrm{d}x\\
+=&amp;\int \dfrac{\partial p(x;\theta)}{\partial \theta} \, \mathrm{d}x\\
+=&amp;\dfrac{\partial }{\partial \theta}\int p(x;\theta)\, \mathrm{d}x\\
+=&amp;0
+\end{aligned}
+\]</span></p>
+<p>然后,有 <span class="math display">\[
 \begin{equation}
 \dfrac{\partial }{\partial \theta}E\left[\dfrac{\partial}{\partial \theta}\ln p(x;\theta)\right]=0
-\end{equation}</script><p>又因为:</p>
-<script type="math/tex; mode=display">
-\dfrac{\partial \ln p(x;\theta)}{\partial \theta}=\frac{1}{p(x;\theta)}\frac{\partial p(x;\theta)}{\partial \theta}</script><p>所以</p>
-<script type="math/tex; mode=display">
+\end{equation}
+\]</span> 又因为: <span class="math display">\[
+\dfrac{\partial \ln p(x;\theta)}{\partial \theta}=\frac{1}{p(x;\theta)}\frac{\partial p(x;\theta)}{\partial \theta}
+\]</span> 所以 <span class="math display">\[
 \begin{equation}
 \frac{\partial p(x;\theta)}{\partial \theta}=p(x;\theta) \dfrac{\partial \ln p(x;\theta)}{\partial \theta}
-\end{equation}</script><p>故,有:</p>
-<script type="math/tex; mode=display">
+\end{equation}
+\]</span> 故,有:</p>
+<p><span class="math display">\[
 \begin{aligned}
-&\dfrac{\partial }{\partial \theta}E\left[\dfrac{\partial}{\partial \theta}\ln p(x;\theta)\right]\\
-=& \dfrac{\partial }{\partial \theta}\int \dfrac{\partial \ln p(x;\theta)}{\partial \theta} p(x;\theta) \, \mathrm{d}x\\
-=& \int \dfrac{\partial }{\partial \theta}\left(\dfrac{\partial \ln p(x;\theta)}{\partial \theta} p(x;\theta)\right) \, \mathrm{d}x\\
-=& \int \left(\dfrac{\partial p(x;\theta) }{\partial \theta}\dfrac{\partial \ln p(x;\theta)}{\partial \theta}+ p(x;\theta)\dfrac{\partial^2 \ln p(x;\theta)}{\partial \theta^2}\right)  \, \mathrm{d}x\\
-=& \int p(x;\theta) \left(\dfrac{\partial \ln p(x;\theta)}{\partial \theta}\right)^2\, \mathrm{d}x %
+&amp;\dfrac{\partial }{\partial \theta}E\left[\dfrac{\partial}{\partial \theta}\ln p(x;\theta)\right]\\
+=&amp; \dfrac{\partial }{\partial \theta}\int \dfrac{\partial \ln p(x;\theta)}{\partial \theta} p(x;\theta) \, \mathrm{d}x\\
+=&amp; \int \dfrac{\partial }{\partial \theta}\left(\dfrac{\partial \ln p(x;\theta)}{\partial \theta} p(x;\theta)\right) \, \mathrm{d}x\\
+=&amp; \int \left(\dfrac{\partial p(x;\theta) }{\partial \theta}\dfrac{\partial \ln p(x;\theta)}{\partial \theta}+ p(x;\theta)\dfrac{\partial^2 \ln p(x;\theta)}{\partial \theta^2}\right)  \, \mathrm{d}x\\
+=&amp; \int p(x;\theta) \left(\dfrac{\partial \ln p(x;\theta)}{\partial \theta}\right)^2\, \mathrm{d}x %
 + \int p(x;\theta) \dfrac{\partial^2 \ln p(x;\theta)}{\partial \theta^2}\,\mathrm{d}x\\
-=&E\left[\left(\dfrac{\partial \ln p(x;\theta)}{\partial \theta}\right)^2\right]+E\left[\dfrac{\partial^2 \ln p(x;\theta)}{\partial \theta^2}\right]\\
-=&0
-\end{aligned}</script><p>所以</p>
-<script type="math/tex; mode=display">
-E\left[\left(\dfrac{\partial \ln p(x;\theta)}{\partial \theta}\right)^2\right]=-E\left[\dfrac{\partial^2 \ln p(x;\theta)}{\partial \theta^2}\right]</script><p>即:</p>
-<script type="math/tex; mode=display">
-I(\theta)=-E\left[\dfrac{\partial^2 \ln p(x;\theta)}{\partial \theta^2}\right]</script>
+=&amp;E\left[\left(\dfrac{\partial \ln p(x;\theta)}{\partial \theta}\right)^2\right]+E\left[\dfrac{\partial^2 \ln p(x;\theta)}{\partial \theta^2}\right]\\
+=&amp;0
+\end{aligned}
+\]</span> 所以 <span class="math display">\[
+E\left[\left(\dfrac{\partial \ln p(x;\theta)}{\partial \theta}\right)^2\right]=-E\left[\dfrac{\partial^2 \ln p(x;\theta)}{\partial \theta^2}\right]
+\]</span> 即: <span class="math display">\[
+I(\theta)=-E\left[\dfrac{\partial^2 \ln p(x;\theta)}{\partial \theta^2}\right]
+\]</span></p>
+
             </div>
             <hr/>
 
@@ -754,9 +766,7 @@ I(\theta)=-E\left[\dfrac{\partial^2 \ln p(x;\theta)}{\partial \theta^2}\right]</
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            昨天偶然看见了Julia 的一篇介绍,介绍中有一段话使我开始对Julia 感兴趣起来
-
-一群拥有各种语言丰富编程经验的Matlab高级用户，对现有的科学计算编程工具感到不满——这些软件对自己专长的领域表现得非常棒，但在其它领域却非常糟糕。他
+                            昨天偶然看见了Julia 的一篇介绍,介绍中有一段话使我开始对Julia 感兴趣起来 &gt; 一群拥有各种语言丰富编程经验的Matlab高级用户，对现有的科学计算编程工具感到不满——这些软件对自己专长的领域表现得非常棒，但在其它领域却非常
                         
                     </div>
                     <div class="publish-info">
@@ -805,10 +815,10 @@ I(\theta)=-E\left[\dfrac{\partial^2 \ln p(x;\theta)}{\partial \theta^2}\right]</
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            背景:班主任下周要开一个一对一见面会,要根据同学们的时间安排先后顺序.
-收集数据
-首先建一个excel表格,将93个候选时间排成一行,38个同学按学号排成一列,得到一个38$\times$93的矩阵.
-将表格共享,每个同学在自己有空的时间填
+                            背景:班主任下周要开一个一对一见面会,要根据同学们的时间安排先后顺序.  # 收集数据
+
+首先建一个excel表格,将93个候选时间排成一行,38个同学按学号排成一列,得到一个38$$93的矩阵.
+将表格共享,每个同学在自己有空的时间填1,
                         
                     </div>
                     <div class="publish-info">
@@ -1030,7 +1040,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">19.3k</span>&nbsp;字
+                class="white-color">20.3k</span>&nbsp;字
             
             
             
