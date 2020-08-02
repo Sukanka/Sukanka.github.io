@@ -433,7 +433,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>我有幸以6599返100E卡抢到了一台4800H+2060的天选，之前想要安装 Manjaro, 但是LiveCD始终进入不了图形界面，因而放弃，转而选择了ArchLinux. 详细配置如下</p>
+                <h1 id="配置">配置</h1>
+<p>我有幸以6599返100E卡抢到了一台4800H+2060的天选，之前想要安装 Manjaro, 但是LiveCD始终进入不了图形界面，因而放弃，转而选择了ArchLinux. 详细配置如下</p>
 <pre><code>$ neofetch   
 --------------------------------------------------------------------------------------
                    -`                    sukanka@asustx 
@@ -454,11 +455,13 @@
    `/ossssso+/:-        -:/+osssso+-     CPU: AMD Ryzen 7 4800H with Radeon Graphics (16) @ 2.900GHz 
   `+sso+:-`                 `.-/+oso:    GPU: AMD ATI 06:00.0 Renoir 
  `++:.                           `-/+/   GPU: NVIDIA 01:00.0 NVIDIA Corporation Device 1f15 
- .`                                 `/   Memory: 2492MiB / 31594MiB
-</code></pre><p>首先我参考了<a target="_blank" rel="noopener" href="https://www.viseator.com/2017/05/17/arch_install/">以官方Wiki的方式安装ArchLinux</a></p>
+ .`                                 `/   Memory: 2492MiB / 31594MiB </code></pre>
+<p>首先我参考了<a target="_blank" rel="noopener" href="https://www.viseator.com/2017/05/17/arch_install/">以官方Wiki的方式安装ArchLinux</a></p>
 <p>安装上了 ArchLinux, 需要注意的是，天选是 nvme的固态硬盘，因而没有<code>/dev/sda</code> 之类的，而是 <code>/dev/nvme0n1</code></p>
-<h1 id="图形界面"><a href="#图形界面" class="headerlink" title="图形界面"></a>图形界面</h1><p>参照 <a target="_blank" rel="noopener" href="https://www.viseator.com/2017/05/19/arch_setup/">ArchLinux安装后的必须配置与图形界面安装教程</a></p>
-<h2 id="常用软件"><a href="#常用软件" class="headerlink" title="常用软件"></a>常用软件</h2><p>这部分记录自己常用的软件。其中 <code>texlive</code> 实际安装的是从<a target="_blank" rel="noopener" href="https://tug.org/">TeX Users Group</a> 下载的最新版本，之后安装<code>texlive-dummy</code>让 Arch 认为 <code>texlive</code> 已经安装。</p>
+<h1 id="图形界面">图形界面</h1>
+<p>参照 <a target="_blank" rel="noopener" href="https://www.viseator.com/2017/05/19/arch_setup/">ArchLinux安装后的必须配置与图形界面安装教程</a></p>
+<h2 id="常用软件">常用软件</h2>
+<p>这部分记录自己常用的软件。其中 <code>texlive</code> 实际安装的是从<a target="_blank" rel="noopener" href="https://tug.org/">TeX Users Group</a> 下载的最新版本，之后安装<code>texlive-dummy</code>让 Arch 认为 <code>texlive</code> 已经安装。</p>
 <pre><code>$ yay -Qeqt
 -----------------------------------------------------------------------------------
 acpi
@@ -600,22 +603,24 @@ xorg-xwd
 xorg-xwud
 yakuake
 yay
-zotero
-</code></pre><h2 id="双显卡方案"><a href="#双显卡方案" class="headerlink" title="双显卡方案"></a>双显卡方案</h2><p>我以前用的 <code>Bumblebee</code> 但是听说性能不行，后来换了 <code>optimus-manager</code> 由于是 AMD处理器，应该使用 <code>optimus-manager-amd-git</code>$^{\text{AUR}}$ ，同时该包依赖的 <code>bbswitch</code> 也需要换成 <code>bbswitch-ati-git</code>$^{\text{AUR}}$</p>
+zotero</code></pre>
+<h2 id="双显卡方案">双显卡方案</h2>
+<p>我以前用的 <code>Bumblebee</code> 但是听说性能不行，后来换了 <code>optimus-manager</code> 由于是 AMD处理器，应该使用 <code>optimus-manager-amd-git</code><span class="math inline">\(^{\text{AUR}}\)</span> ，同时该包依赖的 <code>bbswitch</code> 也需要换成 <code>bbswitch-ati-git</code><span class="math inline">\(^{\text{AUR}}\)</span></p>
 <p>具体配置可以看 <a target="_blank" rel="noopener" href="https://blog.edward-p.xyz/optimus-manager/">使用 optimus-manager 来管理显卡切换</a>。</p>
-<h2 id="屏幕撕裂问题"><a href="#屏幕撕裂问题" class="headerlink" title="屏幕撕裂问题"></a>屏幕撕裂问题</h2><p>我的各种驱动装好后，开机过了一会儿之后，屏幕左下角会出现闪屏，在设置里面将屏幕刷新率设置成60Hz 之后就好了。</p>
-<h2 id="屏幕亮度无法调节问题"><a href="#屏幕亮度无法调节问题" class="headerlink" title="屏幕亮度无法调节问题"></a>屏幕亮度无法调节问题</h2><p>我的 ArchLinux 一直无法调节屏幕亮度，按快捷键调节虽然屏幕亮度条在变，但是实际u亮度并没有改变，一直是最高亮度。昨天晚上觉得太亮了，决定搞定它。</p>
-<p>参考了 ArchWiki 的 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/backlight">Backlight</a> 部分，但是当我按照 ACPI 小节的指示输入时，居然有两个！ </p>
-<pre class="line-numbers language-lang-bash"><code class="language-lang-bash">$ ls /sys/class/backlight/
-----------------------------------------------------------------------
-amdgpu_bl0 asus-nb-wmi
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="屏幕撕裂问题">屏幕撕裂问题</h2>
+<p>我的各种驱动装好后，开机过了一会儿之后，屏幕左下角会出现闪屏，在设置里面将屏幕刷新率设置成60Hz 之后就好了。</p>
+<h2 id="屏幕亮度无法调节问题">屏幕亮度无法调节问题</h2>
+<p>我的 ArchLinux 一直无法调节屏幕亮度，按快捷键调节虽然屏幕亮度条在变，但是实际u亮度并没有改变，一直是最高亮度。昨天晚上觉得太亮了，决定搞定它。</p>
+<p>参考了 ArchWiki 的 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/backlight">Backlight</a> 部分，但是当我按照 ACPI 小节的指示输入时，居然有两个！</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>$ <span class="fu">ls</span> /sys/class/backlight/</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="ex">----------------------------------------------------------------------</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="ex">amdgpu_bl0</span> asus-nb-wmi</span></code></pre></div>
 <p>而且当我尝试使用 root 修改 brightness 文件时，居然无法修改(改了之后还是原来的值)。</p>
-<p>后来看到 Wiki 里面有一句 </p>
+<p>后来看到 Wiki 里面有一句</p>
 <blockquote>
 <p>If you find that changing the <code>acpi_video0</code> backlight does not actually change the brightness, you may need to use <code>acpi_backlight=none</code>.</p>
 </blockquote>
-<p>于是尝试修改内核参数为 <code>acpi_backlight=none</code>，关于如何修改内核参数可见 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Kernel_parameters_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87">内核参数</a>).</p>
+<p>于是尝试修改内核参数为 <code>acpi_backlight=none</code>，关于如何修改内核参数可见 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Kernel_parameters_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">内核参数</a>.</p>
 <p>改好后就一切正常了，我还突然有点不习惯了。</p>
 
             </div>
@@ -929,7 +934,8 @@ amdgpu_bl0 asus-nb-wmi
                     <div class="summary block-with-text">
                         
                             本文主要介绍使用在 Windows 系统中 MS Word 配合 Citavi 进行论文写作和文献管理的小技巧。
-图表的交叉引用对于 Word 中插入的图表，在正文写作时可能需要对图表进行交叉引用，比如“由图 1 知”、“由表 2 可得”。
+图表的交叉引用
+对于 Word 中插入的图表，在正文写作时可能需要对图表进行交叉引用，比如“由图 1 知”、“由表 2 可得”
                         
                     </div>
                     <div class="publish-info">
@@ -1159,7 +1165,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">19.7k</span>&nbsp;字
+                class="white-color">20.4k</span>&nbsp;字
             
             
             
