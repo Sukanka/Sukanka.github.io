@@ -438,61 +438,62 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>本文主要介绍使用在 Windows 系统中 MS Word 配合 Citavi 进行论文写作和文献管理的小技巧。</p>
-<h2 id="图表的交叉引用">图表的交叉引用</h2>
-<p>对于 Word 中插入的图表，在正文写作时可能需要对图表进行交叉引用，比如“由图 1 知”、“由表 2 可得”。此时，我们可以运用 Word 主菜单栏「引用」中的「插入题注」功能。在写作完成后，我们只需要选中相应区域，点击更新域（或者按快捷键「F9」），图表的编号会自动更新。如果想要对所有域进行更新，可以先按「Ctrl + A」，再按「F9」。</p>
-<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200418185109.gif"></p>
-<h2 id="公式编号及交叉引用">公式编号及交叉引用</h2>
-<p>除了图表，我们往往还需要对公式进行交叉引用。对于公式的编号及交叉引用，「MathType」或「AxMath」等插件非常好用，但如果你的合作者没有下载相应的软件，则对方可能无法编辑，并且有些情况下（比如部分学校的毕业论文）要求你必须使用 Word 自带公式编辑器，此时外部插件就不香了。因此，这里主要介绍如何使用 Word 自带公式编辑器进行公式编号及交叉引用。</p>
+<h2 id="图表的交叉引用"><a href="#图表的交叉引用" class="headerlink" title="图表的交叉引用"></a>图表的交叉引用</h2><p>对于 Word 中插入的图表，在正文写作时可能需要对图表进行交叉引用，比如“由图 1 知”、“由表 2 可得”。此时，我们可以运用 Word 主菜单栏「引用」中的「插入题注」功能。在写作完成后，我们只需要选中相应区域，点击更新域（或者按快捷键「F9」），图表的编号会自动更新。如果想要对所有域进行更新，可以先按「Ctrl + A」，再按「F9」。</p>
+<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200418185109.gif" alt></p>
+<h2 id="公式编号及交叉引用"><a href="#公式编号及交叉引用" class="headerlink" title="公式编号及交叉引用"></a>公式编号及交叉引用</h2><p>除了图表，我们往往还需要对公式进行交叉引用。对于公式的编号及交叉引用，「MathType」或「AxMath」等插件非常好用，但如果你的合作者没有下载相应的软件，则对方可能无法编辑，并且有些情况下（比如部分学校的毕业论文）要求你必须使用 Word 自带公式编辑器，此时外部插件就不香了。因此，这里主要介绍如何使用 Word 自带公式编辑器进行公式编号及交叉引用。</p>
 <p>网上有许多关于公式编号及交叉引用的方法，不过要同时实现<strong>编号右对齐</strong>、<strong>自动更新编号</strong>、<strong>方便交叉引用</strong>三种功能，个人更习惯使用以下方式。</p>
 <p>Word 的公式编辑器可以选择「Unicode」和「LaTeX」两种方式，下面的例子使用后者进行公式编写，具体步骤如下：</p>
-<ol type="1">
-<li><p>使用快捷键「Alt + =」，进入公式编辑状态；</p></li>
-<li><p>输入公式后，在公示编辑框內输入「#()」，将光标停留在括号中，点击主菜单栏「插入」中「文档部件」下拉菜单的「域」，选择「AutoNum」，格式为「1,2,3,...」，点击「确定」，此时「#()」中自动生成了数字「1」，其他公式的编号自动更新（若未更新，可选中相应区域，按快捷键「F9」更新域）；</p>
-<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200418185250.png"></p></li>
+<ol>
+<li><p>使用快捷键「Alt + =」，进入公式编辑状态；</p>
+</li>
+<li><p>输入公式后，在公示编辑框內输入「#()」，将光标停留在括号中，点击主菜单栏「插入」中「文档部件」下拉菜单的「域」，选择「AutoNum」，格式为「1,2,3,…」，点击「确定」，此时「#()」中自动生成了数字「1」，其他公式的编号自动更新（若未更新，可选中相应区域，按快捷键「F9」更新域）；</p>
+<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200418185250.png" alt></p>
+</li>
 <li><p>选中生成的数字「1」，点击主菜单栏「插入」中的「书签」，在「书签名」中输入公式的标签（如 “Eq1”），点击「添加」；</p>
-<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200418185329.png"></p></li>
-<li><p>使用快捷键「Ctrl + =」，将线性公式转换为专业格式；</p></li>
-<li><p>在正文需要引用公式的位置，点击主菜单栏「插入」中的「交叉引用」，在「引用类型」下拉菜单中选择「书签」，再选择对应的公式标签即可；</p></li>
-<li><p>在写作完成后，类似地，选中相应区域，点击更新域（或者按快捷键「F9」），公式的编号会自动更新。</p></li>
+<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200418185329.png" alt></p>
+</li>
+<li><p>使用快捷键「Ctrl + =」，将线性公式转换为专业格式；</p>
+</li>
+<li><p>在正文需要引用公式的位置，点击主菜单栏「插入」中的「交叉引用」，在「引用类型」下拉菜单中选择「书签」，再选择对应的公式标签即可；</p>
+</li>
+<li><p>在写作完成后，类似地，选中相应区域，点击更新域（或者按快捷键「F9」），公式的编号会自动更新。</p>
+</li>
 </ol>
-<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200418185403.gif"></p>
-<h2 id="文献管理软件citavi-6">文献管理软件：Citavi 6</h2>
-<p>市面上常用文献管理软件的对比可以参考<a href="https://www.softhead-citavi.com/blog/2314" target="_blank" rel="noopener">此链接</a>。每个软件都有其自身的优点，每个用户都有自身的使用习惯，适合自己的才是最好的。本人亲身使用过 <strong>EndNote X9</strong> 和 <strong>Citavi 6</strong> 两款文献管理软件进行过论文写作，同时了解对比过若干个其他文献管理软件，不得不承认 <strong>Citavi 6</strong> 的确是文献管理软件中的战斗机，其<a href="https://www.softhead-citavi.com/features" target="_blank" rel="noopener">主要特点</a>参见官网。个人最终选择了 <strong>Citavi 6</strong> 作为主要的文献管理工具，主要有以下几个原因：</p>
+<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200418185403.gif" alt></p>
+<h2 id="文献管理软件：Citavi-6"><a href="#文献管理软件：Citavi-6" class="headerlink" title="文献管理软件：Citavi 6"></a>文献管理软件：Citavi 6</h2><p>市面上常用文献管理软件的对比可以参考<a target="_blank" rel="noopener" href="https://www.softhead-citavi.com/blog/2314">此链接</a>。每个软件都有其自身的优点，每个用户都有自身的使用习惯，适合自己的才是最好的。本人亲身使用过 <strong>EndNote X9</strong> 和 <strong>Citavi 6</strong> 两款文献管理软件进行过论文写作，同时了解对比过若干个其他文献管理软件，不得不承认 <strong>Citavi 6</strong> 的确是文献管理软件中的战斗机，其<a target="_blank" rel="noopener" href="https://www.softhead-citavi.com/features">主要特点</a>参见官网。个人最终选择了 <strong>Citavi 6</strong> 作为主要的文献管理工具，主要有以下几个原因：</p>
 <ul>
 <li>基础功能完善，拓展功能强大，兼具完备性和灵活性；</li>
 <li>可以选择将项目保存在本地或云端（德国本地服务器，数据安全性有保障）；</li>
-<li>社区用户活跃，<a href="http://forum.softhead-citavi.com/" target="_blank" rel="noopener">官方论坛</a>能够解决 90% 以上的软件使用问题，并且能在客户服务 QQ 群向管理员提问，亲测服务态度贼棒。</li>
+<li>社区用户活跃，<a target="_blank" rel="noopener" href="http://forum.softhead-citavi.com/">官方论坛</a>能够解决 90% 以上的软件使用问题，并且能在客户服务 QQ 群向管理员提问，亲测服务态度贼棒。</li>
 </ul>
 <p>当然，<strong>Citavi 6</strong> 也有一些缺陷，个人认为主要有以下几点：</p>
 <ul>
 <li>初期学习成本较大（相对于其他文献管理软件而言），但学会之后显著提高科研效率；</li>
 <li>启动程序较慢（成功启动之后运行流畅）；</li>
 <li>个别情况下遇到云端服务器维护时，无法打开云端项目让人崩溃（鉴于教训，本人将最近正在写作的论文项目存放在了本地，已完成或者不紧急的项目放在云端，云端和本地项目可以相互转换）；</li>
-<li>个别用户的在 Word 中不显示 Citavi 插件（可以在<a href="http://forum.softhead-citavi.com/t/159?ip=1" target="_blank" rel="noopener">官方论坛</a>或者客服服务 QQ 群寻求帮助，但也存在用户的 Word 本身有问题的情况）。</li>
+<li>个别用户的在 Word 中不显示 Citavi 插件（可以在<a target="_blank" rel="noopener" href="http://forum.softhead-citavi.com/t/159?ip=1">官方论坛</a>或者客服服务 QQ 群寻求帮助，但也存在用户的 Word 本身有问题的情况）。</li>
 </ul>
-<p>如果大家对 <strong>Citavi 6</strong> 比较陌生，可以参考 <a href="https://www.softhead-citavi.com/citavi6_user_guide" target="_blank" rel="noopener"><strong>Citavi 6 入门指南</strong></a>进行学习，下面主要介绍几个常用的 <strong>Citavi 6</strong> 小技巧</p>
-<h3 id="导入文献">导入文献</h3>
-<p><strong>Citavi 6</strong> 提供了若干种导入文献的方法，根据个人使用经验，最常用的主要有以下三种：</p>
+<p>如果大家对 <strong>Citavi 6</strong> 比较陌生，可以参考 <a target="_blank" rel="noopener" href="https://www.softhead-citavi.com/citavi6_user_guide"><strong>Citavi 6 入门指南</strong></a>进行学习，下面主要介绍几个常用的 <strong>Citavi 6</strong> 小技巧</p>
+<h3 id="导入文献"><a href="#导入文献" class="headerlink" title="导入文献"></a>导入文献</h3><p><strong>Citavi 6</strong> 提供了若干种导入文献的方法，根据个人使用经验，最常用的主要有以下三种：</p>
 <ul>
-<li><p>利用 <strong>Citavi Picker</strong> 插件：Citavi Picker 是 Chrome，Firefox 和 Internet Explorer 的免费扩展浏览器插件，它能在网页上标识 ISBN 和 DOI 号，并将参考信息发送到用户的项目，也可以发送网页和网页内容到用户项目，<a href="http://forum.softhead-citavi.com/t/205?ip=2" target="_blank" rel="noopener">该链接以谷歌学术文献搜索为例</a>；</p></li>
+<li><p>利用 <strong>Citavi Picker</strong> 插件：Citavi Picker 是 Chrome，Firefox 和 Internet Explorer 的免费扩展浏览器插件，它能在网页上标识 ISBN 和 DOI 号，并将参考信息发送到用户的项目，也可以发送网页和网页内容到用户项目，<a target="_blank" rel="noopener" href="http://forum.softhead-citavi.com/t/205?ip=2">该链接以谷歌学术文献搜索为例</a>；</p>
+</li>
 <li><p>利用 <strong>ISBN, DOI, other ID</strong> 功能：点击菜单栏「ISBN, DOI, other ID」选项，输入文献的识别码（ISBN, DOI, or PubMed ID），在线搜索成功后，点击「Add to project」即可；</p>
-<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200418185432.png"></p></li>
+<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200418185432.png" alt></p>
+</li>
 <li><p>利用<strong>多种格式文件</strong>导入：<strong>Citavi</strong> 具有良好的兼容性，能够以 RIS，BibTeX 和 ENW 等格式导入参考文献，当我们从谷歌学术或者百度学术下载相应格式的文件后，可以直接拖动该文件到 <strong>Citavi</strong> 相应区域。</p>
-<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200418185454.gif"></p></li>
+<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200418185454.gif" alt></p>
+</li>
 </ul>
-<h3 id="文內引用">文內引用</h3>
-<p>在理工科领域，文內引用（in-text citation）多使用数字编号，而在社科领域，文內引用（in-text citation）常常要求丰富的格式变换，比如“张三(2020)”、“(张三, 2020)”、“张三”等格式。该功能在 Word 中使用 Citavi 插件可以轻松实现。</p>
-<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200418185521.gif"></p>
-<h3 id="参考文献格式">参考文献格式</h3>
-<p><strong>Citavi</strong> 目前提供几乎所有的英文期刊参考文献格式。如果搜索不到某些期刊要求的参考文献格式，可以给工作人员发邮件，工作人员会为你制作相应的期刊论文格式。</p>
+<h3 id="文內引用"><a href="#文內引用" class="headerlink" title="文內引用"></a>文內引用</h3><p>在理工科领域，文內引用（in-text citation）多使用数字编号，而在社科领域，文內引用（in-text citation）常常要求丰富的格式变换，比如“张三(2020)”、“(张三, 2020)”、“张三”等格式。该功能在 Word 中使用 Citavi 插件可以轻松实现。</p>
+<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200418185521.gif" alt></p>
+<h3 id="参考文献格式"><a href="#参考文献格式" class="headerlink" title="参考文献格式"></a>参考文献格式</h3><p><strong>Citavi</strong> 目前提供几乎所有的英文期刊参考文献格式。如果搜索不到某些期刊要求的参考文献格式，可以给工作人员发邮件，工作人员会为你制作相应的期刊论文格式。</p>
 <p>但由于 <strong>Citavi</strong> 开发人员目前只支持德语和英语，所以中文期刊只能自己制作或改编现有参考文献格式的 ccs 文件。比如，<strong>Citavi</strong> 提供了 GB/T 7714-2015 格式，绝大多数中文期刊格式可以在此基础上进行微小改动，这也体现了 <strong>Citavi</strong> 的灵活性，具体实现方法可以参照客服服务 QQ 群中的相关帮助文档。</p>
 <p>据我所知，大多数文献管理软件并不能同时较好地管理中文和英文的参考文献：比如有时候要求中英文的参考文献格式相互独立；再如许多现有的文献格式英文在前，中文在后，而学位论文、中文期刊要求中文在前，英文在后。而 <strong>Citavi</strong> 可以完美地解决上述问题，下图展示了本人在 GB/T 7714-2015 的基础上进行参考文献格式修改，以满足本校本科生毕业论文的参考文献格式的全部要求。在修改时，各个修改成分的修改效果可以在最右边的方框中动态呈现。</p>
-<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200418185541.png"></p>
-<h3 id="word-导航窗格-citavi-pane-协同写作">Word 导航窗格 + Citavi Pane 协同写作</h3>
-<p>在 <strong>Citavi</strong> 导入文献时，将文献进行分类，会为后续写作节省很多时间。在进行论文写作时，同时打开 Word 的导航窗格和 Citavi Pane，会使得写作思路更加清晰。尤其是在写作引言、文献综述和结论时，这些部分涉及的文献较多，如果没有事先的文献分类和清晰的写作框架，学者常常会因为在寻找合适的文内引用上耗费宝贵的时间，并且写作思路也容易被打乱。Word 导航窗格 + Citavi Pane 协同写作能够较好地解决这个问题，让我们更加专注于写作本身。</p>
-<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200418185557.png"></p>
-<h2 id="结语">结语</h2>
-<p>本文到这里就结束了，如果大家对 Word 论文写作和文献管理有什么心得，欢迎一起讨论。</p>
+<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200418185541.png" alt></p>
+<h3 id="Word-导航窗格-Citavi-Pane-协同写作"><a href="#Word-导航窗格-Citavi-Pane-协同写作" class="headerlink" title="Word 导航窗格 + Citavi Pane 协同写作"></a>Word 导航窗格 + Citavi Pane 协同写作</h3><p>在 <strong>Citavi</strong> 导入文献时，将文献进行分类，会为后续写作节省很多时间。在进行论文写作时，同时打开 Word 的导航窗格和 Citavi Pane，会使得写作思路更加清晰。尤其是在写作引言、文献综述和结论时，这些部分涉及的文献较多，如果没有事先的文献分类和清晰的写作框架，学者常常会因为在寻找合适的文内引用上耗费宝贵的时间，并且写作思路也容易被打乱。Word 导航窗格 + Citavi Pane 协同写作能够较好地解决这个问题，让我们更加专注于写作本身。</p>
+<p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200418185557.png" alt></p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>本文到这里就结束了，如果大家对 Word 论文写作和文献管理有什么心得，欢迎一起讨论。</p>
 
             </div>
             <hr/>
@@ -770,10 +771,9 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            配置
-我有幸以6599返100E卡抢到了一台4800H+2060的天选，之前想要安装 Manjaro, 但是LiveCD始终进入不了图形界面，因而放弃，转而选择了ArchLinux. 详细配置如下
+                            配置我有幸以6599返100E卡抢到了一台4800H+2060的天选，之前想要安装 Manjaro, 但是LiveCD始终进入不了图形界面，因而放弃，转而选择了ArchLinux. 详细配置如下
 $ neofetch   
--------
+--------
                         
                     </div>
                     <div class="publish-info">
@@ -826,10 +826,8 @@ $ neofetch
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            在平时的论文写作中，如果能够事先将工具配置好能够节省非常多的精力。本文介绍 \(\LaTeX\) 配合 VSCode 和 Zotero 进行论文写作和文献管理。
-\(\TeX\) 套装配置
-套装选择
-Windows 和 Linux 推荐使用
+                            在平时的论文写作中，如果能够事先将工具配置好能够节省非常多的精力。本文介绍 $\LaTeX$ 配合 VSCode 和 Zotero 进行论文写作和文献管理。
+$\TeX$ 套装配置套装选择Windows 和 Linux 推荐使用 TeXLi
                         
                     </div>
                     <div class="publish-info">
@@ -1060,7 +1058,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">20.3k</span>&nbsp;字
+                class="white-color">19.7k</span>&nbsp;字
             
             
             
