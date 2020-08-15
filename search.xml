@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>华硕天选使用 qemu 安装 Windows 10</title>
+      <link href="/2020/08/04/qemu_kvm/"/>
+      <url>/2020/08/04/qemu_kvm/</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言">前言</h1><p>我想要在 archlinux 上装一个 windows 虚拟机，并且希望虚拟机性能比较好。以前尝试过 vmware， 但是感觉图形性能不行。因此考虑了qemu。本文主要涉及以下几点：</p><ol type="1"><li>cpu: host-passthrough</li><li>gpu: 透传</li><li>virtio</li></ol><h2 id="机器配置">机器配置</h2><div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>➜  <span class="ex">~</span> <span class="ex">neofetch</span> --off</span><span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="ex">sukanka@asustx</span> </span><span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="ex">--------------</span> </span><span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="ex">OS</span>: Arch Linux x86_64 </span><span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="ex">Host</span>: TUF Gaming FA506IV_FA506IV 1.0 </span><span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a><span class="ex">Kernel</span>: 5.7.12-arch1-1 </span><span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a><span class="ex">Uptime</span>: 7 hours, 2 mins </span><span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a><span class="ex">Packages</span>: 1323 (pacman) </span><span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a><span class="ex">Shell</span>: zsh 5.8 </span><span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a><span class="ex">Resolution</span>: 1920x1080 </span><span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a><span class="ex">DE</span>: Plasma </span><span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a><span class="ex">WM</span>: KWin </span><span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a><span class="ex">WM</span> Theme: 微风 </span><span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a><span class="ex">Theme</span>: Breeze [Plasma], Breeze [GTK2/3] </span><span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a><span class="ex">Icons</span>: breeze [Plasma], breeze [GTK2/3] </span><span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a><span class="ex">Terminal</span>: konsole </span><span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a><span class="ex">CPU</span>: AMD Ryzen 7 4800H with Radeon Graphics (16) <span class="ex">@</span> 2.900GHz </span><span id="cb1-18"><a href="#cb1-18" aria-hidden="true"></a><span class="ex">GPU</span>: NVIDIA 01:00.0 NVIDIA Corporation Device 1f15 </span><span id="cb1-19"><a href="#cb1-19" aria-hidden="true"></a><span class="ex">GPU</span>: AMD ATI 06:00.0 Renoir </span><span id="cb1-20"><a href="#cb1-20" aria-hidden="true"></a><span class="ex">Memory</span>: 11425MiB / 63735MiB </span></code></pre></div><h1 id="准备工作">准备工作</h1><h2 id="启用虚拟化">启用虚拟化</h2><ol type="1"><li><p>首先在 BIOS 里面开启虚拟化支持，这个中文资料很多，也不难，这里不叙述了。</p></li><li><p>启用 Linux 系统的虚拟化参数</p></li><li><p>安装 qemu 及图形界面</p></li></ol><pre><code>yay -S qemu virt-manager</code></pre><h1 id="参考资料">参考资料</h1><ol type="1"><li>[PCI pass-through via OVMF](<a href="https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF_(简体中文)">https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)</a></li><li>[ArchWiki qemu](<a href="https://wiki.archlinux.org/index.php/QEMU_(简体中文)">https://wiki.archlinux.org/index.php/QEMU_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)</a></li><li>https://git.deck.sh/shark/g14gpu/-/blob/master/win10.xml</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> ArchLinux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AMD </tag>
+            
+            <tag> 虚拟机 </tag>
+            
+            <tag> KVM </tag>
+            
+            <tag> 显卡直通 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>为 localhost 启用 https</title>
       <link href="/2020/08/03/localhost_https/"/>
       <url>/2020/08/03/localhost_https/</url>

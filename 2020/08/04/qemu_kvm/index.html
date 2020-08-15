@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="在 Jupyterlab 上使用Julia, sukanka 的博客">
+    <meta name="keywords" content="华硕天选使用 qemu 安装 Windows 10, sukanka 的博客">
     <meta name="description" content="所有的博客都是孤芳自赏.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>在 Jupyterlab 上使用Julia | sukanka 的博客</title>
+    <title>华硕天选使用 qemu 安装 Windows 10 | sukanka 的博客</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/awesome/css/all.css">
@@ -245,12 +245,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/medias/featureimages/2.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://images2.alphacoders.com/780/thumb-1920-780762.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">在 Jupyterlab 上使用Julia</h1>
+                    <h1 class="description center-align post-title">华硕天选使用 qemu 安装 Windows 10</h1>
                 </div>
             </div>
         </div>
@@ -367,8 +367,20 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/IJulia/">
-                                <span class="chip bg-color">IJulia</span>
+                            <a href="/tags/AMD/">
+                                <span class="chip bg-color">AMD</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">
+                                <span class="chip bg-color">虚拟机</span>
+                            </a>
+                        
+                            <a href="/tags/KVM/">
+                                <span class="chip bg-color">KVM</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%98%BE%E5%8D%A1%E7%9B%B4%E9%80%9A/">
+                                <span class="chip bg-color">显卡直通</span>
                             </a>
                         
                     </div>
@@ -379,8 +391,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Julia/" class="post-category">
-                                Julia
+                            <a href="/categories/ArchLinux/" class="post-category">
+                                ArchLinux
                             </a>
                         
                     </div>
@@ -392,28 +404,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-08-20
+                    2020-08-04
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2018-11-10
+                    2020-08-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    939
+                    287
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    1 分
                 </div>
                 
 
@@ -428,57 +440,48 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>昨天偶然看见了Julia 的一篇介绍,介绍中有一段话使我开始对Julia 感兴趣起来 &gt; 一群拥有各种语言丰富编程经验的Matlab高级用户，对现有的科学计算编程工具感到不满——这些软件对自己专长的领域表现得非常棒，但在其它领域却非常糟糕。他们想要的是一个开源的软件，它要像C语言一般快速而有拥有如同Ruby的动态性；要具有Lisp般真正的同像性而又有Matlab般熟悉的数学记号；要像Python般通用、像R般在统计分析上得心应手、像Perl般自然地处理字符串、像Matlab般具有强大的线性代数运算能力、像shell般胶水语言的能力，易于学习而又不让真正的黑客感到无聊；还有，它应该是交互式的，同时又是编译型的…… <a id="more"></a> 2018-11-10 更新: 增加Julia 安装PyCall而不自动装Miniconda. bilibili 有个讲julia 的<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av28178443/">视频</a>讲得挺好的,可惜没出第二期.</p>
-<p>Julia 的快速、通用、还有强大的线性代数运算能力，以及熟悉的数学符号 吸引了我. （<del>其实我以前只接触过 Matlab, Python, 还有C++, 每个还都只是半吊子</del>）</p>
-<p>因此我马上就去下载了Julia 的安装软件(最新的1.0.0稳定版），安装完毕之后当然是要让我最常用的Jupyter 支持Julia了.于是谷歌之，还发现了Jupyter名字的来源: Julia, Python, R</p>
-<blockquote>
-<p>While Jupyter's roots are in Python (it evolved from IPython Notebooks), it is now multi-lingual. The name itself comes from three languages: Ju(lia) + Py(thon) + (e)R.</p>
-</blockquote>
-<p>然后找到了<a target="_blank" rel="noopener" href="https://github.com/JuliaLang/IJulia.jl">IJulia</a>, 根据说明文档来一步步安装Ijulia. 由于我已经安装了Anaconda, 自然是不想再多装一个jupyter.因此我的步骤是:</p>
+                <h1 id="前言">前言</h1>
+<p>我想要在 archlinux 上装一个 windows 虚拟机，并且希望虚拟机性能比较好。以前尝试过 vmware， 但是感觉图形性能不行。因此考虑了qemu。本文主要涉及以下几点：</p>
 <ol type="1">
-<li>打开 anaconda prompt, 输入 <code>where jupyter</code> 查询下我的jupyter 安装在哪了，得到<code>C:\ProgramData\Anaconda3\Scripts\jupyter.exe</code></li>
-<li>复制得到的路径，先粘贴到记事本备用，将<code>\</code>改为<code>\\</code>，得到`<code>C:\\ProgramData\\Anaconda3\\Scripts\\jupyter.exe</code>（<del>我用的是notepad++</del>）</li>
-<li>打开 Julia,输入以下代码</li>
+<li>cpu: host-passthrough</li>
+<li>gpu: 透传</li>
+<li>virtio</li>
 </ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">import</span> Pkg <span class="co">#Julia 下的包管理器，类似于python的pip</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="cn">ENV</span>[<span class="st">&quot;JUPYTER&quot;</span>]<span class="op">=</span><span class="st">&quot;C:</span><span class="sc">\\</span><span class="st">ProgramData</span><span class="sc">\\</span><span class="st">Anaconda3</span><span class="sc">\\</span><span class="st">Scripts</span><span class="sc">\\</span><span class="st">jupyter&quot;</span> </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="co"># 刚刚得到的jupyter 路径，注意是\\,注意没有.exe</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="co"># 如果你将jupyter 加入到了系统路径，那么输入 ENV[&quot;JUPYTER&quot;]=&quot;jupyter&quot; 也可以</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>Pkg.add(<span class="st">&quot;IJulia&quot;</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>Pkg.build(<span class="st">&quot;IJulia&quot;</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a><span class="kw">using</span> IJulia</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>notebook()</span></code></pre></div>
-<p>我按照上面的步骤弄好之后，进入到了jupyter 界面，新建一个Julia文档， 然后输入一个简单的计算<code>1+1</code> 结果一直没有反馈。当然，用jupyter lab 也不行，即使是kernel idle 状态也不能。</p>
-<figure>
-<img src="/2018/08/20/about_julia/ju.png" alt><figcaption>jupyter notebook</figcaption>
-</figure>
-<p>本着不服输的精神，我又开始疯狂搜索相关的提问，终于在Ijulia 的 issue里面找到了解决方案，原链接在<a target="_blank" rel="noopener" href="https://github.com/JuliaLang/IJulia.jl/issues/693">这里</a></p>
-<p>具体的做法是：</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>julia<span class="op">&gt;</span> <span class="kw">import</span> Pkg</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>(v1<span class="fl">.0</span>) pkg<span class="op">&gt;</span> add IJulia</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>julia<span class="op">&gt;</span> <span class="cn">ENV</span>[<span class="st">&quot;IJULIA_DEBUG&quot;</span>] <span class="op">=</span> <span class="ex">true</span> </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>(v1<span class="fl">.0</span>) pkg<span class="op">&gt;</span> dev IJulia </span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>(v1<span class="fl">.0</span>) pkg<span class="op">&gt;</span> build IJulia</span></code></pre></div>
-<p>其中，在julia 的console 里面按<code>]</code>即可切换到 <code>(v1.0) pkg&gt;</code>,再按backspace 键即可切换回 <code>julia&gt;</code></p>
-<p>最后输入</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">using</span> IJulia</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>notebook()</span></code></pre></div>
-<p>即可， 此后就可以通过powershell 直接输入 <code>jupyter lab</code> 打开jupyterlab 了, 并且可以正常使用julia 的功能。</p>
-<figure>
-<img src="/2018/08/20/about_julia/ju2.png" alt><figcaption>julia in jupyterlab</figcaption>
-</figure>
-<p>Julia 还可以调用Python, 这可以通过PyCall 库来实现,如果直接</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="kw">using</span> Pkg</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>Pkg.add(<span class="st">&quot;PyCall&quot;</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>Pkg.build(<span class="st">&quot;PyCall&quot;</span>)</span></code></pre></div>
-<p>会安装一个MiniConda, 但是我已经有Anaconda 了,不需要miniconda</p>
-<p>因此只需要事先指定python的路径就好了,查询python 路径得方法和查询jupyter 得方法是一样的.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="cn">ENV</span>[<span class="st">&quot;PYTHON&quot;</span>]<span class="op">=</span><span class="st">&quot;C:</span><span class="sc">\\</span><span class="st">ProgramData</span><span class="sc">\\</span><span class="st">Anaconda3</span><span class="sc">\\</span><span class="st">python&quot;</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="kw">using</span> Pkg</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>Pkg.add(<span class="st">&quot;PyCall&quot;</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>Pkg.build(<span class="st">&quot;PyCall&quot;</span>)</span></code></pre></div>
-<p>这样就不会安装miniconda了.</p>
-<p>最后，希望我能 <del>学好Julia</del> 坚持学得久一点</p>
+<h2 id="机器配置">机器配置</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>➜  <span class="ex">~</span> <span class="ex">neofetch</span> --off</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="ex">sukanka@asustx</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="ex">--------------</span> </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="ex">OS</span>: Arch Linux x86_64 </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="ex">Host</span>: TUF Gaming FA506IV_FA506IV 1.0 </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a><span class="ex">Kernel</span>: 5.7.12-arch1-1 </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a><span class="ex">Uptime</span>: 7 hours, 2 mins </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a><span class="ex">Packages</span>: 1323 (pacman) </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a><span class="ex">Shell</span>: zsh 5.8 </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a><span class="ex">Resolution</span>: 1920x1080 </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a><span class="ex">DE</span>: Plasma </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a><span class="ex">WM</span>: KWin </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a><span class="ex">WM</span> Theme: 微风 </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a><span class="ex">Theme</span>: Breeze [Plasma], Breeze [GTK2/3] </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a><span class="ex">Icons</span>: breeze [Plasma], breeze [GTK2/3] </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a><span class="ex">Terminal</span>: konsole </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a><span class="ex">CPU</span>: AMD Ryzen 7 4800H with Radeon Graphics (16) <span class="ex">@</span> 2.900GHz </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true"></a><span class="ex">GPU</span>: NVIDIA 01:00.0 NVIDIA Corporation Device 1f15 </span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true"></a><span class="ex">GPU</span>: AMD ATI 06:00.0 Renoir </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true"></a><span class="ex">Memory</span>: 11425MiB / 63735MiB </span></code></pre></div>
+<h1 id="准备工作">准备工作</h1>
+<h2 id="启用虚拟化">启用虚拟化</h2>
+<ol type="1">
+<li><p>首先在 BIOS 里面开启虚拟化支持，这个中文资料很多，也不难，这里不叙述了。</p></li>
+<li><p>启用 Linux 系统的虚拟化参数</p></li>
+<li><p>安装 qemu 及图形界面</p></li>
+</ol>
+<pre><code>yay -S qemu virt-manager</code></pre>
+<h1 id="参考资料">参考资料</h1>
+<ol type="1">
+<li>[PCI pass-through via OVMF](<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF_(简体中文)">https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)</a></li>
+<li>[ArchWiki qemu](<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/QEMU_(简体中文)">https://wiki.archlinux.org/index.php/QEMU_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)</a></li>
+<li>https://git.deck.sh/shark/g14gpu/-/blob/master/win10.xml</li>
+</ol>
 
             </div>
             <hr/>
@@ -504,7 +507,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://sukanka.github.io/2018/08/20/about_julia/">https://sukanka.github.io/2018/08/20/about_julia/</a>
+                    <a href="https://sukanka.github.io/2020/08/04/qemu_kvm/">https://sukanka.github.io/2020/08/04/qemu_kvm/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -542,8 +545,20 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/IJulia/">
-                                    <span class="chip bg-color">IJulia</span>
+                                <a href="/tags/AMD/">
+                                    <span class="chip bg-color">AMD</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">
+                                    <span class="chip bg-color">虚拟机</span>
+                                </a>
+                            
+                                <a href="/tags/KVM/">
+                                    <span class="chip bg-color">KVM</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%98%BE%E5%8D%A1%E7%9B%B4%E9%80%9A/">
+                                    <span class="chip bg-color">显卡直通</span>
                                 </a>
                             
                         </div>
@@ -733,42 +748,63 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2018/11/06/nfc_shua_men_jin/">
+                <a href="/2020/08/04/qemu_kvm/">
                     <div class="card-image">
                         
+                        <img src="https://images2.alphacoders.com/780/thumb-1920-780762.png" class="responsive-img" alt="华硕天选使用 qemu 安装 Windows 10">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/medias/featureimages/4.png" class="responsive-img" alt="NFC刷公交、地铁、门禁">
-                        
-                        <span class="card-title">NFC刷公交、地铁、门禁</span>
+                        <span class="card-title">华硕天选使用 qemu 安装 Windows 10</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前两天从锦江区坐公交回来,没有零钱,还是跟路人换零钱才回来的。之所以不办天府通是因为我之前掉过好几次公交卡了，不敢再办了，而且公交坐的不多，基本都是地铁，而地铁可以用微信。之后又在网上看到天府通开始支持NFC刷卡了。遂有了开卡的想法。还顺便
+                            前言
+我想要在 archlinux 上装一个 windows 虚拟机，并且希望虚拟机性能比较好。以前尝试过 vmware， 但是感觉图形性能不行。因此考虑了qemu。本文主要涉及以下几点：
+
+cpu: host-passthrough
+gp
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2018-11-06
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-04
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            sukanka
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ArchLinux/" class="post-category">
+                                    ArchLinux
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/">
-                        <span class="chip bg-color">日常生活</span>
+                    <a href="/tags/AMD/">
+                        <span class="chip bg-color">AMD</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">
+                        <span class="chip bg-color">虚拟机</span>
+                    </a>
+                    
+                    <a href="/tags/KVM/">
+                        <span class="chip bg-color">KVM</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%98%BE%E5%8D%A1%E7%9B%B4%E9%80%9A/">
+                        <span class="chip bg-color">显卡直通</span>
                     </a>
                     
                 </div>
@@ -782,36 +818,32 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/04/20/fisher_and_mle/">
+                <a href="/2020/08/03/localhost_https/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/medias/featureimages/14.jpg" class="responsive-img" alt="Fisher信息量学习笔记">
+                        <img src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/medias/featureimages/17.jpg" class="responsive-img" alt="为 localhost 启用 https">
                         
-                        <span class="card-title">Fisher信息量学习笔记</span>
+                        <span class="card-title">为 localhost 启用 https</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文记录了Fisher 信息量的两种等价计算方式. 
-说明
-本文积分以\(\int\)表示\(\int_{-\infty}^{+\infty}\) (主要原因是懒,请谅解.)
-Fisher 信息量
-定义
-设总体概率密度函数\(p(x;\th
+                            引言
+我一直使用 AriaNG 作为 aria2 的图形界面，同时使用 yacd 作为 clash 的控制面板，但是这两个网站最近我都打不开了。因此想在我自己的服务器上部署这两个面板。但是我的服务器使用了 https, 不支持 http. 
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2018-04-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-03
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
+                            <a href="/categories/%E8%BD%AF%E4%BB%B6/" class="post-category">
+                                    软件
                                 </a>
                             
                             
@@ -821,8 +853,12 @@ Fisher 信息量
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/">
-                        <span class="chip bg-color">数理统计</span>
+                    <a href="/tags/clash/">
+                        <span class="chip bg-color">clash</span>
+                    </a>
+                    
+                    <a href="/tags/AriaNg/">
+                        <span class="chip bg-color">AriaNg</span>
                     </a>
                     
                 </div>
