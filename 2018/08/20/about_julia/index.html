@@ -450,7 +450,7 @@
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>notebook()</span></code></pre></div>
 <p>我按照上面的步骤弄好之后，进入到了jupyter 界面，新建一个Julia文档， 然后输入一个简单的计算<code>1+1</code> 结果一直没有反馈。当然，用jupyter lab 也不行，即使是kernel idle 状态也不能。</p>
 <figure>
-<img src="/2018/08/20/about_julia/ju.png" alt><figcaption>jupyter notebook</figcaption>
+<img src="/2018/08/20/about_julia/ju.png" alt="jupyter notebook"><figcaption aria-hidden="true">jupyter notebook</figcaption>
 </figure>
 <p>本着不服输的精神，我又开始疯狂搜索相关的提问，终于在Ijulia 的 issue里面找到了解决方案，原链接在<a target="_blank" rel="noopener" href="https://github.com/JuliaLang/IJulia.jl/issues/693">这里</a></p>
 <p>具体的做法是：</p>
@@ -465,7 +465,7 @@
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>notebook()</span></code></pre></div>
 <p>即可， 此后就可以通过powershell 直接输入 <code>jupyter lab</code> 打开jupyterlab 了, 并且可以正常使用julia 的功能。</p>
 <figure>
-<img src="/2018/08/20/about_julia/ju2.png" alt><figcaption>julia in jupyterlab</figcaption>
+<img src="/2018/08/20/about_julia/ju2.png" alt="julia in jupyterlab"><figcaption aria-hidden="true">julia in jupyterlab</figcaption>
 </figure>
 <p>Julia 还可以调用Python, 这可以通过PyCall 库来实现,如果直接</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="kw">using</span> Pkg</span>
