@@ -438,7 +438,7 @@ CPU: AMD Ryzen 7 4800H with Radeon Graphics (16) @ 2.900GHz
 GPU: AMD ATI 06:00.0 Renoir </code></pre>
 <p>qv2ray 版本： 2.6.3:5841 cgproxy 版本：cgproxy-git v0.19.r3.gaaa628a-1</p>
 <h1 id="具体描述">具体描述</h1>
-<p>使用手机的 kdeconnect 传文件给电脑时，进度一直是0，传输速度大概在 10B/s 左右。剪贴板，媒体控制正常。 <img src="https://user-images.githubusercontent.com/31362108/97016313-2b837f00-157f-11eb-87a4-abf67dee7479.png" alt="image"></p>
+<p>使用手机的 kdeconnect 传文件给电脑时，进度一直是0，传输速度大概在 10B/s 左右。剪贴板，媒体控制正常。 <img src="https://github.com/sukanka/sukanka.github.io/blob/master/2020/10/23/fix_kdeconnect/97016313-2b837f00-157f-11eb-87a4-abf67dee7479.png" alt="image"></p>
 <p>关闭 <code>cgproxy.service</code> 后 <code>kdeconnect</code> 传输文件正常。尝试过将</p>
 <p><code>kdeconnect-app kdeconnect-cli kdeconnect-handler kdeconnect-indicator kdeconnect-settings kdeconnect-sms kdecp5</code></p>
 <p>全部加入到 <code>program_noproxy</code> 里面，重启 <code>cgproxy</code>, 仍然无法传输文件。</p>
