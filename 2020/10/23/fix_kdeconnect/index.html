@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="idm注册机, sukanka 的博客">
+    <meta name="keywords" content="fix-kdeconnect, sukanka 的博客">
     <meta name="description" content="所有的博客都是孤芳自赏.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>idm注册机 | sukanka 的博客</title>
+    <title>fix-kdeconnect | sukanka 的博客</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/awesome/css/all.css">
@@ -245,12 +245,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/medias/featureimages/2.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">idm注册机</h1>
+                    <h1 class="description center-align post-title">fix-kdeconnect</h1>
                 </div>
             </div>
         </div>
@@ -367,23 +367,14 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E4%B8%8B%E8%BD%BD%E5%99%A8/">
-                                <span class="chip bg-color">下载器</span>
+                            <a href="/tags/kdeconnect/">
+                                <span class="chip bg-color">kdeconnect</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E8%BD%AF%E4%BB%B6/" class="post-category">
-                                软件
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -392,28 +383,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-02-28
+                    2020-10-23
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2018-02-28
+                    2020-10-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    315
+                    335
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -428,10 +419,49 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Internet Download Manager（简称IDM）是一个用于Windows系统的下载管理器. <a id="more"></a> IDM 是共享软件，免费试用期为30天，但是每月均有一段时间优惠。IDM可以让用户自动下载某些类型的文件，它可将文件划分为多个下载点以更快下载，并列出最近的下载，方便访问文件。相对于其它下载管理器，它具有独特的动态档案分区技术。<br>
-它的出色之处在于，能分析下载地址中的实际地址，但若地址无效时则跳换成失效网页，当地址重新有效而无法恢复成原来的地址。<br>
-它的不足之处在于，必须设置分段的临时文件存放的磁盘位置，下载完成后再自动合并成一个完整的文件，同时删除临时文件（这种做法不同于其他下载软件预先分配一整块磁盘空间）。所以，下载的如果是机密文件，就容易被数据恢复软件恢复，造成安全隐患。</p>
-<p>IDM可被调用于Internet Explorer、Safari、Google Chrome、Opera、Netscape Navigator以及Mozilla Firefox（火狐）浏览器中。 具体破解方法见落尘之木的<a target="_blank" rel="noopener" href="https://www.luochenzhimu.com/archives/1476.html">博客</a></p>
+                <p>本文记录了使用 <code>cgproxy</code> 配合 <code>qv2ray</code> 进行透明代理时导致的 <code>kdeconnect</code> 无法传输文件的问题的解决方案。</p>
+<h1 id="系统信息">系统信息</h1>
+<pre><code>OS: Arch Linux x86_64 
+Host: TUF Gaming FA506IV_FA506IV 1.0 
+Kernel: 5.9.1-arch1-1 
+Uptime: 3 hours, 51 mins 
+Packages: 1372 (pacman) 
+Shell: zsh 5.8 
+Resolution: 1920x1080 
+DE: Plasma 
+WM: KWin 
+WM Theme: Breeze 
+Theme: Breeze [Plasma], Breeze [GTK2/3] 
+Icons: [Plasma], breeze [GTK2/3] 
+Terminal: yakuake 
+CPU: AMD Ryzen 7 4800H with Radeon Graphics (16) @ 2.900GHz 
+GPU: AMD ATI 06:00.0 Renoir </code></pre>
+<p>qv2ray 版本： 2.6.3:5841 cgproxy 版本：cgproxy-git v0.19.r3.gaaa628a-1</p>
+<h1 id="具体描述">具体描述</h1>
+<p>使用手机的 kdeconnect 传文件给电脑时，进度一直是0，传输速度大概在 10B/s 左右。剪贴板，媒体控制正常。 <img src="https://user-images.githubusercontent.com/31362108/97016313-2b837f00-157f-11eb-87a4-abf67dee7479.png" alt="image"></p>
+<p>关闭 <code>cgproxy.service</code> 后 <code>kdeconnect</code> 传输文件正常。尝试过将</p>
+<p><code>kdeconnect-app kdeconnect-cli kdeconnect-handler kdeconnect-indicator kdeconnect-settings kdeconnect-sms kdecp5</code></p>
+<p>全部加入到 <code>program_noproxy</code> 里面，重启 <code>cgproxy</code>, 仍然无法传输文件。</p>
+<p>也尝试过将上图的 <code>kdeconnectd</code> 加入到<code>program_noproxy</code>里面， 仍然无效， 也尝试过以 <code>cgnoproxy kdeconnect</code> 运行，发现仍然无效。</p>
+<p>在提交 issue 的前一刻，我想到了路径的问题， 所以尝试了 <code>/usr/lib/kdeconnectd</code>， 结果成功了。</p>
+<h1 id="配置文件">配置文件</h1>
+<pre><code>&amp;#123;
+    &quot;comment&quot;:&quot;For usage, see https://github.com/springzfx/cgproxy&quot;,
+
+    &quot;port&quot;: 12345,
+    &quot;program_noproxy&quot;: [&quot;v2ray&quot;, &quot;qv2ray&quot;, &quot;clash&quot;，&quot;/usr/lib/kdeconnectd&quot;],
+    &quot;program_proxy&quot;: [],
+    &quot;cgroup_noproxy&quot;: [&quot;/system.slice/v2ray.service&quot;,&quot;/system.slice/system-clash.slice/clash@sukanka.service&quot;],
+    &quot;cgroup_proxy&quot;: [&quot;/&quot;],
+    &quot;enable_gateway&quot;: true,
+    &quot;enable_dns&quot;: true,
+    &quot;enable_udp&quot;: true,
+    &quot;enable_tcp&quot;: true,
+    &quot;enable_ipv4&quot;: true,
+    &quot;enable_ipv6&quot;: true,
+    &quot;table&quot;: 10007,
+    &quot;fwmark&quot;: 39283
+&amp;#125;</code></pre>
 
             </div>
             <hr/>
@@ -457,7 +487,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://sukanka.github.io/2018/02/28/idm/">https://sukanka.github.io/2018/02/28/idm/</a>
+                    <a href="https://sukanka.github.io/2020/10/23/fix_kdeconnect/">https://sukanka.github.io/2020/10/23/fix_kdeconnect/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -495,8 +525,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E4%B8%8B%E8%BD%BD%E5%99%A8/">
-                                    <span class="chip bg-color">下载器</span>
+                                <a href="/tags/kdeconnect/">
+                                    <span class="chip bg-color">kdeconnect</span>
                                 </a>
                             
                         </div>
@@ -686,52 +716,47 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2018/03/07/students_resources/">
+                <a href="/2020/10/23/fix_kdeconnect/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/medias/featureimages/1.png" class="responsive-img" alt="教育优惠">
+                        <img src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/medias/featureimages/2.png" class="responsive-img" alt="fix-kdeconnect">
                         
-                        <span class="card-title">教育优惠</span>
+                        <span class="card-title">fix-kdeconnect</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            当你成为大学生，拿到@edu.cn邮箱或者拿到学生证的时候，你就能享受到许多的教育优惠。当然高校老师也能享受很多优惠。  
-说明
-本文转自 https://github.com/ivmm/Student-resources 并基于其进行了修
+                            本文记录了使用 cgproxy 配合 qv2ray 进行透明代理时导致的 kdeconnect 无法传输文件的问题的解决方案。
+系统信息
+OS: Arch Linux x86_64 
+Host: TUF Gaming FA506IV_FA5
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2018-03-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-23
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E4%BC%98%E6%83%A0%E4%BF%A1%E6%81%AF/" class="post-category">
-                                    优惠信息
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            sukanka
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%AD%A6%E7%94%9F/">
-                        <span class="chip bg-color">学生</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%95%99%E5%B8%88/">
-                        <span class="chip bg-color">教师</span>
+                    <a href="/tags/kdeconnect/">
+                        <span class="chip bg-color">kdeconnect</span>
                     </a>
                     
                 </div>
@@ -745,31 +770,34 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/02/28/winrar/">
+                <a href="/2020/08/04/qemu_kvm/">
                     <div class="card-image">
                         
+                        <img src="https://images2.alphacoders.com/780/thumb-1920-780762.png" class="responsive-img" alt="华硕天选使用 qemu 安装 Windows 10">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/medias/featureimages/3.png" class="responsive-img" alt="Winrar 去广告">
-                        
-                        <span class="card-title">Winrar 去广告</span>
+                        <span class="card-title">华硕天选使用 qemu 安装 Windows 10</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Winrar 注册码  18年7月更新: 现在国外官网下载的简体中文版也有广告了,最新版是5.6,现在可以去以下链接下载,注册后无广告. &gt; 简体中文64位：http://www.win-rar.com/fileadmin/winra
+                            前言
+我想要在 archlinux 上装一个 windows 虚拟机，并且希望虚拟机性能比较好。以前尝试过 vmware， 但是感觉图形性能不行。因此考虑了qemu。本文主要涉及以下几点：
+
+cpu: host-passthrough
+gp
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2018-02-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-04
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%BD%AF%E4%BB%B6/" class="post-category">
-                                    软件
+                            <a href="/categories/ArchLinux/" class="post-category">
+                                    ArchLinux
                                 </a>
                             
                             
@@ -779,8 +807,20 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%B3%A8%E5%86%8C%E7%A0%81/">
-                        <span class="chip bg-color">注册码</span>
+                    <a href="/tags/AMD/">
+                        <span class="chip bg-color">AMD</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">
+                        <span class="chip bg-color">虚拟机</span>
+                    </a>
+                    
+                    <a href="/tags/KVM/">
+                        <span class="chip bg-color">KVM</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%98%BE%E5%8D%A1%E7%9B%B4%E9%80%9A/">
+                        <span class="chip bg-color">显卡直通</span>
                     </a>
                     
                 </div>
