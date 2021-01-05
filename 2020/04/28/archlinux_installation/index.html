@@ -611,9 +611,9 @@ zotero</code></pre>
 <h2 id="屏幕亮度无法调节问题">屏幕亮度无法调节问题</h2>
 <p>我的 ArchLinux 一直无法调节屏幕亮度，按快捷键调节虽然屏幕亮度条在变，但是实际u亮度并没有改变，一直是最高亮度。昨天晚上觉得太亮了，决定搞定它。</p>
 <p>参考了 ArchWiki 的 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/backlight">Backlight</a> 部分，但是当我按照 ACPI 小节的指示输入时，居然有两个！</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>$ <span class="fu">ls</span> /sys/class/backlight/</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="ex">----------------------------------------------------------------------</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="ex">amdgpu_bl0</span> asus-nb-wmi</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>$ <span class="fu">ls</span> /sys/class/backlight/</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">----------------------------------------------------------------------</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">amdgpu_bl0</span> asus-nb-wmi</span></code></pre></div>
 <p>而且当我尝试使用 root 修改 brightness 文件时，居然无法修改(改了之后还是原来的值)。</p>
 <p>后来看到 Wiki 里面有一句</p>
 <blockquote>

@@ -438,9 +438,9 @@
 <p>为 XeTeX 配置字体目的是让操作系统的 fontconfig 库能够找到 TeXLive 附带的大量字体。下面是具体步骤：</p>
 <ol type="1">
 <li><p>将 <code>TEXMFSYSVAR/fonts/conf/texlive-fontconfig.conf</code> 链接到 <code>/etc/fonts/conf.d/09-texlive.conf</code>。 其中 <code>TEXMFSYSVAR</code> 是一个变量，在安装时指定，我使用的是 TeXLive 2020, 安装于 <code>/opt/texlive</code>.我使用的命令为</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="fu">sudo</span> ln -s /opt/texlive/2020/texmf-var/fonts/conf/texlive-fontconfig.conf  /etc/fonts/conf.d/09-texlive.conf</span></code></pre></div></li>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ln -s /opt/texlive/2020/texmf-var/fonts/conf/texlive-fontconfig.conf  /etc/fonts/conf.d/09-texlive.conf</span></code></pre></div></li>
 <li><p>刷新字体缓存。</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="fu">sudo</span> fc-cache -fsv</span></code></pre></div></li>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> fc-cache -fsv</span></code></pre></div></li>
 </ol>
 <h1 id="让-xetex-能按字体文件名找到系统字体">让 XeTeX 能按字体文件名找到系统字体</h1>
 <p>有时候字体的名称和字体名并不相同，字体的名称并不容易看到。但是可以通过修改 TeXLive 安装目录下的 <code>texmf.cnf</code>, 在里面修改 <code>OSFONTDIR</code> 的值， 如</p>

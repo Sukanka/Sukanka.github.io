@@ -456,8 +456,8 @@
 <p>编译链配置可以参考 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/38178015">使用VSCode编写LaTeX</a>。</p>
 <p>在实际中经常用到的编译工具主要有编译文档的pdflatex, xelatex 和编译bib文件的 bibtex 和bier。 如果把各种常用情形都考虑在内至少需要6种编译链。实际上，在tex 文档设置好了编译工具之后，可以通过快捷键编译而不需要手动选择编译链。</p>
 <p>在你的 <span class="math inline">\(\TeX\)</span> 主文件的最开头设置好编译工具，如下面的命令指定了使用 xelatex 来编译文档，biber 来编译bib文件，然后在 tex 文档中使用 快捷键调起 <code>TeXMagicProgramWithArgs</code> 就可以编译。</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="co">%!TEX program = xelatex</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="co">%!BIB program = biber</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">%!TEX program = xelatex</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">%!BIB program = biber</span></span></code></pre></div>
 <p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200408000033.png"></p>
 <p>下面是我常用的一些快捷方式</p>
 <ul>
@@ -466,9 +466,9 @@
 <li>逆向跳转（pdf 到 tex): Ctrl+Click</li>
 </ul>
 <p><span class="math inline">\(\LaTeX\)</span>-WorkShop 插件还提供了各种各样的代码片段，例如可以使用 <code>\equation</code> 产生</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">\begin</span>&amp;#123;equation&amp;#125;</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>    </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="kw">\end</span>&amp;#123;equation&amp;#125;</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>&amp;#123;equation&amp;#125;</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>&amp;#123;equation&amp;#125;</span></code></pre></div>
 <p>此外还有 <code>\figure</code> 等代码片段用于插入图片。插入表格虽然有 <code>\table</code> 代码片段但是仍然比较麻烦，推荐先在 Excel 做好表格，然后使用 <a target="_blank" rel="noopener" href="https://github.com/krlmlr/Excel2LaTeX">Excel2LaTeX</a> 或者 <a target="_blank" rel="noopener" href="https://www.tablesgenerator.com/latex_tables">LaTeX Tables Generator 网站</a>将Excel 表格转换成 <span class="math inline">\(\LaTeX\)</span> 表格并粘贴。</p>
 <p><img src="https://sukanka-figure-bed.oss-cn-chengdu.aliyuncs.com/blog/202020200408000432.gif"></p>
 <h3 id="其他插件">其他插件</h3>
