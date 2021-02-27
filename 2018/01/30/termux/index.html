@@ -410,7 +410,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1,718
+                    1,714
                 </div>
                 
 
@@ -444,16 +444,14 @@
 <code>sh -c "$(curl -fsSL https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh)"</code><br>
 安装 <code>ohmyzsh</code>安装完成之后就会让我们选择彩色样式和字体颜色，彩色样式我选择的是 <code>33) tango.colors</code>,于是输入 <code>33</code>。字体颜色我选择的是 <code>12] Ubuntu Mono derivative Powerline.ttf</code> ,于是输入 <code>12</code>。然后重启一下 Termux 我们就能看到变化了，嗯，多了一个蓝色的箭头了，还不错。可以开始干正事了。</p>
 <h2 id="node.js-安装-hexo">Node.js 安装 Hexo</h2>
-<p>Node.js 是 Hexo 必不可少的依赖包。我们输入 <code>apt install nodejs</code> 来安装它，然后输入 <code>npm install hexo-cli -g</code> 来安装 Hexo. 如果安装成功了，你就可以看下一节了，可惜，由于 Android 8.0(Oreo)的缘故，我安装出错了。（吐血）错误信息显示如下:</p>
-<pre><code>npm ERR! Cannot read property &#39;length&#39; of undefined
+<p>Node.js 是 Hexo 必不可少的依赖包。我们输入 <code>apt install nodejs</code> 来安装它，然后输入 <code>npm install hexo-cli -g</code> 来安装 Hexo. 如果安装成功了，你就可以看下一节了，可惜，由于 Android 8.0(Oreo)的缘故，我安装出错了。（吐血）错误信息显示如下:<br>
+<pre class="line-numbers language-none"><code class="language-none">npm ERR! Cannot read property &#39;length&#39; of undefined
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /data/data/com.termux/files/home/.npm/_logs/2018-01-30T14_19_17_572Z-debug.log</code></pre>
-<p>发现日志被写入到了 */data/data/com.termux/files/home/.npm/_logs/2018-01-30T14_19_17_572Z-debug.log* 文件（不同手机可能显示不一样，以实际显示的为准）</p>
+npm ERR!     &#x2F;data&#x2F;data&#x2F;com.termux&#x2F;files&#x2F;home&#x2F;.npm&#x2F;_logs&#x2F;2018-01-30T14_19_17_572Z-debug.log<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre> 发现日志被写入到了 */data/data/com.termux/files/home/.npm/_logs/2018-01-30T14_19_17_572Z-debug.log* 文件（不同手机可能显示不一样，以实际显示的为准）</p>
 <h3 id="解决错误">解决错误</h3>
-<p><strong>注意：以下操作需要 root 权限！</strong> 我们进入到上述文件夹，打开log文件</p>
-<pre><code>0 info it worked if it ends with ok
-1 verbose cli [ &#39;/data/data/com.termux/files/usr/bin/node&#39;,
-1 verbose cli   &#39;/data/data/com.termux/files/usr/bin/npm&#39;,
+<p><strong>注意：以下操作需要 root 权限！</strong> 我们进入到上述文件夹，打开log文件 <pre class="line-numbers language-none"><code class="language-none">0 info it worked if it ends with ok
+1 verbose cli [ &#39;&#x2F;data&#x2F;data&#x2F;com.termux&#x2F;files&#x2F;usr&#x2F;bin&#x2F;node&#39;,
+1 verbose cli   &#39;&#x2F;data&#x2F;data&#x2F;com.termux&#x2F;files&#x2F;usr&#x2F;bin&#x2F;npm&#39;,
 1 verbose cli   &#39;install&#39;,
 1 verbose cli   &#39;hexo-cli&#39;,
 1 verbose cli   &#39;-g&#39; ]
@@ -461,61 +459,47 @@ npm ERR!     /data/data/com.termux/files/home/.npm/_logs/2018-01-30T14_19_17_572
 3 info using node@v8.9.4
 4 verbose npm-session feefd70188bcf1ec
 5 verbose stack TypeError: Cannot read property &#39;length&#39; of undefined
-5 verbose stack     at Object.&lt;anonymous&gt; (/data/data/com.termux/files/usr/lib/node_modules/npm/node_modules/worker-farm/lib/farm.js:5:61)
+5 verbose stack     at Object.&lt;anonymous&gt; (&#x2F;data&#x2F;data&#x2F;com.termux&#x2F;files&#x2F;usr&#x2F;lib&#x2F;node_modules&#x2F;npm&#x2F;node_modules&#x2F;worker-farm&#x2F;lib&#x2F;farm.js:5:61)
 5 verbose stack     at Module._compile (module.js:643:30)
 5 verbose stack     at Object.Module._extensions..js (module.js:654:10)
 5 verbose stack     at Module.load (module.js:556:32)
 5 verbose stack     at tryModuleLoad (module.js:499:12)
 5 verbose stack     at Function.Module._load (module.js:491:3)
 5 verbose stack     at Module.require (module.js:587:17)
-5 verbose stack     at require (internal/module.js:11:18)
-5 verbose stack     at Object.&lt;anonymous&gt; (/data/data/com.termux/files/usr/lib/node_modules/npm/node_modules/worker-farm/lib/index.js:3:14)
+5 verbose stack     at require (internal&#x2F;module.js:11:18)
+5 verbose stack     at Object.&lt;anonymous&gt; (&#x2F;data&#x2F;data&#x2F;com.termux&#x2F;files&#x2F;usr&#x2F;lib&#x2F;node_modules&#x2F;npm&#x2F;node_modules&#x2F;worker-farm&#x2F;lib&#x2F;index.js:3:14)
 5 verbose stack     at Module._compile (module.js:643:30)
 5 verbose stack     at Object.Module._extensions..js (module.js:654:10)
 5 verbose stack     at Module.load (module.js:556:32)
 5 verbose stack     at tryModuleLoad (module.js:499:12)
 5 verbose stack     at Function.Module._load (module.js:491:3)
 5 verbose stack     at Module.require (module.js:587:17)
-5 verbose stack     at require (internal/module.js:11:18)
-6 verbose cwd /data/data/com.termux/files/home
+5 verbose stack     at require (internal&#x2F;module.js:11:18)
+6 verbose cwd &#x2F;data&#x2F;data&#x2F;com.termux&#x2F;files&#x2F;home
 7 verbose Linux 3.18.66-blu_spark-OOS-OREO
-8 verbose argv &quot;/data/data/com.termux/files/usr/bin/node&quot; &quot;/data/data/com.termux/files/usr/bin/npm&quot; &quot;install&quot; &quot;hexo-cli&quot; &quot;-g&quot;
+8 verbose argv &quot;&#x2F;data&#x2F;data&#x2F;com.termux&#x2F;files&#x2F;usr&#x2F;bin&#x2F;node&quot; &quot;&#x2F;data&#x2F;data&#x2F;com.termux&#x2F;files&#x2F;usr&#x2F;bin&#x2F;npm&quot; &quot;install&quot; &quot;hexo-cli&quot; &quot;-g&quot;
 9 verbose node v8.9.4
 10 verbose npm  v5.6.0
 11 error Cannot read property &#39;length&#39; of undefined
-12 verbose exit [ 1, true ]</code></pre>
-<p>看到第一个出错的地方是位于<em>/data/data/com.termux/files/usr/lib/node_modules/npm/node_modules/worker-farm/lib</em> 的<em>farm.js</em> 文件。同时也知道了错误类型。我经过一番搜索后，发现了错误的原因是 nodejs中有一个函数 os.cpus() 返回值为 undefined 导致出现错误。 进一步研究后找到了解决办法：打开<em>/data/data/com.termux/files/usr/lib/node_modules/npm/node_modules/worker-farm/lib</em>文件夹 ，把farm.js文件的</p>
-<pre><code>use strict&#39;
+12 verbose exit [ 1, true ]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre> 看到第一个出错的地方是位于<em>/data/data/com.termux/files/usr/lib/node_modules/npm/node_modules/worker-farm/lib</em> 的<em>farm.js</em> 文件。同时也知道了错误类型。我经过一番搜索后，发现了错误的原因是 nodejs中有一个函数 os.cpus() 返回值为 undefined 导致出现错误。 进一步研究后找到了解决办法：打开<em>/data/data/com.termux/files/usr/lib/node_modules/npm/node_modules/worker-farm/lib</em>文件夹 ，把farm.js文件的 <pre class="line-numbers language-none"><code class="language-none">use strict&#39;
 
-const DEFAULT_OPTIONS = &amp;#123;
+const DEFAULT_OPTIONS &#x3D; &#123;
 maxCallsPerWorker : Infinity
-, maxConcurrentWorkers : require(&#39;os&#39;).cpus().length</code></pre>
-<p>改成</p>
-<pre><code>use strict&#39;
+, maxConcurrentWorkers : require(&#39;os&#39;).cpus().length<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre> 改成 <pre class="line-numbers language-none"><code class="language-none">use strict&#39;
 
-const DEFAULT_OPTIONS = &amp;#123;
+const DEFAULT_OPTIONS &#x3D; &#123;
 maxCallsPerWorker : Infinity
-, maxConcurrentWorkers : (require(&#39;os&#39;).cpus()||&amp;#123; length:1&amp;#125;).length</code></pre>
-<p>原理是让<em>maxConcurrentWokers</em>不会返回无效值，而是会返回1,注意<strong>括号</strong>。 返回 Termux 输入 <code>npm install -g hexo-cli</code><br>
+, maxConcurrentWorkers : (require(&#39;os&#39;).cpus()||&#123; length:1&#125;).length<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre> 原理是让<em>maxConcurrentWokers</em>不会返回无效值，而是会返回1,注意<strong>括号</strong>。 返回 Termux 输入 <code>npm install -g hexo-cli</code><br>
 你就会发现 Hexo-cli 已经正常安装了。</p>
 <p><strong>注意，我们添加的内容是<code>||&#123; length:1&#125;</code> (其实还有括号),最后就只能使用一个核心，你也可以把<em>1</em> 改成其他值，但是不要超过 CPU 核心的数量。</strong></p>
 <h2 id="安装-hexo-的组件">安装 Hexo 的组件</h2>
-<p>安装 Hexo 之后，我们开始安装一些杂七杂八的组件之所以说”杂七杂八“，是因为有的我也不知道他们有什么用。代码如下:</p>
-<pre><code>    npm install hexo --save         #安装 Hexo, 不知道和 Hexo-cli 有什么区别
-    apt install git         #安装 git
-    npm install hexo-deployer-git --save            #部署到 GitHub 的组件</code></pre>
-<p>安装完 Hexo 之后就是连接到 GitHub 部署线上博客了，首先需要注册一个 GitHub 账号，可以点击<a target="_blank" rel="noopener" href="https://github.com/">这里</a> 进行注册。注册完毕之后，我们打开 Termux, 输入 user.name 和 user.email信息：</p>
-<pre><code>git config --global user.name &quot;你的GitHub用户名&quot;
-git config --global user.email &quot;你的GitHub注册邮箱&quot;</code></pre>
-<p>然后生成 SSH 文件密钥:</p>
-<pre><code>ssh-keygen -t rsa -C &quot;你的GitHub注册邮箱&quot;</code></pre>
-<p>默认不需要密码，直接三个回车。 如果出现</p>
-<pre><code>The program &#39;ssh-keygen&#39; is not installed. Install it by executing:
- pkg install openssh</code></pre>
-<p>则说明我们没有安装 openssh, 输入 <code>pkg install openssh</code> 来进行安装，安装好了再次输入 <code>ssh-keygen -t rsa -C "你的GitHub注册邮箱"</code>之后看到这样一段文字:</p>
-<pre><code>Generating public/private rsa key pair.
-Enter file in which to save the key (/data/data/com.termux/files/home/.ssh/id_rsa):</code></pre>
-<p>进入 <code>/data/data/com.termux/files/home/.ssh</code> 文件夹(需要 root)，下面有三个文件,其中 <code>id_rsa.pub</code>是公钥文件，我们以文本方式打开它，复制内容（不用复制最后的邮箱）。然后进入 GitHub 点击自己的头像，选择 Settings, 再选择 SSH and GPG keys. 点击 new SSH key. 其中 Title 栏随便输（不要留空），Key 栏把刚刚复制的内容粘贴进去，然后点击 Add SSH key 保存。 <img src="/2018/01/30/termux/set.jpg" alt="set"> 暂时更新到这里。以后有时间再更新。</p>
+<p>安装 Hexo 之后，我们开始安装一些杂七杂八的组件之所以说”杂七杂八“，是因为有的我也不知道他们有什么用。代码如下:<br>
+<pre class="line-numbers language-none"><code class="language-none">npm install hexo --save            #安装 Hexo, 不知道和 Hexo-cli 有什么区别
+apt install git         #安装 git
+npm install hexo-deployer-git --save            #部署到 GitHub 的组件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre> 安装完 Hexo 之后就是连接到 GitHub 部署线上博客了，首先需要注册一个 GitHub 账号，可以点击<a target="_blank" rel="noopener" href="https://github.com/">这里</a> 进行注册。注册完毕之后，我们打开 Termux, 输入 user.name 和 user.email信息： <pre class="line-numbers language-none"><code class="language-none">git config --global user.name &quot;你的GitHub用户名&quot;
+git config --global user.email &quot;你的GitHub注册邮箱&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre> 然后生成 SSH 文件密钥: <pre class="line-numbers language-none"><code class="language-none">ssh-keygen -t rsa -C &quot;你的GitHub注册邮箱&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre> 默认不需要密码，直接三个回车。 如果出现 <pre class="line-numbers language-none"><code class="language-none">The program &#39;ssh-keygen&#39; is not installed. Install it by executing:
+ pkg install openssh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre> 则说明我们没有安装 openssh, 输入 <code>pkg install openssh</code> 来进行安装，安装好了再次输入 <code>ssh-keygen -t rsa -C "你的GitHub注册邮箱"</code>之后看到这样一段文字: <pre class="line-numbers language-none"><code class="language-none">Generating public&#x2F;private rsa key pair.
+Enter file in which to save the key (&#x2F;data&#x2F;data&#x2F;com.termux&#x2F;files&#x2F;home&#x2F;.ssh&#x2F;id_rsa):<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre> 进入 <code>/data/data/com.termux/files/home/.ssh</code> 文件夹(需要 root)，下面有三个文件,其中 <code>id_rsa.pub</code>是公钥文件，我们以文本方式打开它，复制内容（不用复制最后的邮箱）。然后进入 GitHub 点击自己的头像，选择 Settings, 再选择 SSH and GPG keys. 点击 new SSH key. 其中 Title 栏随便输（不要留空），Key 栏把刚刚复制的内容粘贴进去，然后点击 Add SSH key 保存。 <img src="/2018/01/30/termux/set.jpg" alt="set"> 暂时更新到这里。以后有时间再更新。</p>
 
             </div>
             <hr/>
@@ -1056,7 +1040,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">21.8k</span>&nbsp;字
+                class="white-color">21.4k</span>&nbsp;字
             
             
             

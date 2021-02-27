@@ -390,14 +390,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-10-23
+                    2021-02-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    335
+                    358
                 </div>
                 
 
@@ -421,7 +421,7 @@
             <div id="articleContent">
                 <p>本文记录了使用 <code>cgproxy</code> 配合 <code>qv2ray</code> 进行透明代理时导致的 <code>kdeconnect</code> 无法传输文件的问题的解决方案。</p>
 <h1 id="系统信息">系统信息</h1>
-<pre><code>OS: Arch Linux x86_64 
+<pre class="line-numbers language-none"><code class="language-none">OS: Arch Linux x86_64 
 Host: TUF Gaming FA506IV_FA506IV 1.0 
 Kernel: 5.9.1-arch1-1 
 Uptime: 3 hours, 51 mins 
@@ -431,37 +431,41 @@ Resolution: 1920x1080
 DE: Plasma 
 WM: KWin 
 WM Theme: Breeze 
-Theme: Breeze [Plasma], Breeze [GTK2/3] 
-Icons: [Plasma], breeze [GTK2/3] 
+Theme: Breeze [Plasma], Breeze [GTK2&#x2F;3] 
+Icons: [Plasma], breeze [GTK2&#x2F;3] 
 Terminal: yakuake 
 CPU: AMD Ryzen 7 4800H with Radeon Graphics (16) @ 2.900GHz 
-GPU: AMD ATI 06:00.0 Renoir </code></pre>
+GPU: AMD ATI 06:00.0 Renoir <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>qv2ray 版本： 2.6.3:5841 cgproxy 版本：cgproxy-git v0.19.r3.gaaa628a-1</p>
 <h1 id="具体描述">具体描述</h1>
-<p>使用手机的 kdeconnect 传文件给电脑时，进度一直是0，传输速度大概在 10B/s 左右。剪贴板，媒体控制正常。 <img src="https://github.com/sukanka/sukanka.github.io/blob/master/2020/10/23/fix_kdeconnect/97016313-2b837f00-157f-11eb-87a4-abf67dee7479.png" alt="image"></p>
+<p>使用手机的 kdeconnect 传文件给电脑时，进度一直是0，传输速度大概在 10B/s 左右。剪贴板，媒体控制正常。</p>
+<figure>
+<img src="/2020/10/23/fix_kdeconnect/kdeconnect.png" alt="image"><figcaption aria-hidden="true">image</figcaption>
+</figure>
 <p>关闭 <code>cgproxy.service</code> 后 <code>kdeconnect</code> 传输文件正常。尝试过将</p>
 <p><code>kdeconnect-app kdeconnect-cli kdeconnect-handler kdeconnect-indicator kdeconnect-settings kdeconnect-sms kdecp5</code></p>
 <p>全部加入到 <code>program_noproxy</code> 里面，重启 <code>cgproxy</code>, 仍然无法传输文件。</p>
 <p>也尝试过将上图的 <code>kdeconnectd</code> 加入到<code>program_noproxy</code>里面， 仍然无效， 也尝试过以 <code>cgnoproxy kdeconnect</code> 运行，发现仍然无效。</p>
 <p>在提交 issue 的前一刻，我想到了路径的问题， 所以尝试了 <code>/usr/lib/kdeconnectd</code>， 结果成功了。</p>
+<p>顺便，我把 aria2 也添加到不走代理了，免得跑完流量</p>
 <h1 id="配置文件">配置文件</h1>
-<pre><code>&amp;#123;
-    &quot;comment&quot;:&quot;For usage, see https://github.com/springzfx/cgproxy&quot;,
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+    <span class="token property">"comment"</span><span class="token operator">:</span><span class="token string">"For usage, see https://github.com/springzfx/cgproxy"</span><span class="token punctuation">,</span>
 
-    &quot;port&quot;: 12345,
-    &quot;program_noproxy&quot;: [&quot;v2ray&quot;, &quot;qv2ray&quot;, &quot;clash&quot;，&quot;/usr/lib/kdeconnectd&quot;],
-    &quot;program_proxy&quot;: [],
-    &quot;cgroup_noproxy&quot;: [&quot;/system.slice/v2ray.service&quot;,&quot;/system.slice/system-clash.slice/clash@sukanka.service&quot;],
-    &quot;cgroup_proxy&quot;: [&quot;/&quot;],
-    &quot;enable_gateway&quot;: true,
-    &quot;enable_dns&quot;: true,
-    &quot;enable_udp&quot;: true,
-    &quot;enable_tcp&quot;: true,
-    &quot;enable_ipv4&quot;: true,
-    &quot;enable_ipv6&quot;: true,
-    &quot;table&quot;: 10007,
-    &quot;fwmark&quot;: 39283
-&amp;#125;</code></pre>
+    <span class="token property">"port"</span><span class="token operator">:</span> <span class="token number">12345</span><span class="token punctuation">,</span>
+    <span class="token property">"program_noproxy"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"v2ray"</span><span class="token punctuation">,</span> <span class="token string">"qv2ray"</span><span class="token punctuation">,</span> <span class="token string">"clash"</span>，<span class="token string">"/usr/lib/kdeconnectd"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">"program_proxy"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">"cgroup_noproxy"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"/system.slice/v2ray.service"</span><span class="token punctuation">,</span><span class="token string">"/system.slice/system-clash.slice/clash@sukanka.service"</span><span class="token punctuation">,</span><span class="token string">"/system.slice/aria2c.service"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">"cgroup_proxy"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"/"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">"enable_gateway"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">"enable_dns"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">"enable_udp"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">"enable_tcp"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">"enable_ipv4"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">"enable_ipv6"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">"table"</span><span class="token operator">:</span> <span class="token number">10007</span><span class="token punctuation">,</span>
+    <span class="token property">"fwmark"</span><span class="token operator">:</span> <span class="token number">39283</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -1017,7 +1021,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">21.8k</span>&nbsp;字
+                class="white-color">21.4k</span>&nbsp;字
             
             
             
