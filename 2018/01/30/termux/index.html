@@ -17,17 +17,17 @@
 
 
     <title>Termux 折腾记之安装 Hexo | sukanka 的博客</title>
-    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/favicon.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/awesome/css/all.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/css/my.css">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/aos/dist/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/jquery/jquery.min.js"></script>
+    <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 5.4.0"></head>
 
@@ -39,7 +39,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">sukanka 的博客</span>
                 </a>
@@ -138,7 +138,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">sukanka 的博客</div>
         <div class="logo-desc">
@@ -245,7 +245,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -263,7 +263,7 @@
 <main class="post-container content">
 
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
 <style>
     #articleContent h1::before,
     #articleContent h2::before,
@@ -432,7 +432,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>我在 Windows 上成功部署了 Hexo, 并把本地文件也推送到了 GitHub ，突然想到通过 Termux, 在手机上也可以写博客。本文是我在手机上部署 Hexo 遇到的问题及解决办法。 <a id="more"></a></p>
+                <p>我在 Windows 上成功部署了 Hexo, 并把本地文件也推送到了 GitHub ，突然想到通过 Termux, 在手机上也可以写博客。本文是我在手机上部署 Hexo 遇到的问题及解决办法。 <span id="more"></span></p>
 <h1 id="安装-termux">安装 Termux</h1>
 <h2 id="何为-termux">何为 Termux</h2>
 <p>Termux 是一款开源且不需要 root，运行在 Android 终端的极其强大的 Linux 模拟器，支持 apt 和 pkg 管理软件包，完美支持 python,ruby,go,nodejs,git 等软件。 &gt; Termux is an Android terminal emulator and Linux environment app that works directly with no rooting or setup required. A minimal base system is installed automatically - additional packages are available using the APT package manager.</p>
@@ -494,9 +494,9 @@ maxCallsPerWorker : Infinity
 <p><strong>注意，我们添加的内容是<code>||&#123; length:1&#125;</code> (其实还有括号),最后就只能使用一个核心，你也可以把<em>1</em> 改成其他值，但是不要超过 CPU 核心的数量。</strong></p>
 <h2 id="安装-hexo-的组件">安装 Hexo 的组件</h2>
 <p>安装 Hexo 之后，我们开始安装一些杂七杂八的组件之所以说”杂七杂八“，是因为有的我也不知道他们有什么用。代码如下:<br>
-<pre class="line-numbers language-none"><code class="language-none">npm install hexo --save            #安装 Hexo, 不知道和 Hexo-cli 有什么区别
-apt install git         #安装 git
-npm install hexo-deployer-git --save            #部署到 GitHub 的组件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre> 安装完 Hexo 之后就是连接到 GitHub 部署线上博客了，首先需要注册一个 GitHub 账号，可以点击<a target="_blank" rel="noopener" href="https://github.com/">这里</a> 进行注册。注册完毕之后，我们打开 Termux, 输入 user.name 和 user.email信息： <pre class="line-numbers language-none"><code class="language-none">git config --global user.name &quot;你的GitHub用户名&quot;
+<pre class="line-numbers language-none"><code class="language-none">npm install hexo --save			#安装 Hexo, 不知道和 Hexo-cli 有什么区别
+apt install git			#安装 git
+npm install hexo-deployer-git --save			#部署到 GitHub 的组件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre> 安装完 Hexo 之后就是连接到 GitHub 部署线上博客了，首先需要注册一个 GitHub 账号，可以点击<a target="_blank" rel="noopener" href="https://github.com/">这里</a> 进行注册。注册完毕之后，我们打开 Termux, 输入 user.name 和 user.email信息： <pre class="line-numbers language-none"><code class="language-none">git config --global user.name &quot;你的GitHub用户名&quot;
 git config --global user.email &quot;你的GitHub注册邮箱&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre> 然后生成 SSH 文件密钥: <pre class="line-numbers language-none"><code class="language-none">ssh-keygen -t rsa -C &quot;你的GitHub注册邮箱&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre> 默认不需要密码，直接三个回车。 如果出现 <pre class="line-numbers language-none"><code class="language-none">The program &#39;ssh-keygen&#39; is not installed. Install it by executing:
  pkg install openssh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre> 则说明我们没有安装 openssh, 输入 <code>pkg install openssh</code> 来进行安装，安装好了再次输入 <code>ssh-keygen -t rsa -C "你的GitHub注册邮箱"</code>之后看到这样一段文字: <pre class="line-numbers language-none"><code class="language-none">Generating public&#x2F;private rsa key pair.
 Enter file in which to save the key (&#x2F;data&#x2F;data&#x2F;com.termux&#x2F;files&#x2F;home&#x2F;.ssh&#x2F;id_rsa):<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre> 进入 <code>/data/data/com.termux/files/home/.ssh</code> 文件夹(需要 root)，下面有三个文件,其中 <code>id_rsa.pub</code>是公钥文件，我们以文本方式打开它，复制内容（不用复制最后的邮箱）。然后进入 GitHub 点击自己的头像，选择 Settings, 再选择 SSH and GPG keys. 点击 new SSH key. 其中 Title 栏随便输（不要留空），Key 栏把刚刚复制的内容粘贴进去，然后点击 Add SSH key 保存。 <img src="/2018/01/30/termux/set.jpg" alt="set"> 暂时更新到这里。以后有时间再更新。</p>
@@ -575,12 +575,12 @@ Enter file in which to save the key (&#x2F;data&#x2F;data&#x2F;com.termux&#x2F;f
                     
                 </div>
                 <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/share/css/share.min.css">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
     
     <div class="social-share" data-sites="qq,qzone,wechat,weibo,douban,linkedin,twitter,facebook,google" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/share/js/social-share.min.js"></script>
+    <script src="/libs/share/js/social-share.min.js"></script>
     
 
     
@@ -698,10 +698,10 @@ Enter file in which to save the key (&#x2F;data&#x2F;data&#x2F;com.termux&#x2F;f
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -766,7 +766,7 @@ Enter file in which to save the key (&#x2F;data&#x2F;data&#x2F;com.termux&#x2F;f
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/medias/featureimages/23.jpg" class="responsive-img" alt="教育邮箱获取正版 LINGO">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="教育邮箱获取正版 LINGO">
                         
                         <span class="card-title">教育邮箱获取正版 LINGO</span>
                     </div>
@@ -815,7 +815,7 @@ Enter file in which to save the key (&#x2F;data&#x2F;data&#x2F;com.termux&#x2F;f
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/medias/featureimages/19.png" class="responsive-img" alt="解决PC百度云限速">
+                        <img src="/medias/featureimages/19.png" class="responsive-img" alt="解决PC百度云限速">
                         
                         <span class="card-title">解决PC百度云限速</span>
                     </div>
@@ -864,21 +864,21 @@ Enter file in which to save the key (&#x2F;data&#x2F;data&#x2F;com.termux&#x2F;f
 
 
 <!-- 代码块功能依赖 -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 <!-- 代码语言 -->
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/codeBlock/codeLang.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
 
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
 
 
 <!-- 代码块收缩 -->
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/codeBlock/codeShrink.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
 <!-- 代码块折行 -->
@@ -906,7 +906,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </div>
 
 
-<script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/tocbot/tocbot.min.js"></script>
+<script src="/libs/tocbot/tocbot.min.js"></script>
 <script>
     $(function () {
         tocbot.init({
@@ -991,7 +991,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/aplayer/APlayer.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/aplayer/dist/APlayer.min.css">
 <style>
     .aplayer .aplayer-lrc p {
         font-size: 12px;
@@ -1026,7 +1026,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/aplayer/APlayer.min.js"></script>
+<script src="https://unpkg.com/aplayer/dist/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
 
     
@@ -1109,10 +1109,10 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/js/search.js"></script>
+<script src="/js/search.js"></script>
 <script type="text/javascript">
 $(function () {
-    searchFunc("https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/search.xml", 'searchInput', 'searchResult');
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
 });
 </script>
 
@@ -1124,12 +1124,12 @@ $(function () {
 </div>
 
 
-    <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/materialize/materialize.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/aos/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/js/matery.js"></script>
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/aos/dist/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
 
     <!-- Baidu Analytics -->
 
@@ -1150,12 +1150,10 @@ $(function () {
 </script>
 
     
-    <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/others/clicklove.js" async="async"></script>
+    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
-    <script async src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/others/busuanzi.pure.mini.js"></script>
-    
-
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
     
 
     
@@ -1165,11 +1163,13 @@ $(function () {
     
 
     
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
     
 
     
-    <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
 </body>
