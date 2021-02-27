@@ -17,19 +17,19 @@
 
 
     <title>利用Oracle免费VPS 搭建Aria2+Caddy+Filebrowser 文件下载器 | sukanka 的博客</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/favicon.png">
 
-    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.0.0"></head>
 
 
 <body>
@@ -39,7 +39,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    <img src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/medias/logo.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">sukanka 的博客</span>
                 </a>
@@ -138,7 +138,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        <img src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/medias/logo.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">sukanka 的博客</div>
         <div class="logo-desc">
@@ -263,7 +263,7 @@
 <main class="post-container content">
 
     
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/tocbot/tocbot.css">
 <style>
     #articleContent h1::before,
     #articleContent h2::before,
@@ -444,9 +444,9 @@
 <p>由于2.0版本去除了caddy, 本文使用的是1.0版本的脚本。</p>
 <p>注意：FileBrowser 2.1.0 版本有 Bug, 无法编辑文件，建议使用 2.0.16版本。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
-<span class="token comment">#####	一键安装Caddy + Aria2 + AriaNg		#####</span>
-<span class="token comment">#####	作者：xiaoz.me						#####</span>
-<span class="token comment">#####	更新时间：2019-05-15				#####</span>
+<span class="token comment">#####   一键安装Caddy + Aria2 + AriaNg      #####</span>
+<span class="token comment">#####   作者：xiaoz.me                     #####</span>
+<span class="token comment">#####   更新时间：2019-05-15             #####</span>
 
 <span class="token comment">#导入环境变量</span>
 <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/bin:/sbin
@@ -456,222 +456,222 @@
 <span class="token assign-left variable">ariang_ver</span><span class="token operator">=</span><span class="token number">1.1</span>.6
 <span class="token comment">#安装之前的准备</span>
 <span class="token keyword">function</span> <span class="token function-name function">setout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-	<span class="token keyword">if</span> <span class="token punctuation">[</span> -e <span class="token string">"/usr/bin/yum"</span> <span class="token punctuation">]</span>
-	<span class="token keyword">then</span>
-		yum -y <span class="token function">install</span> <span class="token function">curl</span> gcc gcc+ <span class="token function">make</span> <span class="token function">bzip2</span>
-	<span class="token keyword">else</span>
-		<span class="token comment">#更新软件，否则可能make命令无法安装</span>
-		<span class="token function">sudo</span> <span class="token function">apt-get</span> update
-		<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> -y <span class="token function">curl</span> <span class="token function">make</span>
-	<span class="token keyword">fi</span>
+    <span class="token keyword">if</span> <span class="token punctuation">[</span> -e <span class="token string">"/usr/bin/yum"</span> <span class="token punctuation">]</span>
+    <span class="token keyword">then</span>
+        yum -y <span class="token function">install</span> <span class="token function">curl</span> gcc gcc+ <span class="token function">make</span> <span class="token function">bzip2</span>
+    <span class="token keyword">else</span>
+        <span class="token comment">#更新软件，否则可能make命令无法安装</span>
+        <span class="token function">sudo</span> <span class="token function">apt-get</span> update
+        <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> -y <span class="token function">curl</span> <span class="token function">make</span>
+    <span class="token keyword">fi</span>
 <span class="token punctuation">&#125;</span>
 <span class="token comment">#安装Aria2</span>
 <span class="token keyword">function</span> <span class="token function-name function">install_aria2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-	<span class="token comment">#yum -y update</span>
-	<span class="token comment">#安装aria2静态编译版本，来源于https://github.com/q3aql/aria2-static-builds/</span>
-	<span class="token function">wget</span> -c https://github.com/q3aql/aria2-static-builds/releases/download/v<span class="token variable">$&#123;aria_ver&#125;</span>/aria2-<span class="token variable">$&#123;aria_ver&#125;</span>-linux-gnu-64bit-build1.tar.bz2
-	<span class="token function">tar</span> jxvf aria2-<span class="token variable">$&#123;aria_ver&#125;</span>-linux-gnu-64bit-build1.tar.bz2
-	<span class="token builtin class-name">cd</span> aria2-<span class="token variable">$&#123;aria_ver&#125;</span>-linux-gnu-64bit-build1
-	<span class="token function">make</span> <span class="token function">install</span>
-	<span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>
+    <span class="token comment">#yum -y update</span>
+    <span class="token comment">#安装aria2静态编译版本，来源于https://github.com/q3aql/aria2-static-builds/</span>
+    <span class="token function">wget</span> -c https://github.com/q3aql/aria2-static-builds/releases/download/v<span class="token variable">$&#123;aria_ver&#125;</span>/aria2-<span class="token variable">$&#123;aria_ver&#125;</span>-linux-gnu-64bit-build1.tar.bz2
+    <span class="token function">tar</span> jxvf aria2-<span class="token variable">$&#123;aria_ver&#125;</span>-linux-gnu-64bit-build1.tar.bz2
+    <span class="token builtin class-name">cd</span> aria2-<span class="token variable">$&#123;aria_ver&#125;</span>-linux-gnu-64bit-build1
+    <span class="token function">make</span> <span class="token function">install</span>
+    <span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>
 <span class="token punctuation">&#125;</span>
 <span class="token comment">#安装caddy</span>
 <span class="token keyword">function</span> <span class="token function-name function">install_caddy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-	<span class="token comment">#一键安装https://caddyserver.com/download/linux/amd64?plugins=http.filemanager&amp;license=personal&amp;telemetry=off</span>
-	<span class="token comment">#curl https://getcaddy.com | bash -s personal http.filemanager</span>
-	<span class="token comment">#安装caddy</span>
-	<span class="token function">wget</span> https://github.com/caddyserver/caddy/releases/download/v<span class="token variable">$&#123;caddy_ver&#125;</span>/caddy_<span class="token variable">$&#123;caddy_ver&#125;</span>_linux_amd64.tar.gz -O caddy.tar.gz
-	<span class="token function">tar</span> -zxvf caddy.tar.gz
-	<span class="token function">mv</span> caddy /usr/sbin/
-	<span class="token function">chmod</span> +x /usr/sbin/caddy
-	<span class="token comment">#添加服务</span>
-	<span class="token comment">#mv init/linux-systemd/caddy.service /lib/systemd/system</span>
-	<span class="token comment">#chmod +x /lib/systemd/system/caddy.service</span>
-	<span class="token comment">#开机启动</span>
-	<span class="token comment">#systemctl enable caddy.service</span>
+    <span class="token comment">#一键安装https://caddyserver.com/download/linux/amd64?plugins=http.filemanager&amp;license=personal&amp;telemetry=off</span>
+    <span class="token comment">#curl https://getcaddy.com | bash -s personal http.filemanager</span>
+    <span class="token comment">#安装caddy</span>
+    <span class="token function">wget</span> https://github.com/caddyserver/caddy/releases/download/v<span class="token variable">$&#123;caddy_ver&#125;</span>/caddy_<span class="token variable">$&#123;caddy_ver&#125;</span>_linux_amd64.tar.gz -O caddy.tar.gz
+    <span class="token function">tar</span> -zxvf caddy.tar.gz
+    <span class="token function">mv</span> caddy /usr/sbin/
+    <span class="token function">chmod</span> +x /usr/sbin/caddy
+    <span class="token comment">#添加服务</span>
+    <span class="token comment">#mv init/linux-systemd/caddy.service /lib/systemd/system</span>
+    <span class="token comment">#chmod +x /lib/systemd/system/caddy.service</span>
+    <span class="token comment">#开机启动</span>
+    <span class="token comment">#systemctl enable caddy.service</span>
 <span class="token punctuation">&#125;</span>
 <span class="token keyword">function</span> <span class="token function-name function">install_file_browser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-	<span class="token comment">#下载File Browser</span>
-	<span class="token function">wget</span> https://github.com/filebrowser/filebrowser/releases/download/v2.0.16/linux-amd64-filebrowser.tar.gz
-	<span class="token comment">#解压</span>
-	<span class="token function">tar</span> -zxvf linux-amd64-filebrowser.tar.gz
-	<span class="token comment">#移动位置</span>
-	<span class="token function">mv</span> filebrowser /usr/sbin
-	<span class="token builtin class-name">cd</span>
+    <span class="token comment">#下载File Browser</span>
+    <span class="token function">wget</span> https://github.com/filebrowser/filebrowser/releases/download/v2.0.16/linux-amd64-filebrowser.tar.gz
+    <span class="token comment">#解压</span>
+    <span class="token function">tar</span> -zxvf linux-amd64-filebrowser.tar.gz
+    <span class="token comment">#移动位置</span>
+    <span class="token function">mv</span> filebrowser /usr/sbin
+    <span class="token builtin class-name">cd</span>
 <span class="token punctuation">&#125;</span>
 <span class="token comment">#处理配置文件</span>
 <span class="token keyword">function</span> <span class="token function-name function">dealconf</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-	<span class="token comment">#创建目录和文件</span>
-	<span class="token function">mkdir</span> -p /etc/ccaa/
-	<span class="token function">touch</span> /etc/ccaa/aria2.session
-	<span class="token function">touch</span> /etc/ccaa/aria2.log
-	<span class="token function">touch</span> /etc/ccaa/caddy.log
-	<span class="token function">cp</span> aria2.conf /etc/ccaa/
-	<span class="token function">cp</span> caddy.conf /etc/ccaa/
-	<span class="token function">cp</span> upbt.sh /etc/ccaa/
-	<span class="token function">chmod</span> +x /etc/ccaa/upbt.sh
-	<span class="token function">chmod</span> +x ccaa
-	<span class="token function">cp</span> ccaa /usr/sbin
+    <span class="token comment">#创建目录和文件</span>
+    <span class="token function">mkdir</span> -p /etc/ccaa/
+    <span class="token function">touch</span> /etc/ccaa/aria2.session
+    <span class="token function">touch</span> /etc/ccaa/aria2.log
+    <span class="token function">touch</span> /etc/ccaa/caddy.log
+    <span class="token function">cp</span> aria2.conf /etc/ccaa/
+    <span class="token function">cp</span> caddy.conf /etc/ccaa/
+    <span class="token function">cp</span> upbt.sh /etc/ccaa/
+    <span class="token function">chmod</span> +x /etc/ccaa/upbt.sh
+    <span class="token function">chmod</span> +x ccaa
+    <span class="token function">cp</span> ccaa /usr/sbin
 <span class="token punctuation">&#125;</span>
 <span class="token comment">#自动放行端口</span>
 <span class="token keyword">function</span> <span class="token function-name function">chk_firewall</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-	<span class="token keyword">if</span> <span class="token punctuation">[</span> -e <span class="token string">"/etc/sysconfig/iptables"</span> <span class="token punctuation">]</span>
-	<span class="token keyword">then</span>
-		iptables -I INPUT -p tcp --dport <span class="token number">6080</span> -j ACCEPT
-		iptables -I INPUT -p tcp --dport <span class="token number">6800</span> -j ACCEPT
-		iptables -I INPUT -p tcp --dport <span class="token number">6998</span> -j ACCEPT
-		iptables -I INPUT -p tcp --dport <span class="token number">51413</span> -j ACCEPT
-		<span class="token function">service</span> iptables save
-		<span class="token function">service</span> iptables restart
-	<span class="token keyword">elif</span> <span class="token punctuation">[</span> -e <span class="token string">"/etc/firewalld/zones/public.xml"</span> <span class="token punctuation">]</span>
-	<span class="token keyword">then</span>
-		firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">6080</span>/tcp --permanent
-		firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">6800</span>/tcp --permanent
-		firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">6998</span>/tcp --permanent
-		firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">51413</span>/tcp --permanent
-		firewall-cmd --reload
-	<span class="token keyword">elif</span> <span class="token punctuation">[</span> -e <span class="token string">"/etc/ufw/before.rules"</span> <span class="token punctuation">]</span>
-	<span class="token keyword">then</span>
-		<span class="token function">sudo</span> ufw allow <span class="token number">6080</span>/tcp
-		<span class="token function">sudo</span> ufw allow <span class="token number">6800</span>/tcp
-		<span class="token function">sudo</span> ufw allow <span class="token number">6998</span>/tcp
-		<span class="token function">sudo</span> ufw allow <span class="token number">51413</span>/tcp
-	<span class="token keyword">fi</span>
+    <span class="token keyword">if</span> <span class="token punctuation">[</span> -e <span class="token string">"/etc/sysconfig/iptables"</span> <span class="token punctuation">]</span>
+    <span class="token keyword">then</span>
+        iptables -I INPUT -p tcp --dport <span class="token number">6080</span> -j ACCEPT
+        iptables -I INPUT -p tcp --dport <span class="token number">6800</span> -j ACCEPT
+        iptables -I INPUT -p tcp --dport <span class="token number">6998</span> -j ACCEPT
+        iptables -I INPUT -p tcp --dport <span class="token number">51413</span> -j ACCEPT
+        <span class="token function">service</span> iptables save
+        <span class="token function">service</span> iptables restart
+    <span class="token keyword">elif</span> <span class="token punctuation">[</span> -e <span class="token string">"/etc/firewalld/zones/public.xml"</span> <span class="token punctuation">]</span>
+    <span class="token keyword">then</span>
+        firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">6080</span>/tcp --permanent
+        firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">6800</span>/tcp --permanent
+        firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">6998</span>/tcp --permanent
+        firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">51413</span>/tcp --permanent
+        firewall-cmd --reload
+    <span class="token keyword">elif</span> <span class="token punctuation">[</span> -e <span class="token string">"/etc/ufw/before.rules"</span> <span class="token punctuation">]</span>
+    <span class="token keyword">then</span>
+        <span class="token function">sudo</span> ufw allow <span class="token number">6080</span>/tcp
+        <span class="token function">sudo</span> ufw allow <span class="token number">6800</span>/tcp
+        <span class="token function">sudo</span> ufw allow <span class="token number">6998</span>/tcp
+        <span class="token function">sudo</span> ufw allow <span class="token number">51413</span>/tcp
+    <span class="token keyword">fi</span>
 <span class="token punctuation">&#125;</span>
 <span class="token comment">#删除端口</span>
 <span class="token keyword">function</span> <span class="token function-name function">del_post</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-	<span class="token keyword">if</span> <span class="token punctuation">[</span> -e <span class="token string">"/etc/sysconfig/iptables"</span> <span class="token punctuation">]</span>
-	<span class="token keyword">then</span>
-		<span class="token function">sed</span> -i <span class="token string">'/^.*6080.*/'</span>d /etc/sysconfig/iptables
-		<span class="token function">sed</span> -i <span class="token string">'/^.*6800.*/'</span>d /etc/sysconfig/iptables
-		<span class="token function">sed</span> -i <span class="token string">'/^.*6998.*/'</span>d /etc/sysconfig/iptables
-		<span class="token function">sed</span> -i <span class="token string">'/^.*51413.*/'</span>d /etc/sysconfig/iptables
-		<span class="token function">service</span> iptables save
-		<span class="token function">service</span> iptables restart
-	<span class="token keyword">elif</span> <span class="token punctuation">[</span> -e <span class="token string">"/etc/firewalld/zones/public.xml"</span> <span class="token punctuation">]</span>
-	<span class="token keyword">then</span>
-		firewall-cmd --zone<span class="token operator">=</span>public --remove-port<span class="token operator">=</span><span class="token number">6080</span>/tcp --permanent
-		firewall-cmd --zone<span class="token operator">=</span>public --remove-port<span class="token operator">=</span><span class="token number">6800</span>/tcp --permanent
-		firewall-cmd --zone<span class="token operator">=</span>public --remove-port<span class="token operator">=</span><span class="token number">6998</span>/tcp --permanent
-		firewall-cmd --zone<span class="token operator">=</span>public --remove-port<span class="token operator">=</span><span class="token number">51413</span>/tcp --permanent
-		firewall-cmd --reload
-	<span class="token keyword">elif</span> <span class="token punctuation">[</span> -e <span class="token string">"/etc/ufw/before.rules"</span> <span class="token punctuation">]</span>
-	<span class="token keyword">then</span>
-		<span class="token function">sudo</span> ufw delete <span class="token number">6080</span>/tcp
-		<span class="token function">sudo</span> ufw delete <span class="token number">6800</span>/tcp
-		<span class="token function">sudo</span> ufw delete <span class="token number">6998</span>/tcp
-		<span class="token function">sudo</span> ufw delete <span class="token number">51413</span>/tcp
-	<span class="token keyword">fi</span>
+    <span class="token keyword">if</span> <span class="token punctuation">[</span> -e <span class="token string">"/etc/sysconfig/iptables"</span> <span class="token punctuation">]</span>
+    <span class="token keyword">then</span>
+        <span class="token function">sed</span> -i <span class="token string">'/^.*6080.*/'</span>d /etc/sysconfig/iptables
+        <span class="token function">sed</span> -i <span class="token string">'/^.*6800.*/'</span>d /etc/sysconfig/iptables
+        <span class="token function">sed</span> -i <span class="token string">'/^.*6998.*/'</span>d /etc/sysconfig/iptables
+        <span class="token function">sed</span> -i <span class="token string">'/^.*51413.*/'</span>d /etc/sysconfig/iptables
+        <span class="token function">service</span> iptables save
+        <span class="token function">service</span> iptables restart
+    <span class="token keyword">elif</span> <span class="token punctuation">[</span> -e <span class="token string">"/etc/firewalld/zones/public.xml"</span> <span class="token punctuation">]</span>
+    <span class="token keyword">then</span>
+        firewall-cmd --zone<span class="token operator">=</span>public --remove-port<span class="token operator">=</span><span class="token number">6080</span>/tcp --permanent
+        firewall-cmd --zone<span class="token operator">=</span>public --remove-port<span class="token operator">=</span><span class="token number">6800</span>/tcp --permanent
+        firewall-cmd --zone<span class="token operator">=</span>public --remove-port<span class="token operator">=</span><span class="token number">6998</span>/tcp --permanent
+        firewall-cmd --zone<span class="token operator">=</span>public --remove-port<span class="token operator">=</span><span class="token number">51413</span>/tcp --permanent
+        firewall-cmd --reload
+    <span class="token keyword">elif</span> <span class="token punctuation">[</span> -e <span class="token string">"/etc/ufw/before.rules"</span> <span class="token punctuation">]</span>
+    <span class="token keyword">then</span>
+        <span class="token function">sudo</span> ufw delete <span class="token number">6080</span>/tcp
+        <span class="token function">sudo</span> ufw delete <span class="token number">6800</span>/tcp
+        <span class="token function">sudo</span> ufw delete <span class="token number">6998</span>/tcp
+        <span class="token function">sudo</span> ufw delete <span class="token number">51413</span>/tcp
+    <span class="token keyword">fi</span>
 <span class="token punctuation">&#125;</span>
 <span class="token comment">#设置账号密码</span>
 <span class="token keyword">function</span> <span class="token function-name function">setting</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-	<span class="token builtin class-name">echo</span> <span class="token string">'-------------------------------------------------------------'</span>
-	<span class="token builtin class-name">read</span> -p <span class="token string">"设置下载路径（请填写绝对地址，默认/data/ccaaDown）:"</span> downpath
-	<span class="token builtin class-name">read</span> -p <span class="token string">"Aria2 RPC 密钥:(字母或数字组合，不要含有特殊字符):"</span> secret
-	<span class="token comment">#如果Aria2密钥为空</span>
-	<span class="token keyword">while</span> <span class="token punctuation">[</span> -z <span class="token string">"<span class="token variable">$&#123;secret&#125;</span>"</span> <span class="token punctuation">]</span>
-	<span class="token keyword">do</span>
-		<span class="token builtin class-name">read</span> -p <span class="token string">"Aria2 RPC 密钥:(字母或数字组合，不要含有特殊字符):"</span> secret
-	<span class="token keyword">done</span>
-	
-<span class="token comment"># 	read -p "设置Caddy用户名:" caddyuser</span>
-<span class="token comment"># 	while [ -z "$&#123;caddyuser&#125;" ]</span>
-<span class="token comment"># 	do</span>
-<span class="token comment"># 		read -p "设置Caddy用户名:" caddyuser</span>
-<span class="token comment"># 	done</span>
-<span class="token comment"># 	</span>
-<span class="token comment"># 	read -p "设置Caddy密码:" caddypass</span>
-<span class="token comment"># 	while [ -z "$&#123;caddypass&#125;" ]</span>
-<span class="token comment"># 	do</span>
-<span class="token comment"># 		read -p "设置Caddy密码:" caddypass</span>
-<span class="token comment"># 	done</span>
-	<span class="token builtin class-name">read</span> -p <span class="token string">"Filebrowser 域名地址：(filebrowser.example.com):"</span> filebrowser_domain
-	<span class="token keyword">while</span> <span class="token punctuation">[</span> -z <span class="token string">"<span class="token variable">$&#123;filebrowser_domain&#125;</span>"</span> <span class="token punctuation">]</span>
-	<span class="token keyword">do</span> 
+    <span class="token builtin class-name">echo</span> <span class="token string">'-------------------------------------------------------------'</span>
+    <span class="token builtin class-name">read</span> -p <span class="token string">"设置下载路径（请填写绝对地址，默认/data/ccaaDown）:"</span> downpath
+    <span class="token builtin class-name">read</span> -p <span class="token string">"Aria2 RPC 密钥:(字母或数字组合，不要含有特殊字符):"</span> secret
+    <span class="token comment">#如果Aria2密钥为空</span>
+    <span class="token keyword">while</span> <span class="token punctuation">[</span> -z <span class="token string">"<span class="token variable">$&#123;secret&#125;</span>"</span> <span class="token punctuation">]</span>
+    <span class="token keyword">do</span>
+        <span class="token builtin class-name">read</span> -p <span class="token string">"Aria2 RPC 密钥:(字母或数字组合，不要含有特殊字符):"</span> secret
+    <span class="token keyword">done</span>
+    
+<span class="token comment">#   read -p "设置Caddy用户名:" caddyuser</span>
+<span class="token comment">#   while [ -z "$&#123;caddyuser&#125;" ]</span>
+<span class="token comment">#   do</span>
+<span class="token comment">#       read -p "设置Caddy用户名:" caddyuser</span>
+<span class="token comment">#   done</span>
+<span class="token comment">#   </span>
+<span class="token comment">#   read -p "设置Caddy密码:" caddypass</span>
+<span class="token comment">#   while [ -z "$&#123;caddypass&#125;" ]</span>
+<span class="token comment">#   do</span>
+<span class="token comment">#       read -p "设置Caddy密码:" caddypass</span>
+<span class="token comment">#   done</span>
+    <span class="token builtin class-name">read</span> -p <span class="token string">"Filebrowser 域名地址：(filebrowser.example.com):"</span> filebrowser_domain
+    <span class="token keyword">while</span> <span class="token punctuation">[</span> -z <span class="token string">"<span class="token variable">$&#123;filebrowser_domain&#125;</span>"</span> <span class="token punctuation">]</span>
+    <span class="token keyword">do</span> 
         <span class="token builtin class-name">read</span> -p <span class="token string">"Filebrowser 域名地址：(filebrowser.example.com):"</span> filebrowser_domain
-	<span class="token keyword">done</span>
-	
-	<span class="token builtin class-name">read</span> -p <span class="token string">"AriaNg 面板域名地址：(aria.example.com):"</span> ariang_domain
-	<span class="token keyword">while</span> <span class="token punctuation">[</span> -z <span class="token string">"<span class="token variable">$&#123;ariang_domain&#125;</span>"</span> <span class="token punctuation">]</span>
-	<span class="token keyword">do</span>
+    <span class="token keyword">done</span>
+    
+    <span class="token builtin class-name">read</span> -p <span class="token string">"AriaNg 面板域名地址：(aria.example.com):"</span> ariang_domain
+    <span class="token keyword">while</span> <span class="token punctuation">[</span> -z <span class="token string">"<span class="token variable">$&#123;ariang_domain&#125;</span>"</span> <span class="token punctuation">]</span>
+    <span class="token keyword">do</span>
         <span class="token builtin class-name">read</span> -p <span class="token string">"AriaNg 面板域名地址：(aria.example.com):"</span> ariang_domain
     <span class="token keyword">done</span>
-	
+    
 
-	<span class="token comment">#如果下载路径为空，设置默认下载路径</span>
-	<span class="token keyword">if</span> <span class="token punctuation">[</span> -z <span class="token string">"<span class="token variable">$&#123;downpath&#125;</span>"</span> <span class="token punctuation">]</span>
-	<span class="token keyword">then</span>
-		<span class="token assign-left variable">downpath</span><span class="token operator">=</span><span class="token string">'/data/ccaaDown'</span>
-	<span class="token keyword">fi</span>
+    <span class="token comment">#如果下载路径为空，设置默认下载路径</span>
+    <span class="token keyword">if</span> <span class="token punctuation">[</span> -z <span class="token string">"<span class="token variable">$&#123;downpath&#125;</span>"</span> <span class="token punctuation">]</span>
+    <span class="token keyword">then</span>
+        <span class="token assign-left variable">downpath</span><span class="token operator">=</span><span class="token string">'/data/ccaaDown'</span>
+    <span class="token keyword">fi</span>
 
-	<span class="token comment">#执行替换操作</span>
-	<span class="token function">mkdir</span> -p <span class="token variable">$&#123;downpath&#125;</span>
-	<span class="token function">sed</span> -i <span class="token string">"s%dir=%dir=<span class="token variable">$&#123;downpath&#125;</span>%g"</span> /etc/ccaa/aria2.conf
-	<span class="token function">sed</span> -i <span class="token string">"s/rpc-secret=/rpc-secret=<span class="token variable">$&#123;secret&#125;</span>/g"</span> /etc/ccaa/aria2.conf
-<span class="token comment"># 	sed -i "s/username/$&#123;caddyuser&#125;/g" /etc/ccaa/caddy.conf</span>
-<span class="token comment"># 	sed -i "s/password/$&#123;caddypass&#125;/g" /etc/ccaa/caddy.conf</span>
-<span class="token comment"># 	sed -i "s%/home%$&#123;downpath&#125;%g" /etc/ccaa/caddy.conf</span>
-<span class="token comment"># 	sed -i "s%/admin%/admin $&#123;downpath&#125;%g" /etc/ccaa/caddy.conf</span>
-	<span class="token comment">#更新tracker</span>
-	<span class="token function">bash</span> ./upbt.sh
+    <span class="token comment">#执行替换操作</span>
+    <span class="token function">mkdir</span> -p <span class="token variable">$&#123;downpath&#125;</span>
+    <span class="token function">sed</span> -i <span class="token string">"s%dir=%dir=<span class="token variable">$&#123;downpath&#125;</span>%g"</span> /etc/ccaa/aria2.conf
+    <span class="token function">sed</span> -i <span class="token string">"s/rpc-secret=/rpc-secret=<span class="token variable">$&#123;secret&#125;</span>/g"</span> /etc/ccaa/aria2.conf
+<span class="token comment">#   sed -i "s/username/$&#123;caddyuser&#125;/g" /etc/ccaa/caddy.conf</span>
+<span class="token comment">#   sed -i "s/password/$&#123;caddypass&#125;/g" /etc/ccaa/caddy.conf</span>
+<span class="token comment">#   sed -i "s%/home%$&#123;downpath&#125;%g" /etc/ccaa/caddy.conf</span>
+<span class="token comment">#   sed -i "s%/admin%/admin $&#123;downpath&#125;%g" /etc/ccaa/caddy.conf</span>
+    <span class="token comment">#更新tracker</span>
+    <span class="token function">bash</span> ./upbt.sh
 
-	<span class="token comment">#安装AriaNg</span>
-	<span class="token function">wget</span> -O AriaNg.zip https://github.com/mayswind/AriaNg/releases/download/<span class="token variable">$&#123;ariang_ver&#125;</span>/AriaNg-<span class="token variable">$&#123;ariang_ver&#125;</span>.zip
-	<span class="token function">unzip</span> AriaNg.zip
-	<span class="token function">sed</span> -i <span class="token string">'s|&lt;/ul>&lt;/section>&lt;/aside>|&lt;li>&lt;a class="toolbar" title="文件管理" href="https://_filebrowser.example.com" target="_blank">&lt;i class="fa fa-folder-o">&lt;/i> 文件管理&lt;/a>&lt;/li>&amp;|'</span> AriaNg/index.html
-	<span class="token function">sed</span> -i <span class="token string">"s/_filebrowser.example.com/<span class="token variable">$&#123;filebrowser_domain&#125;</span>/g"</span>  AriaNg/index.html
-	<span class="token function">cp</span> -a AriaNg /etc/ccaa
+    <span class="token comment">#安装AriaNg</span>
+    <span class="token function">wget</span> -O AriaNg.zip https://github.com/mayswind/AriaNg/releases/download/<span class="token variable">$&#123;ariang_ver&#125;</span>/AriaNg-<span class="token variable">$&#123;ariang_ver&#125;</span>.zip
+    <span class="token function">unzip</span> AriaNg.zip
+    <span class="token function">sed</span> -i <span class="token string">'s|&lt;/ul>&lt;/section>&lt;/aside>|&lt;li>&lt;a class="toolbar" title="文件管理" href="https://_filebrowser.example.com" target="_blank">&lt;i class="fa fa-folder-o">&lt;/i> 文件管理&lt;/a>&lt;/li>&amp;|'</span> AriaNg/index.html
+    <span class="token function">sed</span> -i <span class="token string">"s/_filebrowser.example.com/<span class="token variable">$&#123;filebrowser_domain&#125;</span>/g"</span>  AriaNg/index.html
+    <span class="token function">cp</span> -a AriaNg /etc/ccaa
 
-	<span class="token comment">#启动服务</span>
-	<span class="token function">nohup</span> aria2c --conf-path<span class="token operator">=</span>/etc/ccaa/aria2.conf <span class="token operator">></span> /etc/ccaa/aria2.log <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span>
-	<span class="token function">nohup</span> caddy -conf<span class="token operator">=</span><span class="token string">"/etc/ccaa/caddy.conf"</span> <span class="token operator">></span> /etc/ccaa/caddy.log <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span>
+    <span class="token comment">#启动服务</span>
+    <span class="token function">nohup</span> aria2c --conf-path<span class="token operator">=</span>/etc/ccaa/aria2.conf <span class="token operator">></span> /etc/ccaa/aria2.log <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span>
+    <span class="token function">nohup</span> caddy -conf<span class="token operator">=</span><span class="token string">"/etc/ccaa/caddy.conf"</span> <span class="token operator">></span> /etc/ccaa/caddy.log <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span>
 
-	<span class="token comment">#获取ip</span>
-	<span class="token assign-left variable">osip</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">curl</span> -4s https://api.ip.sb/ip<span class="token variable">)</span></span>
+    <span class="token comment">#获取ip</span>
+    <span class="token assign-left variable">osip</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">curl</span> -4s https://api.ip.sb/ip<span class="token variable">)</span></span>
 
-	<span class="token builtin class-name">echo</span> <span class="token string">'-------------------------------------------------------------'</span>
-	<span class="token builtin class-name">echo</span> <span class="token string">"大功告成，请访问: http://<span class="token variable">$&#123;osip&#125;</span>:6080/"</span>
-	<span class="token builtin class-name">echo</span> <span class="token string">'用户名:'</span> <span class="token variable">$&#123;caddyuser&#125;</span>
-	<span class="token builtin class-name">echo</span> <span class="token string">'密码:'</span> <span class="token variable">$&#123;caddypass&#125;</span>
-	<span class="token builtin class-name">echo</span> <span class="token string">'Aria2 RPC 密钥:'</span> <span class="token variable">$&#123;secret&#125;</span>
-	<span class="token builtin class-name">echo</span> <span class="token string">'帮助文档: https://dwz.ovh/ccaa （必看）'</span> 
-	<span class="token builtin class-name">echo</span> <span class="token string">'-------------------------------------------------------------'</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">'-------------------------------------------------------------'</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"大功告成，请访问: http://<span class="token variable">$&#123;osip&#125;</span>:6080/"</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">'用户名:'</span> <span class="token variable">$&#123;caddyuser&#125;</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">'密码:'</span> <span class="token variable">$&#123;caddypass&#125;</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">'Aria2 RPC 密钥:'</span> <span class="token variable">$&#123;secret&#125;</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">'帮助文档: https://dwz.ovh/ccaa （必看）'</span> 
+    <span class="token builtin class-name">echo</span> <span class="token string">'-------------------------------------------------------------'</span>
 <span class="token punctuation">&#125;</span>
 <span class="token comment">#清理工作</span>
 <span class="token keyword">function</span> <span class="token function-name function">cleanup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-	<span class="token function">rm</span> -rf *.zip
-	<span class="token function">rm</span> -rf *.gz
-	<span class="token function">rm</span> -rf *.txt
-	<span class="token function">rm</span> -rf aria2-1.3*
-	<span class="token comment">#rm -rf *.conf</span>
-	<span class="token function">rm</span> -rf init
+    <span class="token function">rm</span> -rf *.zip
+    <span class="token function">rm</span> -rf *.gz
+    <span class="token function">rm</span> -rf *.txt
+    <span class="token function">rm</span> -rf aria2-1.3*
+    <span class="token comment">#rm -rf *.conf</span>
+    <span class="token function">rm</span> -rf init
 <span class="token punctuation">&#125;</span>
 
 <span class="token comment">#卸载</span>
 <span class="token keyword">function</span> <span class="token function-name function">uninstall</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-	<span class="token comment">#停止所有服务</span>
-	<span class="token function">kill</span> -9 <span class="token variable"><span class="token variable">$(</span>pgrep <span class="token string">'aria2c'</span><span class="token variable">)</span></span>
-	<span class="token function">kill</span> -9 <span class="token variable"><span class="token variable">$(</span>pgrep <span class="token string">'caddy'</span><span class="token variable">)</span></span>
+    <span class="token comment">#停止所有服务</span>
+    <span class="token function">kill</span> -9 <span class="token variable"><span class="token variable">$(</span>pgrep <span class="token string">'aria2c'</span><span class="token variable">)</span></span>
+    <span class="token function">kill</span> -9 <span class="token variable"><span class="token variable">$(</span>pgrep <span class="token string">'caddy'</span><span class="token variable">)</span></span>
 
-	<span class="token comment">#删除服务</span>
-	<span class="token comment">#systemctl disable caddy.service</span>
-	<span class="token comment">#rm -rf /lib/systemd/system/caddy.service</span>
-	<span class="token comment">#删除文件</span>
-	<span class="token function">rm</span> -rf /etc/ccaa
-	<span class="token function">rm</span> -rf /usr/sbin/caddy
-	<span class="token function">rm</span> -rf /usr/sbin/ccaa
-	<span class="token function">rm</span> -rf /usr/bin/aria2c
-	<span class="token function">rm</span> -rf aria2-1.*
-	<span class="token function">rm</span> -rf AriaNg*
-	
+    <span class="token comment">#删除服务</span>
+    <span class="token comment">#systemctl disable caddy.service</span>
+    <span class="token comment">#rm -rf /lib/systemd/system/caddy.service</span>
+    <span class="token comment">#删除文件</span>
+    <span class="token function">rm</span> -rf /etc/ccaa
+    <span class="token function">rm</span> -rf /usr/sbin/caddy
+    <span class="token function">rm</span> -rf /usr/sbin/ccaa
+    <span class="token function">rm</span> -rf /usr/bin/aria2c
+    <span class="token function">rm</span> -rf aria2-1.*
+    <span class="token function">rm</span> -rf AriaNg*
+    
 
-	<span class="token function">rm</span> -rf /usr/share/man/man1/aria2c.1
-	<span class="token function">rm</span> -rf /etc/ssl/certs/ca-certificates.crt
-	<span class="token comment">#删除端口</span>
-	del_post
-	<span class="token builtin class-name">echo</span> <span class="token string">"------------------------------------------------"</span>
-	<span class="token builtin class-name">echo</span> <span class="token string">'卸载完成！'</span>
-	<span class="token builtin class-name">echo</span> <span class="token string">"------------------------------------------------"</span>
+    <span class="token function">rm</span> -rf /usr/share/man/man1/aria2c.1
+    <span class="token function">rm</span> -rf /etc/ssl/certs/ca-certificates.crt
+    <span class="token comment">#删除端口</span>
+    del_post
+    <span class="token builtin class-name">echo</span> <span class="token string">"------------------------------------------------"</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">'卸载完成！'</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"------------------------------------------------"</span>
 <span class="token punctuation">&#125;</span>
 
 <span class="token comment">#选择安装方式</span>
@@ -684,22 +684,22 @@
 <span class="token builtin class-name">read</span> -p <span class="token string">":"</span> istype
 <span class="token keyword">case</span> <span class="token variable">$istype</span> <span class="token keyword">in</span>
     <span class="token number">1</span><span class="token punctuation">)</span> 
-    	setout
-    	install_aria2 <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>
-    	install_caddy <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>
-    	dealconf <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>
-    	chk_firewall <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>
-    	setting <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>
-    	cleanup
+        setout
+        install_aria2 <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>
+        install_caddy <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>
+        dealconf <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>
+        chk_firewall <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>
+        setting <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>
+        cleanup
     <span class="token punctuation">;</span><span class="token punctuation">;</span>
     <span class="token number">2</span><span class="token punctuation">)</span> 
-    	uninstall
+        uninstall
     <span class="token punctuation">;</span><span class="token punctuation">;</span>
     <span class="token number">3</span><span class="token punctuation">)</span> 
-    	<span class="token function">bash</span> ./upbt.sh
+        <span class="token function">bash</span> ./upbt.sh
     <span class="token punctuation">;</span><span class="token punctuation">;</span>
     q<span class="token punctuation">)</span> 
-    	<span class="token builtin class-name">exit</span>
+        <span class="token builtin class-name">exit</span>
     <span class="token punctuation">;</span><span class="token punctuation">;</span>
     *<span class="token punctuation">)</span> <span class="token builtin class-name">echo</span> <span class="token string">'参数错误！'</span>
 <span class="token keyword">esac</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -1067,12 +1067,12 @@ rpc-secret&#x3D;mypassword<span aria-hidden="true" class="line-numbers-rows"><sp
                     
                 </div>
                 <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/share/css/share.min.css">
 <div id="article-share">
 
     
     <div class="social-share" data-sites="qq,qzone,wechat,weibo,douban,linkedin,twitter,facebook,google" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="/libs/share/js/social-share.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/share/js/social-share.min.js"></script>
     
 
     
@@ -1190,10 +1190,10 @@ rpc-secret&#x3D;mypassword<span aria-hidden="true" class="line-numbers-rows"><sp
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                        <img src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -1258,7 +1258,7 @@ rpc-secret&#x3D;mypassword<span aria-hidden="true" class="line-numbers-rows"><sp
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Linux 系统安装 TeXLive 之后的事">
+                        <img src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/medias/featureimages/13.jpg" class="responsive-img" alt="Linux 系统安装 TeXLive 之后的事">
                         
                         <span class="card-title">Linux 系统安装 TeXLive 之后的事</span>
                     </div>
@@ -1365,21 +1365,21 @@ $ neofetch
 
 
 <!-- 代码块功能依赖 -->
-<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/codeBlock/codeBlockFuction.js"></script>
 
 <!-- 代码语言 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/codeBlock/codeLang.js"></script>
 
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/codeBlock/codeCopy.js"></script>
 
 
 <!-- 代码块收缩 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/codeBlock/codeShrink.js"></script>
 
 
 <!-- 代码块折行 -->
@@ -1407,7 +1407,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </div>
 
 
-<script src="/libs/tocbot/tocbot.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/tocbot/tocbot.min.js"></script>
 <script>
     $(function () {
         tocbot.init({
@@ -1492,7 +1492,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/aplayer/APlayer.min.css">
 <style>
     .aplayer .aplayer-lrc p {
         font-size: 12px;
@@ -1527,7 +1527,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     </div>
 </div>
 
-<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/aplayer/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
 
     
@@ -1610,10 +1610,10 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     </div>
 </div>
 
-<script src="/js/search.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/js/search.js"></script>
 <script type="text/javascript">
 $(function () {
-    searchFunc("/search.xml", 'searchInput', 'searchResult');
+    searchFunc("https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/search.xml", 'searchInput', 'searchResult');
 });
 </script>
 
@@ -1625,12 +1625,12 @@ $(function () {
 </div>
 
 
-    <script src="/libs/materialize/materialize.min.js"></script>
-    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="/libs/aos/aos.js"></script>
-    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="/js/matery.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/js/matery.js"></script>
 
     <!-- Baidu Analytics -->
 
@@ -1651,12 +1651,10 @@ $(function () {
 </script>
 
     
-    <script src="/libs/others/clicklove.js" async="async"></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/others/clicklove.js" async="async"></script>
     
     
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
-    
-
+    <script async src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/others/busuanzi.pure.mini.js"></script>
     
 
     
@@ -1666,11 +1664,13 @@ $(function () {
     
 
     
-    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/instantpage/instantpage.js" type="module"></script>
     
 
 </body>
