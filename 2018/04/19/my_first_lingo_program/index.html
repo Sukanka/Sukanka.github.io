@@ -29,7 +29,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/sukanka/sukanka.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.0.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -465,29 +465,29 @@
 <li>同时将另一个空白的38行,93列的区域命名为<code>data2</code> ,用于导出结果<span class="math inline">\(\mathbf{X}\)</span></li>
 </ul>
 <h2 id="lingo-代码">LINGO 代码</h2>
-<pre class="lingo"><code>!模型:见面会安排;
+<pre class="line-numbers language-LINGO" data-language="LINGO"><code class="language-LINGO">!模型:见面会安排;
 sets:
-time/1..93/;
-student/1..38/;
+time&#x2F;1..93&#x2F;;
+student&#x2F;1..38&#x2F;;
 !Student 为行,time为列;
 timetable(student,time):c,x;
 endsets
 data:
 !导入数据将data的数据传输给C;
-c=@ole(&#39;D:\Users\ASUS\Desktop\data.xlsx&#39;,&#39;data&#39;);
+c&#x3D;@ole(&#39;D:\Users\ASUS\Desktop\data.xlsx&#39;,&#39;data&#39;);
 !输出结果输出X到data2;
-@ole(&#39;D:\Users\ASUS\Desktop\data.xlsx&#39;,&#39;data2&#39;)=x;
+@ole(&#39;D:\Users\ASUS\Desktop\data.xlsx&#39;,&#39;data2&#39;)&#x3D;x;
 enddata
 !期望尽早安排完;
-min= @sum(timetable(i,j):j*x(i,j));
+min&#x3D; @sum(timetable(i,j):j*x(i,j));
 !只在有空的时间去;
-@for(timetable(i,j):x(i,j)&lt;= c(i,j));
+@for(timetable(i,j):x(i,j)&lt;&#x3D; c(i,j));
 !每个人只去一次;
-@for(student(i):@sum(time(j):x(i,j))=1);
+@for(student(i):@sum(time(j):x(i,j))&#x3D;1);
 !每个时间最多有一个人;
-@for(time(j):@sum(student(i):x(i,j))&lt;=1);
+@for(time(j):@sum(student(i):x(i,j))&lt;&#x3D;1);
 !去或不去为0,1变量;
-@for(timetable(i,j):@bin(x(i,j)));</code></pre>
+@for(timetable(i,j):@bin(x(i,j)));<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
